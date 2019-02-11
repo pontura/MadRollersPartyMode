@@ -1,0 +1,43 @@
+{
+	"missionsVideoGame1": [
+		"boy_init_jump",
+		"boy_ene_easy",
+		"boy_ene_SubeyBajan",
+		"boy_sliders",
+		"boy_helices",
+		"boy_barrancas",
+		"boy_pisosMueven",
+		"boy_sapos",
+		"boy_ruedas",
+		"boy_peces",
+		"boy_estrellas",
+		"boy_throwers",
+		"boy_sombrillas",
+		"boy_helices_altas",
+		"boy_cepillos"
+	],
+	"missionsVideoGame2": [
+		"gallax_jumps",
+		"gallax_curvo",
+		"gallax_rays_yellow_army",
+		"gallax_blue_Army_fortress",
+		"gallax_space_eyes_shooters",
+		"gallax_5",
+		"gallax_6",
+		"gallax_7",
+		"gallax_space_circles",
+		"gallax_8"		
+	],
+	"missionsVideoGame3": [
+		"per_init_jumps",
+		"per_catapultas",	
+		"per_ene_easy",
+		"per_barrancas",
+		"per_vienen_de_atras",		
+		"per_curvo",
+		"per_5",
+		"per_6",
+		"per_7",
+		"per_sliders"
+	]
+}

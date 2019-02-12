@@ -46,24 +46,24 @@ public class LandingForArcade : MonoBehaviour {
     }
     void LoopUntilCompetitionsReady()
     {
-        print(Data.Instance.GetComponent<MultiplayerCompetitionManager>().competitions.Count);
-        if (Data.Instance.GetComponent<MultiplayerCompetitionManager>().competitions.Count==0)
-            Invoke("LoopUntilCompetitionsReady", 1);
-        else
-        {
-            LoadCompetitions();
-        }
+//        print(Data.Instance.GetComponent<MultiplayerCompetitionManager>().competitions.Count);
+//        if (Data.Instance.GetComponent<MultiplayerCompetitionManager>().competitions.Count==0)
+//            Invoke("LoopUntilCompetitionsReady", 1);
+//        else
+//        {
+//            LoadCompetitions();
+//        }
     }
     void LoadCompetitions()
     {
-        Cursor.visible = true;
-
-        foreach (string title in Data.Instance.GetComponent<MultiplayerCompetitionManager>().competitions)
-        {
-            MultiplayerCompetitionButton newButton = Instantiate(button);
-            newButton.Init(this, title);
-            newButton.transform.SetParent(container);
-        }
+//        Cursor.visible = true;
+//
+//        foreach (string title in Data.Instance.GetComponent<MultiplayerCompetitionManager>().competitions)
+//        {
+//            MultiplayerCompetitionButton newButton = Instantiate(button);
+//            newButton.Init(this, title);
+//            newButton.transform.SetParent(container);
+//        }
     }
 	public void TurnOffCam()
 	{
@@ -74,14 +74,14 @@ public class LandingForArcade : MonoBehaviour {
 	}
     public void Selected(string competitionTitle)
     {
-		if(webCamTexture != null)
-      	  webCamTexture.Stop();
-
-        Data.Instance.switchPlayerInputs = switchPlayers.isOn;
-        Cursor.visible = false;
-        Data.Instance.GetComponent<MultiplayerCompetitionManager>().actualCompetition = competitionTitle;
-        Data.Instance.GetComponent<PhotosManager>().LoadPhotos();
-        Data.Instance.LoadLevel("MainMenu");
+//		if(webCamTexture != null)
+//      	  webCamTexture.Stop();
+//
+//        Data.Instance.switchPlayerInputs = switchPlayers.isOn;
+//        Cursor.visible = false;
+//        Data.Instance.GetComponent<MultiplayerCompetitionManager>().actualCompetition = competitionTitle;
+//        Data.Instance.GetComponent<PhotosManager>().LoadPhotos();
+//        Data.Instance.LoadLevel("MainMenu");
     }
     
 }

@@ -159,6 +159,7 @@ public class VoicesManager : MonoBehaviour
 		if (onSequence)
 			PlayNextSequencedClip ();
 		else {
+			audioSpectrum.SetOff ();
 			talking = false;			
 			Data.Instance.events.OnTalk (false);
 		}

@@ -34,14 +34,14 @@ public class PhotosManager : MonoBehaviour {
 	}
 	public void SavePhoto(Texture2D photo, int score)
     {
-		FOLDER = MultiplayerCompetitionManager.FOLDER;
-        byte[] bytes = photo.EncodeToPNG();
-        string path = score.ToString();
-		string url = GetFullPathByFolder(FOLDER + "/" + actualCompetition, path + ".png");
-        File.WriteAllBytes(url, bytes);
-		print("GRABA: " + url);
-        Texture2D winners = photo;
-        Data.Instance.events.OnHiscore(winners, score);
+//		FOLDER = MultiplayerCompetitionManager.FOLDER;
+//        byte[] bytes = photo.EncodeToPNG();
+//        string path = score.ToString();
+//		string url = GetFullPathByFolder(FOLDER + "/" + actualCompetition, path + ".png");
+//        File.WriteAllBytes(url, bytes);
+//		print("GRABA: " + url);
+//        Texture2D winners = photo;
+//        Data.Instance.events.OnHiscore(winners, score);
     }
 	 public string GetFullPathByFolder(string FolderName, string fileName)
     {

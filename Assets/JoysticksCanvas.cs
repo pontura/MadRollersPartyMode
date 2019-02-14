@@ -11,6 +11,7 @@ public class JoysticksCanvas : MonoBehaviour {
 		Data.Instance.events.OnAddNewPlayer += OnAddNewPlayer;
 		Data.Instance.events.OnAvatarDie += OnAvatarDie;
 		Data.Instance.events.OnGameOver += OnGameOver;
+		Data.Instance.events.OnMissionComplete += OnMissionComplete;
 		Data.Instance.events.OnVersusTeamWon += OnVersusTeamWon;
 	}
 	void OnDestroy()
@@ -18,17 +19,22 @@ public class JoysticksCanvas : MonoBehaviour {
 		Data.Instance.events.OnAddNewPlayer -= OnAddNewPlayer;
 		Data.Instance.events.OnAvatarDie -= OnAvatarDie;
 		Data.Instance.events.OnGameOver -= OnGameOver;
+		Data.Instance.events.OnMissionComplete -= OnMissionComplete;
 		Data.Instance.events.OnVersusTeamWon -= OnVersusTeamWon;
 	}
 	void OnVersusTeamWon(int team_id)
 	{
 		OnGameOver (false);
 	}
+	void OnMissionComplete(int missionID)
+	{
+		foreach (JoystickPlayer jp in players)
+			jp.OnGameOver (false);
+	}
 	void OnGameOver(bool isTimeOver)
 	{
 		foreach (JoystickPlayer jp in players)
 			jp.OnGameOver (false);
-
 	}
 	public void RefreshStates() 
 	{

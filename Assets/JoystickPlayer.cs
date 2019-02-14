@@ -14,10 +14,11 @@ public class JoystickPlayer : MonoBehaviour {
 	public Image deadFill;
 	public Text puesto;
 	public Text field;
+	public Text fieldTitle;
 	Animation anim;
 	public states state;
 	public Image playerImageColor;
-
+	public Animation winAnim;
 
 	public enum states
 	{
@@ -35,6 +36,7 @@ public class JoystickPlayer : MonoBehaviour {
 		deadFill.color = color;
 		puesto.color = color;
 		field.color = color;
+		fieldTitle.color = color;
 		playerImageColor.color = color;
 	}
 	public void SetFields(int scorePosition, string text)
@@ -61,6 +63,11 @@ public class JoystickPlayer : MonoBehaviour {
 			transform.localPosition = pos;
 			int perc = score_player * 100 / total;
 			SetFields (positionByScore, perc.ToString () + "%");
+
+			if (positionByScore == 1)
+				winAnim.enabled = true;
+			else
+				winAnim.enabled = false;
 		}
 	}
 	public void RefreshStates() {	

@@ -30,7 +30,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 0.0,
+				"y": -1.0,
 				"z": 0.0
 			}
 		},
@@ -41,8 +41,8 @@
 			"container_cruz_2"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 0.0,
-				"z": 0.0
+				"y": -5.0,
+				"z": -2.0
 			}
 		},	
 		{
@@ -60,7 +60,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -1.0,
+				"y": -2.0,
 				"z": -1.0
 			}
 		},
@@ -71,7 +71,7 @@
 			"boss_ancho_free"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -2.7,
+				"y": -3.7,
 				"z": -1
 			}
 		},
@@ -98,7 +98,7 @@
 			"pisoCurvo5"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 0.6,
+				"y": -1.6,
 				"z": 1.5
 			}
 		}

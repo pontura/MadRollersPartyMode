@@ -56,9 +56,11 @@
 			}
 		},	
 		{
-			"total_areas": 2,
+			"total_areas": 4,
 			"randomize": false,
 			"areas": [
+			"firewallsSimple3",
+			"firewallsSimple3b",
 			"firewallsSimple3",
 			"firewallsSimple3b"
 			],

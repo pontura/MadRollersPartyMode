@@ -53,6 +53,20 @@ public class Projectil : SceneObject {
         exploted = false;
 
 		ResetWeapons ();
+		switch (playerID) {
+		case 0:
+			BulletPlayer0.SetActive (true);
+			break;
+		case 1:
+			BulletPlayer1.SetActive (true);
+			break;
+		case 2:
+			BulletPlayer2.SetActive (true);
+			break;
+		case 3:
+			BulletPlayer3.SetActive (true);
+			break;
+		}	
 
 		if (lastPlayerID != playerID) {
 
@@ -62,31 +76,13 @@ public class Projectil : SceneObject {
 
 			if (playerID < 4 && playerID >= 0) {				
 				playerColor = multiplayerData.colors [playerID];
-				switch (playerID) {
-				case 0:
-					BulletPlayer0.SetActive (true);
-					break;
-				case 1:
-					BulletPlayer1.SetActive (true);
-					break;
-				case 2:
-					BulletPlayer2.SetActive (true);
-					break;
-				case 3:
-					BulletPlayer3.SetActive (true);
-					break;
-				}
+				playerColor.a = 0.35f;
+				GetComponent<TrailRenderer> ().startColor = playerColor;
+				GetComponent<TrailRenderer> ().endColor = playerColor;
 			} else {
 				playerColor = multiplayerData.colors [4];
 			}
-		
-			playerColor.a = 0.5f;
-
-			GetComponent<TrailRenderer> ().startColor = playerColor;
-			GetComponent<TrailRenderer> ().endColor = playerColor;
-
 		}
-
 
     }
     

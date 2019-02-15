@@ -60,15 +60,13 @@ public class CharacterControls : MonoBehaviour {
 		if (InputManager.getFireDown(player.id))
 			characterBehavior.shooter.CheckFire ();
 		
-		if (InputManager.getDash (player.id)) {
+		if (InputManager.getDash (player.id) && InputManager.getHorizontal(player.id) == 0) {
 			characterBehavior.characterMovement.DashForward ();
 		}
-	
 
 		if (
 			characterBehavior.state == CharacterBehavior.states.RUN
-		) {
-			
+		) {			
 			if (InputManager.getJumpDown (player.id)) {
 				jumpingPressedSince = 0;
 			}

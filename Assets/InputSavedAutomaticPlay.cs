@@ -21,6 +21,8 @@ public class InputSavedAutomaticPlay : MonoBehaviour {
 	int id = 1;
 
 	public void Init(CharactersManager charactersManager) {
+		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE)
+			return;
 		this.charactersManager = charactersManager;
 		foreach (SavedData s in allPlayersSavedData) {
 			AddCharacter ();

@@ -18,6 +18,7 @@ public class CharactersManager : MonoBehaviour {
     private Missions missions;
     public List<int> playerPositions;
 	public bool gameOver;
+	bool canStartPlayers;
     private IEnumerator RalentaCoroutine;
 	int totalCharacters;
 
@@ -42,6 +43,7 @@ public class CharactersManager : MonoBehaviour {
 	}
     void StartMultiplayerRace()
     {
+		canStartPlayers = true;
 		if (Data.Instance.isReplay) {
 			//Data.Instance.isReplay = false;
 		} else {
@@ -58,9 +60,11 @@ public class CharactersManager : MonoBehaviour {
     {
 		if (freezed)
 			return;
+		
 		OnUpdate ();
-		if(Input.GetKeyDown(KeyCode.M))
-			AddChildPlayer( getMainCharacter() );
+
+//		if(Input.GetKeyDown(KeyCode.M))
+//			AddChildPlayer( getMainCharacter() );
 		
 		if (Game.Instance.level.waitingToStart) return;
         if (gameOver) return;
@@ -100,26 +104,31 @@ public class CharactersManager : MonoBehaviour {
 
 		float _y = 4;
 
-		if (Data.Instance.isReplay)
+		if (Data.Instance.isReplay) {
 			_y = 15;
+		} else {
+			canStartPlayers = true;
+		}
 
 		pos = new Vector3(0, _y, 0);
 
 		int positionID = 0;
 
 		totalCharacters = Data.Instance.multiplayerData.GetTotalCharacters ();
+
 		if (totalCharacters == 0)
 			yield return null;
 		
 		if (Data.Instance.multiplayerData.player1) { addCharacter(CalculateInitialPosition(pos, positionID), 0); playerPositions.Add(0); };
-		float timeToAppear = 0.08f;
-		yield return new WaitForSeconds (timeToAppear);
+		//float timeToAppear = 0.08f;
+		//yield return new WaitForSeconds (timeToAppear);
 		if (Data.Instance.multiplayerData.player2) { addCharacter(CalculateInitialPosition(pos, positionID+1), 1); playerPositions.Add(1); };
-		yield return new WaitForSeconds (timeToAppear);
+		//yield return new WaitForSeconds (timeToAppear);
 		if (Data.Instance.multiplayerData.player3) { addCharacter(CalculateInitialPosition(pos, positionID+2), 2); playerPositions.Add(2); };
-		yield return new WaitForSeconds (timeToAppear);
+		//yield return new WaitForSeconds (timeToAppear);
 		if (Data.Instance.multiplayerData.player4) { addCharacter(CalculateInitialPosition(pos, positionID+3), 3); playerPositions.Add(3); };
 
+		yield return null;
 	}
     void OnDestroy()
     {
@@ -174,6 +183,8 @@ public class CharactersManager : MonoBehaviour {
     }
     public void addNewCharacter(int id)
     {
+		if(!canStartPlayers)
+			return;
 		if (characters.Count == 0 && Game.Instance.gameCamera.state != GameCamera.states.WAITING_TO_TRAVEL)
 			return;
 

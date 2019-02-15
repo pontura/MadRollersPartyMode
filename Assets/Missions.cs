@@ -34,7 +34,6 @@ public class Missions : MonoBehaviour {
 
 	public int MissionActiveID = 0;
 
-	[HideInInspector]
 	public MissionData MissionActive;
 	private float missionCompletedPercent = 0;
 
@@ -165,7 +164,7 @@ public class Missions : MonoBehaviour {
 		ResetAreaSet ();
 
 		//HACK
-		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE && MissionActiveID >= videogames[videogamesData.actualID].missions.Count-1)
+		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE && MissionActiveID >= videogames[videogamesData.actualID].missions.Count)
 			MissionActiveID = 1;
 		else
 			MissionActive = videogames[videogamesData.actualID].missions[MissionActiveID].data[0];

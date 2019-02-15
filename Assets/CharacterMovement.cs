@@ -14,7 +14,7 @@ public class CharacterMovement : MonoBehaviour {
 	float offset_Dash_Z = 6;
 	private int heightToFall = -5;
 	CharacterBehavior cb;
-	public int characterPosition;
+	public int characterScorePosition;
 	public Vector3 offset;
 	float DHSpeed =20f;
 	float DHMoveTo;
@@ -22,13 +22,13 @@ public class CharacterMovement : MonoBehaviour {
 	void Start()
 	{
 		cb = GetComponent<CharacterBehavior> ();
-		Data.Instance.events.OnReorderAvatarsByPosition += OnReorderAvatarsByPosition;
+	//	Data.Instance.events.OnReorderAvatarsByPosition += OnReorderAvatarsByPosition;
 		Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
 	}
 
 	void OnDestroy()
 	{
-		Data.Instance.events.OnReorderAvatarsByPosition -= OnReorderAvatarsByPosition;
+	//	Data.Instance.events.OnReorderAvatarsByPosition -= OnReorderAvatarsByPosition;
 		Data.Instance.events.StartMultiplayerRace -= StartMultiplayerRace;
 	}
 	public void DH(float value)
@@ -74,7 +74,7 @@ public class CharacterMovement : MonoBehaviour {
 //		else
 //		{
 
-			float _z = cb.player.charactersManager.distance - (characterPosition);
+		float _z = cb.player.charactersManager.distance - (characterScorePosition);
 		if (cb.controls.isAutomata)
 				_z -= 2;
 	//		if (team_for_versus == 2) {
@@ -112,17 +112,23 @@ public class CharacterMovement : MonoBehaviour {
 	}
 	void StartMultiplayerRace()
 	{
-		StartCoroutine (RecalculatePosition ());
+		//StartCoroutine (RecalculatePosition ());
+		this.characterScorePosition = cb.player.id;
 	}
-	void OnReorderAvatarsByPosition(List<int> players)
+	public void SetCharacterScorePosition()
 	{
-		StartCoroutine (RecalculatePosition ());
+		characterScorePosition = Data.Instance.multiplayerData.GetPositionByScore (cb.player.id);
 	}
-	IEnumerator RecalculatePosition()
-	{
-		yield return new WaitForEndOfFrame ();
-		//this.characterPosition = Game.Instance.level.charactersManager.GetPositionByID(cb.player.id);
-		this.characterPosition = cb.player.id;
-		yield return null;
-	}
+//	void OnReorderAvatarsByPosition(List<int> players)
+//	{
+//		print ("________________REORDER");
+//		StartCoroutine (RecalculatePosition ());
+//	}
+//	IEnumerator RecalculatePosition()
+//	{
+//		yield return new WaitForEndOfFrame ();
+//		this.characterScorePosition = Game.Instance.level.charactersManager.GetPositionByID(cb.player.id);
+//		//this.characterScorePosition = cb.player.id;
+//		yield return null;
+//	}
 }

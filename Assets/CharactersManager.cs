@@ -47,7 +47,13 @@ public class CharactersManager : MonoBehaviour {
 		} else {
 			speedRun = 19;
 		}
+		Loop ();
     }
+	void Loop()	{
+		foreach (CharacterBehavior cb in characters)
+			cb.characterMovement.SetCharacterScorePosition ();
+		Invoke ("Loop", 1);
+	}
 	void LateUpdate()
     {
 		if (freezed)

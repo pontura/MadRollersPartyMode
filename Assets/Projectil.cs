@@ -85,7 +85,6 @@ public class Projectil : SceneObject {
 			GetComponent<TrailRenderer> ().startColor = playerColor;
 			GetComponent<TrailRenderer> ().endColor = playerColor;
 
-			print ("playerColor " + playerColor);
 		}
 
 

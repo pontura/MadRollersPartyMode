@@ -37,9 +37,13 @@ public class LoadingAsset : MonoBehaviour {
 		Data.Instance.GetComponent<MusicManager>().OnLoadingMusic();
 		field.text = "";		
 		AddText("*** MAD ROLLERS ***");
-		yield return new WaitForSeconds (0.8f);
+		yield return new WaitForSeconds (0.2f);
+		AddText("Buenos Aires USER ALLOWING ACCESS!");
+		yield return new WaitForSeconds (0.35f);
+		AddText("outrun party! <location_pin>");
+		yield return new WaitForSeconds (0.4f);
 		AddText("Goto 1985");
-		yield return new WaitForSeconds (0.6f);
+		yield return new WaitForSeconds (0.5f);
 		AddText("Loading " + Data.Instance.videogamesData.GetActualVideogameData ().name + "...");
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("Game");
 		yield return new WaitForSeconds (0.5f);

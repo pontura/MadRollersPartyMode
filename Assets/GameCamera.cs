@@ -84,7 +84,7 @@ public class GameCamera : MonoBehaviour
 		} else {
 			state = states.START;
 			//anim.Play ("intro");
-			newPos.y = 7;
+			newPos.y = 0;
 		}
 		transform.localPosition = newPos;
 

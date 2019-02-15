@@ -39,22 +39,20 @@ public class Game : MonoBehaviour {
     void Awake()
     {
         mInstance = this;  
-
+		Data.Instance.GetComponent<Fade> ().FadeOut ();
     }
     void Start()
-    {
+    {		
 		if (Data.Instance.isReplay) {
-			Invoke ("Delayed", 0.2f);
+			Invoke ("Delayed", 0.5f);
 			state = states.PLAYING;
+		} else {
+			gameCamera.Init ();
 		}
 		GetComponent<CompetitionManager> ().Init ();
 		GetComponent<CharactersManager>().Init();
 		//GetComponent<RainManager> ().Init ();
 		level.Init();
-
-		if(gameCamera != null)
-			gameCamera.Init();
-
         Data.Instance.events.OnGamePaused += OnGamePaused;
         
         Init();
@@ -64,6 +62,7 @@ public class Game : MonoBehaviour {
     }
 	void Delayed()
 	{
+		gameCamera.Init ();
 		Data.Instance.events.OnGameStart();
 		Data.Instance.events.StartMultiplayerRace();
 	}

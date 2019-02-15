@@ -17,6 +17,26 @@ public class Fade : MonoBehaviour
         masker.color = new Color(0, 0, 0, 0);
         Data.Instance.events.OnFadeALittle += OnFadeALittle;
     }
+	public void FadeOut()
+	{
+		StartCoroutine(FadeOutCoroutine(0.5f, 0.025f, Color.black));
+	}
+	IEnumerator FadeOutCoroutine(float delay, float aFadeTime, Color aColor)
+	{
+		masker.gameObject.SetActive(true);
+		masker.color = new Color(0, 0, 0, 1);
+		yield return new WaitForSeconds(delay);
+		masker.gameObject.SetActive(true);
+		aFadeTime /= 50;
+		float t = 1;
+		while (t > 0)
+		{
+			yield return new WaitForEndOfFrame();
+			t -= Time.deltaTime + aFadeTime;
+			masker.color = new Color(0, 0, 0, t);
+		}
+		masker.gameObject.SetActive(false);
+	}
 	public void FadeToBlack()
 	{
 		StartCoroutine(FadeCoroutine(0.05f, Color.black));
@@ -83,16 +103,18 @@ public class Fade : MonoBehaviour
         else
             Application.LoadLevel(m_LevelIndex);
 
-        while (t > 0f)
-        {
-            yield return new WaitForEndOfFrame();
-            t -= Time.deltaTime + aFadeTime;
-            masker.color = new Color(0, 0, 0, t);
-        }
-        fading = false;
-        masker.gameObject.SetActive(false);
-		Data.Instance.LoadingReady ();
-
+		if (m_LevelName == "Game") {
+			yield return new WaitForSeconds (0.5f);
+		} else {
+			while (t > 0f) {
+				yield return new WaitForEndOfFrame ();
+				t -= Time.deltaTime + aFadeTime;
+				masker.color = new Color (0, 0, 0, t);
+			}
+			fading = false;
+			masker.gameObject.SetActive(false);
+			Data.Instance.LoadingReady ();
+		}    
 		yield return null;
     }
 	void StartFade(float aFadeTime, Color aColor)
@@ -105,7 +127,7 @@ public class Fade : MonoBehaviour
     {
 		StopAllCoroutines ();
 		fading = false;
-		//;
+		print ("load: " + aLevelName);
         if (fading) return;
         m_LevelName = aLevelName;
         StartFade(aFadeTime, aColor);

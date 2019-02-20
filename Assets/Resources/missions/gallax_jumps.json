@@ -61,6 +61,42 @@
 		},
 		{
 			"total_areas": 1,
+			"randomize": false,
+			"areas": [
+			"jumpAncho"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -2.0
+			}
+		},
+		{
+			"total_areas": 1,
+			"randomize": false,
+			"areas": [
+			"descansoAncho"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -1
+			}
+		},
+		{
+			"total_areas": 1,
+			"randomize": false,
+			"areas": [
+			"jumpAncho2"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -1
+			}
+		},
+		{
+			"total_areas": 1,
 			"randomize": true,
 			"areas": ["bombas_pisoMueve1",
 			"bombas_pisoMueve2"],
@@ -71,11 +107,10 @@
 			}
 		},
 		{
-			"total_areas": 2,
+			"total_areas": 1,
 			"randomize": false,
 			"areas": [
-			"descansoAncho",
-			"descansoAnchoWeapon3_double"
+			"descansoAncho"
 			],
 			"cameraOrientation": {
 				"x": 0.0,

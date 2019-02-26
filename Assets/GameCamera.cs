@@ -361,8 +361,8 @@ public class GameCamera : MonoBehaviour
 	void OnProjectilStartSnappingTarget(Vector3 targetPos)
 	{
 		Data.Instance.events.FreezeCharacters (true);
-		Data.Instance.events.ForceFrameRate (0.5f);
-		Data.Instance.events.RalentaTo (0.1f, 0.2f);
+		//Data.Instance.events.ForceFrameRate (0.5f);
+		Data.Instance.events.RalentaTo (0.5f, 0.2f);
 		this.snapTargetPosition = targetPos;
 
 		if(snapTargetPosition.y < 1)

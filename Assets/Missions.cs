@@ -118,12 +118,12 @@ public class Missions : MonoBehaviour {
 	//	Debug.Log ("______ShuffleMissions");
 		foreach (MissionsByVideoGame mbv in videogames) {		
 			for (int a = 0; a < 50; a++) {	
-				int rand = UnityEngine.Random.Range (2, mbv.missions.Count);
-				MissionsData randomMission1 = mbv.missions [1];
+				int rand = UnityEngine.Random.Range (3, mbv.missions.Count);
+				MissionsData randomMission1 = mbv.missions [2];
 				MissionsData randomMission2 = mbv.missions [rand];
 
 				mbv.missions [rand] = randomMission1;
-				mbv.missions [1] = randomMission2;
+				mbv.missions [2] = randomMission2;
 			}
 		}
 	}

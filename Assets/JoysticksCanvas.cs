@@ -5,6 +5,7 @@ using UnityEngine;
 public class JoysticksCanvas : MonoBehaviour {
 
 	public List<JoystickPlayer> players;
+	bool isMissionComplete;
 
 	void Start()
 	{
@@ -13,6 +14,9 @@ public class JoysticksCanvas : MonoBehaviour {
 		Data.Instance.events.OnGameOver += OnGameOver;
 		Data.Instance.events.OnMissionComplete += OnMissionComplete;
 		Data.Instance.events.OnVersusTeamWon += OnVersusTeamWon;
+
+		if(Data.Instance.playMode != Data.PlayModes.PARTYMODE)
+			Data.Instance.events.OnListenerDispatcher += OnListenerDispatcher;
 	}
 	void OnDestroy()
 	{
@@ -21,6 +25,15 @@ public class JoysticksCanvas : MonoBehaviour {
 		Data.Instance.events.OnGameOver -= OnGameOver;
 		Data.Instance.events.OnMissionComplete -= OnMissionComplete;
 		Data.Instance.events.OnVersusTeamWon -= OnVersusTeamWon;
+		Data.Instance.events.OnListenerDispatcher -= OnListenerDispatcher;
+	}
+	void OnListenerDispatcher(ListenerDispatcher.myEnum message)
+	{
+		if (isMissionComplete  && message == ListenerDispatcher.myEnum.LevelFinish) {
+			isMissionComplete = false;
+			foreach (JoystickPlayer jp in players)
+				jp.HideResults ();
+		}
 	}
 	void OnVersusTeamWon(int team_id)
 	{
@@ -28,8 +41,9 @@ public class JoysticksCanvas : MonoBehaviour {
 	}
 	void OnMissionComplete(int missionID)
 	{
+		isMissionComplete = true;
 		foreach (JoystickPlayer jp in players)
-			jp.OnGameOver (false);
+			jp.ShowResults ();
 	}
 	void OnGameOver(bool isTimeOver)
 	{

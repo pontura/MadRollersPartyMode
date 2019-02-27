@@ -1333,7 +1333,7 @@ RectTransform:
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.6}
   m_Children: []
   m_Father: {fileID: 1746919863}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2338,7 +2338,7 @@ RectTransform:
   m_LocalScale: {x: 0.12, y: 0.12, z: 1}
   m_Children: []
   m_Father: {fileID: 1746919863}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4207,12 +4207,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1746919863}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4}
-  m_SizeDelta: {x: 61.2, y: 30.6}
+  m_AnchoredPosition: {x: 0, y: -3.2}
+  m_SizeDelta: {x: 61.2, y: 44.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740301816
 MonoBehaviour:
@@ -4237,12 +4237,12 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 1745c5a8716c9f0468401c74b9c9e4c1, type: 3}
-    m_FontSize: 0
+    m_FontSize: 36
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 92
-    m_Alignment: 4
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5777,7 +5777,7 @@ RectTransform:
   m_LocalScale: {x: 0.5999983, y: 0.5999983, z: 0.6000005}
   m_Children: []
   m_Father: {fileID: 1746919863}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6283,6 +6283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9196caaa04a101949b28b807cc44b1bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 466447930}
   panel: {fileID: 1145876723}
   countdown_txt: {fileID: 740301816}
   credits_txt: {fileID: 934398183}
@@ -9460,10 +9461,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 581806102}
+  - {fileID: 466447928}
   - {fileID: 185747540}
   - {fileID: 740301814}
   - {fileID: 934398181}
-  - {fileID: 466447928}
   m_Father: {fileID: 1145876724}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13380,6 +13381,7 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 23bfb1e53e14cd54a8288d6d7b891f67, type: 2}
+  - {fileID: 7400000, guid: cdc4b60b0c8d7b34eab385463eaccdd9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -13412,6 +13414,7 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 23bfb1e53e14cd54a8288d6d7b891f67, type: 2}
+  - {fileID: 7400000, guid: cdc4b60b0c8d7b34eab385463eaccdd9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -13444,6 +13447,7 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 23bfb1e53e14cd54a8288d6d7b891f67, type: 2}
+  - {fileID: 7400000, guid: cdc4b60b0c8d7b34eab385463eaccdd9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -13476,6 +13480,7 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 23bfb1e53e14cd54a8288d6d7b891f67, type: 2}
+  - {fileID: 7400000, guid: cdc4b60b0c8d7b34eab385463eaccdd9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -13537,6 +13542,7 @@ MonoBehaviour:
   state: 0
   playerImageColor: {fileID: 114027915364866972}
   winAnim: {fileID: 1231790531599737}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114004062103421850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14263,6 +14269,7 @@ MonoBehaviour:
   state: 0
   playerImageColor: {fileID: 114089063362535368}
   winAnim: {fileID: 1622285018102529}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114210402941289378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14885,6 +14892,7 @@ MonoBehaviour:
   state: 0
   playerImageColor: {fileID: 114918540151419614}
   winAnim: {fileID: 1380758716610047}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114653769358920080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15100,6 +15108,7 @@ MonoBehaviour:
   state: 0
   playerImageColor: {fileID: 114406161385312908}
   winAnim: {fileID: 1236591694221709}
+  originalPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114743065198976658
 MonoBehaviour:
   m_ObjectHideFlags: 0

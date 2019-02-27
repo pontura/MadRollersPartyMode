@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Continue : MonoBehaviour {
 
+	public Image icon;
 	public GameObject panel;
 	private int num = 9;
 	public Text countdown_txt;
@@ -16,6 +17,10 @@ public class Continue : MonoBehaviour {
 
 		if (Data.Instance.playMode == Data.PlayModes.STORYMODE)
 			return;
+		if (Data.Instance.playMode == Data.PlayModes.CONTINUEMODE) {
+			countdown_txt.fontSize = 41;
+			icon.enabled = false;
+		}
 		
 		Data.Instance.events.OnGameOver += OnGameOver;
 

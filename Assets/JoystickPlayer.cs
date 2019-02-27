@@ -19,6 +19,7 @@ public class JoystickPlayer : MonoBehaviour {
 	public states state;
 	public Image playerImageColor;
 	public Animation winAnim;
+	public Vector3 originalPosition;
 
 	public enum states
 	{
@@ -29,6 +30,7 @@ public class JoystickPlayer : MonoBehaviour {
 	}
 	void Start()
 	{
+		originalPosition = transform.localPosition;
 		timeToRespawn = Data.Instance.timeToRespawn;
 		anim = GetComponent<Animation> ();
 		RefreshStates ();
@@ -46,12 +48,22 @@ public class JoystickPlayer : MonoBehaviour {
 		field.text = text;
 	}
 	public void OnGameOver(bool isTimeOver)
+	{		
+		state = states.GAME_OVER;
+		ShowResults ();
+	}
+	public void HideResults()
+	{
+		anim.Play ("off");
+		transform.localPosition = originalPosition;
+		winAnim.enabled = false;
+	}
+	public void ShowResults()
 	{
 		SetHorizontal (0);
-		state = states.GAME_OVER;
 		dead.SetActive (false);
 		insertCoin.SetActive (false);
-	
+
 		int score_player = Data.Instance.multiplayerData.GetScore(playerID);
 
 		int total = Data.Instance.multiplayerData.GetTotalScore();

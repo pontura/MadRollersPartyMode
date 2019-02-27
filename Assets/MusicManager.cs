@@ -192,7 +192,7 @@ public class MusicManager : MonoBehaviour {
 		//	audioSource.clip = Resources.Load("songs/win1") as AudioClip;
 		audioSource.Play();
 		audioSource.loop = false;
-		//Invoke ("PlayMainTheme", 7);
+		Invoke ("PlayMainTheme", 7);
 	}
 	void PlayMainTheme()
 	{

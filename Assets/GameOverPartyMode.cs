@@ -26,7 +26,7 @@ public class GameOverPartyMode : MonoBehaviour {
 		StartCoroutine (Loop ());
 		foreach (GameObject go in panelsToHide)
 			go.SetActive (false);
-
+		
 		LoadHiscores ();
 
 		gameOverField.text = Data.Instance.texts.genericTexts.gameOver;

@@ -155,6 +155,10 @@ PrefabInstance:
       propertyPath: sceneObjectsPool
       value: 
       objectReference: {fileID: 1160979223}
+    - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
+      propertyPath: playMode
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
 --- !u!1 &391945969

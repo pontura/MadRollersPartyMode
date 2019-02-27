@@ -11,8 +11,14 @@ public class CreditsUI : MonoBehaviour {
 	public Text field;
 
 	void Start () {
-		Data.Instance.events.AddNewCredit += AddNewCredit;
+
 		newCreditPanel.SetActive (false);
+
+		if (Data.Instance.playMode != Data.PlayModes.PARTYMODE)
+			return;
+		
+		Data.Instance.events.AddNewCredit += AddNewCredit;
+
 		int totalCredits = Data.Instance.credits;
 		for (int a = 0; a < totalCredits; a++) {
 			AddCredit ();

@@ -35,27 +35,30 @@ public class Continue : MonoBehaviour {
 	{
 		Data.Instance.events.OnGameOver -= OnGameOver;
 	}
-	public void OnGameOver(bool isTimeOver)
+	void OnGameOver(bool isTimeOver)
 	{	
 		Invoke ("OnGameOverDelayed", 2);
 	}	
 	public void OnGameOverDelayed()
-	{			
-		if (!Data.Instance.canContinue || Data.Instance.credits == 0) {
-			if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
+	{						
+		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
+			if (!Data.Instance.canContinue || Data.Instance.credits == 0) {
+				//	if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
 				Invoke ("Done", 2);
-			} else {
-				canClick = false;
-				panel.GetComponent<Animation> ().Play ("signalOff");
-				Invoke ("Done", 1f);
-			}
-			return;
-		}		
-		credits_txt.text = Data.Instance.credits + " CREDITS"; 
+				//			} else {
+				//				canClick = false;
+				//				panel.GetComponent<Animation> ().Play ("signalOff");
+				//				Invoke ("Done", 1f);
+				//			}
+				return;
+			}	
+			credits_txt.text = Data.Instance.credits + " CREDITS"; 
+		} else
+			credits_txt.text = "";
 		panel.SetActive (true);
 		num = 9;
 		countdown_txt.text = num.ToString();
-		Invoke ("Loop", 0.5f);
+		Invoke ("Loop", 0.3f);
 	}	
 	public void Loop()
 	{
@@ -74,7 +77,9 @@ public class Continue : MonoBehaviour {
 	void Done()
 	{
 		//GetComponent<SummaryCompetitions> ().SetOn ();
-		GetComponent<HiscoresComparison> ().Init ();
+		//if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
+			GetComponent<HiscoresComparison> ().Init ();
+		//}
 		panel.SetActive (false);
 	}
 	void OnJoystickClick()

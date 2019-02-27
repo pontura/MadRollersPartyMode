@@ -77,7 +77,8 @@ public class Data : MonoBehaviour {
     {
         STORYMODE,
 		PARTYMODE,
-		VERSUS
+		VERSUS,
+		CONTINUEMODE
 	//	GHOSTMODE
     }
     public enum modes
@@ -215,6 +216,8 @@ public class Data : MonoBehaviour {
 	}
 	public void LoseCredit()
 	{
+		if (playMode != PlayModes.PARTYMODE)
+			return;
 		credits--;
 		if (credits < 1)
 			credits = 0;

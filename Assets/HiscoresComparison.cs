@@ -22,6 +22,11 @@ public class HiscoresComparison : MonoBehaviour {
 	}
 
 	public void Init() {
+		
+		if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
+			GetComponent<GameOverPartyMode> ().Init ();
+			return;
+		}
 		if (arcadeRanking.all.Count == 0)
 			return;
 
@@ -45,8 +50,7 @@ public class HiscoresComparison : MonoBehaviour {
 			"islocal", true,
 			"time", 2
 		));
-		StopAllCoroutines ();
-		StartCoroutine (DrawHiscores ());
+
 	}
 	IEnumerator DrawHiscores()
 	{

@@ -27,7 +27,7 @@ public class LevelSelector : MonoBehaviour {
 
 	void Start()
 	{		
-		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
+		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE || Data.Instance.playMode == Data.PlayModes.CONTINUEMODE) {
 			Data.Instance.missions.MissionActiveID = 0;
 			storyMode.SetActive (false);
 			partyMode.SetActive (true);

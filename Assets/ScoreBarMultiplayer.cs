@@ -20,6 +20,11 @@ public class ScoreBarMultiplayer : MonoBehaviour {
     
 
     void Start () {
+		if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
+			Vector2 pos = panel.transform.localPosition;
+			pos.y += 20;
+			panel.transform.localPosition = pos;
+		}
 		RefreshScore ();
 		Data.Instance.events.OnDrawScore += OnDrawScore;
 

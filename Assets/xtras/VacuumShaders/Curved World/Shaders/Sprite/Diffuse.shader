@@ -10,6 +10,9 @@ Shader "VacuumShaders/Curved World/Sprites/Diffuse"
         [HideInInspector] _Flip ("Flip", Vector) = (1,1,1,1)
         [PerRendererData] _AlphaTex ("External Alpha", 2D) = "white" {}
         [PerRendererData] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
+
+
+		[MaterialEnum(Off,0,Front,1,Back,2)] _Cull("Face Cull", Int) = 0
 	}
 
 	SubShader
@@ -26,7 +29,7 @@ Shader "VacuumShaders/Curved World/Sprites/Diffuse"
 			"CurvedWorldAvailableOptions"=""
 		} 
 
-		Cull Off
+		Cull[_Cull]
         Lighting Off
         ZWrite Off
         Blend One OneMinusSrcAlpha

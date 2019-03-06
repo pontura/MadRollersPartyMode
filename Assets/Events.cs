@@ -73,6 +73,7 @@ public class Events : MonoBehaviour {
 
     public System.Action OnResetLevel = delegate { };
     public System.Action StartMultiplayerRace = delegate { };
+    public System.Action<float> ChangeCurvedWorldX = delegate { };
     public System.Action SetVictoryArea = delegate { };
     
 	public System.Action<string> OnChangeBackgroundSide = delegate { };
@@ -91,9 +92,6 @@ public class Events : MonoBehaviour {
     public System.Action<int> OnAvatarShoot = delegate { };
 
     public System.Action OnCompetitionMissionComplete = delegate { };
-
-    public System.Action<int> OnCurvedWorldIncreaseBend = delegate { };
-    public System.Action<int> OnCurvedWorldTurn = delegate { };
 
 	public System.Action<int> OnShowTutorial = delegate { };
 

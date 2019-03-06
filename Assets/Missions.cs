@@ -201,9 +201,13 @@ public class Missions : MonoBehaviour {
 	void SetNextArea()
 	{
 		CreateCurrentArea ();
-		Game.Instance.gameCamera.SetOrientation (MissionActive.areaSetData [areaSetId].cameraOrientation);
-		total_areas = MissionActive.areaSetData [areaSetId].total_areas;
-
+		MissionData.AreaSetData data = MissionActive.areaSetData [areaSetId];
+		Game.Instance.gameCamera.SetOrientation (data.cameraOrientation);
+		total_areas = data.total_areas;
+		float bending = data.bending;
+		
+		if(bending != 0)
+			Data.Instance.events.ChangeCurvedWorldX(bending);
 	//	if (MissionActive.areaSetData [areaSetId].randomize && Game.Instance.level.charactersManager.getTotalCharacters()==1) 
 		//	total_areas /= 1.25f;
 		

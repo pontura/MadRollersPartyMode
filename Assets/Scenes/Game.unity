@@ -2169,7 +2169,18 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 20793291910522168, guid: 296b79a2282efe74fb57344ce388069a,
+        type: 3}
+      propertyPath: m_FocalLength
+      value: 4.903111
+      objectReference: {fileID: 0}
+    - target: {fileID: 20793291910522168, guid: 296b79a2282efe74fb57344ce388069a,
+        type: 3}
+      propertyPath: field of view
+      value: 168
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114437328844667136, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
 --- !u!1 &439774213
 GameObject:

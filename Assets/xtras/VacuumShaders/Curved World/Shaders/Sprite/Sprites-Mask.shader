@@ -10,6 +10,9 @@ Shader "VacuumShaders/Curved World/Sprites/Mask"
         _Color ("Tint", Color) = (1,1,1,0.2)
         [PerRendererData] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
+
+
+		[MaterialEnum(Off,0,Front,1,Back,2)] _Cull("Face Cull", Int) = 0
     }
 
     SubShader
@@ -26,7 +29,7 @@ Shader "VacuumShaders/Curved World/Sprites/Mask"
 			"CurvedWorldAvailableOptions" = ""
         }
 
-        Cull Off
+        Cull[_Cull]
         Lighting Off
         ZWrite Off
         Blend Off

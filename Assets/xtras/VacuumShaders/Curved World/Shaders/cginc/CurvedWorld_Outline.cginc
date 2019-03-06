@@ -10,6 +10,8 @@
 uniform float _V_CW_OutlineWidth;
 uniform float4 _V_CW_OutlineColor;
 
+float _V_CW_OutlineSizeIsFixed;
+
 //Structs///////////////////////////////////////////////////////////////
 struct vInput
 {
@@ -47,9 +49,12 @@ vOutput vert(vInput v)
 	float3 norm = normalize(mul((float3x3)UNITY_MATRIX_IT_MV, v.normal));
 	float2 offset = TransformViewToProjection(norm.xy);
 
-	#ifndef V_CW_OUTLINE_FIXED_SIZE
-		offset /= (distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, v.vertex)));
-	#endif
+	//#ifndef V_CW_OUTLINE_FIXED_SIZE
+	//	offset /= (distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, v.vertex)));
+	//#endif
+
+	offset /= lerp(distance(_WorldSpaceCameraPos, mul(unity_ObjectToWorld, v.vertex)), 1, _V_CW_OutlineSizeIsFixed);
+
 
 	//o.pos = UnityObjectToClipPos(v.vertex);		
 	//o.pos.xy += offset * o.pos.z * _V_CW_OutlineWidth * 0.001;

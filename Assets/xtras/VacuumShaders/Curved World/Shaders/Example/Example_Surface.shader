@@ -42,7 +42,7 @@
 			UNITY_INITIALIZE_OUTPUT(Input,o); 
 
 			//CurvedWorld vertex transform
-			V_CW_TransformPointAndNormal(v.vertex, v.normal, v.tangent);
+			CURVED_WORLD_TRANSFORM_POINT_AND_NORMAL(v.vertex, v.normal, v.tangent);
 		}
 
 		void surf (Input IN, inout SurfaceOutputStandard o) 

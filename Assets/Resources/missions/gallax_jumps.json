@@ -8,6 +8,7 @@
 		"areaSetData": [
 		{
 			"total_areas": 1,
+			"bending":-20,
 			"randomize": false,
 			"areas": ["descansoAnchoMinimal"],
 			"cameraOrientation": {
@@ -18,6 +19,7 @@
 		},
 		{
 			"total_areas": 2,
+			"bending":-15,
 			"randomize": false,
 			"areas": ["coinsJump1",
 			"descanso1"],
@@ -29,6 +31,7 @@
 		},
 		{
 			"total_areas": 1,
+			"bending":-2,
 			"randomize": false,
 			"areas": ["doubleJump1"],
 			"cameraOrientation": {
@@ -39,6 +42,7 @@
 		},
 		{
 			"total_areas": 1,
+			"bending":5,
 			"randomize": false,
 			"areas": ["container_cruz_enemy"],
 			"cameraOrientation": {
@@ -49,6 +53,7 @@
 		},
 		{
 			"total_areas": 3,
+			"bending":-20,
 			"randomize": true,
 			"areas": ["coinsEasy1",
 			"coinsEasy2",
@@ -98,6 +103,7 @@
 		{
 			"total_areas": 1,
 			"randomize": true,
+			"bending":-5,
 			"areas": ["bombas_pisoMueve1",
 			"bombas_pisoMueve2"],
 			"cameraOrientation": {
@@ -120,6 +126,7 @@
 		},
 		{
 			"total_areas": 3,
+			"bending":-2,
 			"randomize": false,
 			"areas": [
 			"descansoAnchoMinimal",
@@ -133,6 +140,7 @@
 		},
 		{
 			"total_areas": 10000,
+			"bending":-18,
 			"randomize": true,
 			"areas": ["boss_zigzag_free",
 			"boss_free_fences",

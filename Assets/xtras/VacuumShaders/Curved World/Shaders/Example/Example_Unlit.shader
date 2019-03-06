@@ -55,7 +55,7 @@
 				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
 
 				//CurvedWorld vertex transform
-				V_CW_TransformPoint(i.vertex);
+				CURVED_WORLD_TRANSFORM_POINT(i.vertex);
 
 
                 o.position = UnityObjectToClipPos(i.vertex);

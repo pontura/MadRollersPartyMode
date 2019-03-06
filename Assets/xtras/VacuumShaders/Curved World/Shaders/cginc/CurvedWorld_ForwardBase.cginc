@@ -22,29 +22,19 @@
 #endif
 
 
-//FUCK YOU -> d3d11_9x
-#ifdef SHADER_API_D3D11_9X
-	#ifndef LIGHTMAP_ON
-			
-		#if (defined(V_CW_VERTEX_COLOR) || defined(V_CW_BLEND_BY_VERTEX) || defined(V_CW_TERRAINBLEND_VERTEXCOLOR)) && defined(V_CW_FOG) && (defined(V_CW_REFLECTIVE) || defined(V_CW_REFLECTIVE_FRESNEL))
-			#ifdef V_CW_SPECULAR
-			#undef V_CW_SPECULAR
-			#endif
-		#endif
-		#if (defined(V_CW_VERTEX_COLOR) || defined(V_CW_BLEND_BY_VERTEX) || defined(V_CW_TERRAINBLEND_VERTEXCOLOR)) && defined(_NORMALMAP) && (defined(V_CW_REFLECTIVE) || defined(V_CW_REFLECTIVE_FRESNEL))
-			#ifdef V_CW_SPECULAR
-			#undef V_CW_SPECULAR
-			#endif
-		#endif
-
-	#endif
+#ifndef V_CW_CALCULATE_LIGHT_PER_PIXEL
+	#define V_CW_CALCULATE_LIGHT_PER_PIXEL
 #endif
+
 
 //Variables/////////////////////////////////////////////////////////////
 fixed4 _Color;
 sampler2D _MainTex;
 float4 _MainTex_ST;
 fixed2 _V_CW_MainTex_Scroll;
+
+float _V_CW_UnityAmbient;
+float _V_CW_PerVertexLights;
 
 #ifdef V_CW_USE_LIGHT_RAMP_TEXTURE
 	sampler2D _V_CW_LightRampTex;
@@ -102,6 +92,7 @@ fixed2 _V_CW_MainTex_Scroll;
 	fixed4 _V_CW_Rim_Color;
 	fixed  _V_CW_Rim_Bias;
 #endif
+
 
 
 //Structs///////////////////////////////////////////////////////////////
@@ -221,18 +212,16 @@ vOutput vert(vInput v)
 	#else
 		
 		#ifdef UNITY_SHOULD_SAMPLE_SH
-			#ifdef V_CW_INCLUDE_SPH_AND_AMBIENT
-				o.vLight.rgb = ShadeSH9 (half4(normal_WS, 1.0));
-			#else
-				o.vLight = half4(0, 0, 0, 0);
-			#endif
+
+			o.vLight.rgb = lerp(float3(0, 0, 0), ShadeSH9 (half4(normal_WS, 1.0)), _V_CW_UnityAmbient);
+
 		
-			#if defined(VERTEXLIGHT_ON) && defined(V_CW_INCLUDE_PER_VERTEX_POINT_LIGHTS)	
+			#if defined(VERTEXLIGHT_ON)
 				float3 pos_WS = mul(unity_ObjectToWorld, v.vertex).xyz;
 			
 				o.vLight.rgb += Shade4PointLights ( unity_4LightPosX0, unity_4LightPosY0, unity_4LightPosZ0,
 					 							   unity_LightColor[0].rgb, unity_LightColor[1].rgb, unity_LightColor[2].rgb, unity_LightColor[3].rgb,
-												   unity_4LightAtten0, pos_WS, normal_WS );
+												   unity_4LightAtten0, pos_WS, normal_WS ) * _V_CW_PerVertexLights;
 			#endif
 		#endif
 
@@ -362,11 +351,7 @@ fixed4 frag (vOutput i) : SV_Target
 			#else
 				diff *= max(0, dot(normal, V_CW_LIGHTDIR));
 			#endif
-				
-			#ifndef V_CW_INCLUDE_SPH_AND_AMBIENT
-				diff += UNITY_LIGHTMODEL_AMBIENT.xyz;
-			#endif
-						
+										
 			#ifdef V_CW_SPECULAR  
 				half nh = max (0, dot (normal, normalize (V_CW_LIGHTDIR + normalize(i.viewDir.xyz))));
 				fixed3 specular = tex2D(_V_CW_Specular_Lookup, half2(clamp(nh + _V_CW_SpecularOffset, 0, 1), 0.5)).rgb * retColor.a * _LightColor0.rgb * atten * _V_CW_Specular_Intensity;
@@ -382,18 +367,13 @@ fixed4 frag (vOutput i) : SV_Target
 				diff *=  i.vLight.a;
 			#endif
 
-			#ifndef V_CW_INCLUDE_SPH_AND_AMBIENT
-				diff += UNITY_LIGHTMODEL_AMBIENT.xyz;
-			#endif
-
 			#ifdef V_CW_SPECULAR
 				fixed3 specular = tex2D(_V_CW_Specular_Lookup, half2(i.viewDir.w, 0.5)).rgb * retColor.a * _LightColor0.rgb * atten * _V_CW_Specular_Intensity;
 			#endif								
 		#endif	
 		
-		#if defined(V_CW_INCLUDE_SPH_AND_AMBIENT) || defined(V_CW_INCLUDE_PER_VERTEX_POINT_LIGHTS)
-			diff += i.vLight.rgb;
-		#endif	
+		//Ambient and per-vertex lights
+		diff += i.vLight.rgb;
 	#endif
 		
 				

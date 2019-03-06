@@ -24,13 +24,6 @@ Shader "Hidden/VacuumShaders/Curved World/VertexLit/Cutout"
 		[HideInInspector] _V_CW_Rim_Color("", color) = (1, 1, 1, 1)
 		[HideInInspector] _V_CW_Rim_Bias("", Range(-1, 1)) = 0.2
 		[HideInInspector] _V_CW_Rim_Power("", Range(0.5, 8.0)) = 3
-		
-		[HideInInspector] _EmissionMap("", 2D) = "white"{}
-		[HideInInspector] _EmissionColor("", color) = (1, 1, 1, 1)	
-
-		[HideInInspector] _V_CW_IBL_Intensity("", float) = 1
-		[HideInInspector] _V_CW_IBL_Contrast("", float) = 1 
-		[HideInInspector] _V_CW_IBL_Cube("", cube ) = ""{}  
 	} 
 
 	Category    

@@ -1,82 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
+using VacuumShaders.CurvedWorld;
 
 public class CurvedWorldManager : MonoBehaviour {
 
-    public int MAX_BENDING = -40;
-    public int Bending_Start;
+    float bendingSpeed = 0.01f;
+    float Bending_Start = -20;
 
-    public float newBending;
-    public float newTurn;
-
-    private float bending;
-    private float turn;
-
+    public CurvedWorld_Controller curvedWorld_Controller;
 
 	public void Init () {
-        Data.Instance.events.OnGameStart += OnGameStart;
-        Data.Instance.events.OnAvatarCrash += OnAvatarCrash;
-        Data.Instance.events.OnCurvedWorldIncreaseBend += OnCurvedWorldIncreaseBend;
-        Data.Instance.events.OnSetNewAreaSet += OnSetNewAreaSet;
-        Data.Instance.events.OnChangeMood += OnChangeMood;
-	}
-    void OnChangeMood(int id)
-    {
-      //  Color color = Game.Instance.moodManager.GetMood(id).fogColor;
-        //VacuumShaders.CurvedWorld.CurvedWorld_Controller.get._V_CW_Fog_Color_GLOBAL = color;
-       // VacuumShaders.CurvedWorld.CurvedWorld_Controller.get.Get = color;
-    }
-    void OnSetNewAreaSet(int areaSet)
-    {
-       // print("OnSetNewAreaSet :" + areaSet);
-        if (areaSet < 2) return;
-
-        Data.Instance.events.OnCurvedWorldIncreaseBend(-1);
-        int rand = Random.Range(0, 20);
-        if (rand > 10) newTurn = 0;
-        else
-            newTurn = (rand-5)*6;
-    }
-    void OnCurvedWorldTurn(int _newTurn)
-    {
-        this.newTurn = _newTurn;
-    }
-    void OnGameStart()
-    {
-        bending = Bending_Start;
-        turn = 0;
-
-        newTurn = turn;
-        newBending = bending;
         
-        //VacuumShaders.CurvedWorld.CurvedWorld_Controller.get._V_CW_Bend_X = newBending;
-        //VacuumShaders.CurvedWorld.CurvedWorld_Controller.get._V_CW_Bend_Y= turn;
-    }
-    void OnCurvedWorldIncreaseBend(int _newBending)
+        Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
+        Data.Instance.events.ChangeCurvedWorldX += ChangeCurvedWorldX;
+
+	}
+    void StartMultiplayerRace()
     {
-        this.newBending += (_newBending/1.5f);
-        if (newBending < MAX_BENDING) newBending = MAX_BENDING;
+        curvedWorld_Controller = GameObject.Find("CurvedWorld_Controller").GetComponent<CurvedWorld_Controller>();
+        curvedWorld_Controller._V_CW_Bend_X = -15;
     }
-    void OnAvatarCrash(CharacterBehavior cb)
+    void ChangeCurvedWorldX(float _x)
     {
-        turn = newTurn;
+        if(curvedWorld_Controller==null)
+            return;
+
+        Hashtable ht = new Hashtable();
+        ht.Add("from",curvedWorld_Controller._V_CW_Bend_X);
+        ht.Add("to",_x);
+        ht.Add("time",3);
+        ht.Add("onupdate","SetNewBending");
+        iTween.ValueTo(gameObject,ht);
     }
-	
-	//void Update () {
-//        if (newTurn > turn) turn += 0.05f;
-//        else if (newTurn < turn) turn -= 0.05f;
-//       // if(bending!=newBending)
-//        try
-//        {
-//            VacuumShaders.CurvedWorld.CurvedWorld_Controller.get._V_CW_Bend_X = newBending;
-//
-//            if (turn != newTurn)
-//                VacuumShaders.CurvedWorld.CurvedWorld_Controller.get._V_CW_Bend_Y = turn;
-//        }
-//        catch
-//        {
-//
-//        }
-       
-	//}
+    void SetNewBending(float value)
+    {
+        curvedWorld_Controller._V_CW_Bend_X = value;
+    }
+   
 }

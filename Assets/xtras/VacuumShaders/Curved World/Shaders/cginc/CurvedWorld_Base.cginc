@@ -23,8 +23,6 @@ const float3 _zero3 = float3(0,0,0);
 
 /*DO NOT DELETE - CURVED WORLD BEND TYPE*/ #define V_CW_BENDTYPE_CLASSIC_RUNNER
 
-#define SIGN(a) (float2(a.x < 0 ? -1.0f : 1.0f, a.y < 0 ? -1.0f : 1.0f))
-
 
 #define PIVOT _V_CW_PivotPoint_Position.xyz
 
@@ -85,7 +83,8 @@ inline void V_CW_TransformPoint(inout float4 vertex)
 
 	#elif defined(V_CW_BENDTYPE_PERSPECTIVE_2D)
 
-		float4 modelView = mul(UNITY_MATRIX_MV, vertex); 	
+		//float4 modelView = mul(UNITY_MATRIX_MV, vertex); 	
+		float4 modelView = float4(UnityObjectToViewPos(vertex).xyz, 1);
 
 		float2 xyOff = max(_zero2, abs(modelView.yx) - _V_CW_Bias.xy) * sign(modelView.yx);	
 		xyOff *= xyOff;
@@ -217,5 +216,13 @@ inline void V_CW_TransformPointAndNormal(inout float4 vertex, inout float3 norma
 
 	V_CW_TransformPointAndNormal(vertex, normal, worldPos, worldTangent, worldBinormal);
 }
+
+
+
+//Defines for integration
+#define CURVED_WORLD_ENABLED
+#define CURVED_WORLD_TRANSFORM_POINT_AND_NORMAL(vertex,normal,tangent) V_CW_TransformPointAndNormal(vertex, normal, tangent);
+#define CURVED_WORLD_TRANSFORM_POINT(vertex)                           V_CW_TransformPoint(vertex);
+
 
 #endif 

@@ -17,6 +17,7 @@ public class MissionData  {
 	public class AreaSetData
 	{
 		public int total_areas;
+		public float bending;
 		public bool randomize;
 		public List<string> areas;
 		public Vector3 cameraOrientation;

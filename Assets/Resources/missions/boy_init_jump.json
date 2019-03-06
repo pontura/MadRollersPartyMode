@@ -7,6 +7,7 @@
 		"areaSetData": [	
 		{
 			"total_areas": 1,
+			"bending":-10,
 			"randomize": false,
 			"areas": ["descansoAnchoMinimal"],
 			"cameraOrientation": {
@@ -17,6 +18,7 @@
 		},
 		{
 			"total_areas": 2,
+			"bending":-15,
 			"randomize": false,
 			"areas": [
 			"coinsJump1",
@@ -30,6 +32,7 @@
 		},
 		{
 			"total_areas": 1,
+			"bending":5,
 			"randomize": false,
 			"areas": [
 			"doubleJump1"
@@ -42,6 +45,7 @@
 		},
 		{
 			"total_areas": 3,
+			"bending":-18,
 			"randomize": true,
 			"areas": [
 			"coinsEasy1",
@@ -104,7 +108,8 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
-			"areas": [
+			"bending":-4,
+			"areas": [			
 			"descansoAnchoMinimal",
 			"boss_Pacmans_intro_free_simple",
 			"boss_Pacmans_intro",
@@ -118,12 +123,13 @@
 		{
 			"total_areas": 1000,
 			"randomize": true,
+			"bending":-8,
 			"areas": ["boss_Pacmans_intro_free",
 			"boss_Pacmans_intro_free_simple"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -2.200000047683716,
-				"z": -0.5
+				"y": -1.5,
+				"z": -1.5
 			}
 		}],
 		"backgroundSides": []

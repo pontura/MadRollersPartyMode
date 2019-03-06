@@ -25,6 +25,9 @@ Shader "VacuumShaders/Curved World/One Directional Light"
 		//Curved World
 		[CurvedWorldLabel] V_CW_Label_UnityDefaults("Unity Advanced Rendering Options", float) = 0
 
+		[HideInInspector] _V_CW_UnityAmbient("", float) = 1
+		[HideInInspector] _V_CW_PerVertexLights("", float) = 1
+
 		[HideInInspector] _V_CW_Rim_Color("", color) = (1, 1, 1, 1)
 		[HideInInspector] _V_CW_Rim_Bias("", Range(-1, 1)) = 0.2
 		[HideInInspector] _V_CW_Rim_Power("", Range(0.5, 8.0)) = 3
@@ -61,7 +64,7 @@ Shader "VacuumShaders/Curved World/One Directional Light"
 		Tags { "RenderType"="CurvedWorld_Opaque" 
 		       "CurvedWorldTag"="One Directional Light/Opaque/Texture" 
 			   "CurvedWorldNoneRemoveableKeywords"="" 
-			   "CurvedWorldAvailableOptions"="V_CW_USE_LIGHT_RAMP_TEXTURE;V_CW_REFLECTIVE;V_CW_VERTEX_COLOR;_EMISSION;V_CW_RIM;V_CW_FOG;_NORMALMAP;V_CW_SPECULAR_LOOKUP;" 
+			   "CurvedWorldAvailableOptions"="V_CW_USE_LIGHT_RAMP_TEXTURE;V_CW_REFLECTIVE;V_CW_VERTEX_COLOR;_EMISSION;V_CW_RIM;V_CW_FOG;_NORMALMAP;V_CW_SPECULAR_LOOKUP;V_CW_UNITY_AMBIENT;V_CW_PERVERTEX_LIGHT;" 
 			 } 
 		LOD 200		
 		      
@@ -76,13 +79,12 @@ Shader "VacuumShaders/Curved World/One Directional Light"
 			#pragma vertex vert  
 	    	#pragma fragment frag  
 #pragma multi_compile_instancing 
-			#define UNITY_PASS_FORWARDBASE   		  
 			#pragma multi_compile_fwdbase nodirlightmap nodynlightmap
 						       
 
-/*DO NOT DELETE - CURVED WORLD ODL LIGHT TYPE*/ 
-/*DO NOT DELETE - CURVED WORLD ODL INCLUDE POINT LIGHTS*/ 
-/*DO NOT DELETE - CURVED WORLD ODL INCLUDE SPHERICAL HARMONICS AND UNITY AMBIENT*/ 
+ 
+ 
+ 
 			#pragma shader_feature V_CW_REFLECTIVE_OFF V_CW_REFLECTIVE V_CW_REFLECTIVE_FRESNEL
 			#pragma shader_feature V_CW_VERTEX_COLOR_OFF V_CW_VERTEX_COLOR 
 			#pragma shader_feature _EMISSION_OFF _EMISSION
@@ -101,12 +103,6 @@ Shader "VacuumShaders/Curved World/One Directional Light"
 				#pragma multi_compile_fog
 			#endif   
 
-			#ifdef _NORMALMAP
-				#ifndef V_CW_CALCULATE_LIGHT_PER_PIXEL
-				#define V_CW_CALCULATE_LIGHT_PER_PIXEL
-				#endif
-			#endif
-			 
 			#include "../cginc/CurvedWorld_ForwardBase.cginc" 
 
 			

@@ -14,7 +14,9 @@ public class CharactersManager : MonoBehaviour {
     private float separationX  = 2;
 
     public float distance;
-    private float speedRun = 19;
+	private float MAX_SPEED = 19;
+    private float speedRun = 0;
+	private float acceleration = 10;
     private Missions missions;
     public List<int> playerPositions;
 	public bool gameOver;
@@ -45,10 +47,8 @@ public class CharactersManager : MonoBehaviour {
     {
 		canStartPlayers = true;
 		if (Data.Instance.isReplay) {
-			//Data.Instance.isReplay = false;
-		} else {
-			speedRun = 19;
-		}
+			speedRun = MAX_SPEED;
+		} 
 		Loop ();
     }
 	void Loop()	{
@@ -68,6 +68,11 @@ public class CharactersManager : MonoBehaviour {
 		
 		if (Game.Instance.level.waitingToStart) return;
         if (gameOver) return;
+
+		if(speedRun> MAX_SPEED)
+			speedRun = MAX_SPEED;
+		else
+			speedRun += acceleration * Time.deltaTime;
 
         distance += speedRun * Time.deltaTime;
 
@@ -318,14 +323,14 @@ public class CharactersManager : MonoBehaviour {
 		if (characters.Count > 1) {
 			Vector3 normalPosition = Vector3.zero;
 			float MaxDistance = 0;
-			foreach (CharacterBehavior cb in characters) {
+			foreach (CharacterBehavior cb in characters) 
 				normalPosition += cb.transform.localPosition;
-			}
+			
 
 			normalPosition /= characters.Count;
-			normalPosition.y += 0.15f + (MaxDistance / 4f);
-			normalPosition.z -= 0.3f + (MaxDistance/26);
-			normalPosition.z = distance-1.5f;
+		//	normalPosition.y += 0.15f + (MaxDistance / 4f);
+		//	normalPosition.z -= 0.3f + (MaxDistance/26);
+			normalPosition.z = distance-1.65f;
 
 			return normalPosition;
 		} else if (characters.Count == 0)
@@ -333,7 +338,7 @@ public class CharactersManager : MonoBehaviour {
 		//else return characterPosition = characters[0].transform.position;
 		else {
 			Vector3 p = characters [0].transform.position;
-			p.z = distance-0.5f;
+			p.z = distance-1.5f;
 			return p;
 		}
     }

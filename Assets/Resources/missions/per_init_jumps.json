@@ -31,7 +31,7 @@
 		{
 			"total_areas": 1,
 			"randomize": false,
-			"bending":5,
+			"bending":-2,
 			"areas": ["doubleJump1"],
 			"cameraOrientation": {
 				"x": 0.0,
@@ -54,6 +54,7 @@
 		},
 		{
 			"total_areas": 1,
+			"bending":-14,
 			"randomize": true,
 			"areas": ["bombas_pisoMueve1",
 			"bombas_pisoMueve2"],

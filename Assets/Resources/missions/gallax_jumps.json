@@ -42,7 +42,7 @@
 		},
 		{
 			"total_areas": 1,
-			"bending":5,
+			"bending":-5,
 			"randomize": false,
 			"areas": ["container_cruz_enemy"],
 			"cameraOrientation": {

@@ -73,7 +73,7 @@ public class GameCamera : MonoBehaviour
 		cam.transform.localEulerAngles = startRotation;       
 
 
-		transform.localPosition = startPosition;
+		transform.localPosition = new Vector3(0,2,-1.5f);
 		Vector3 newPos = transform.localPosition;
 
 
@@ -141,17 +141,6 @@ public class GameCamera : MonoBehaviour
 			flow_target.transform.SetParent (transform.parent);
 			flow_target.name = "Camera_TARGET";
 		}
-	//	if (team_id > 0) {
-			//SetOrientation (new Vector4 (0, 0, 0, 0));
-		//	transform.localPosition = new Vector3 (0, 4, Data.Instance.versusManager.area.z_length);
-			//cam.transform.localEulerAngles = new Vector3 (25, 0, 0);
-//		} else {
-//			
-//		}
-//		if (Data.Instance.isReplay)
-//			transform.localPosition =  new Vector3 (0,10,transform.localPosition.z);
-//		else
-//			transform.localPosition =  new Vector3 (0, 0,transform.localPosition.z);
 	}
 	IEnumerator DoExploteCoroutine;
 	void OncharacterCheer()
@@ -206,7 +195,7 @@ public class GameCamera : MonoBehaviour
 	{
 		Vector3 newPosTarget = flow_target.transform.localPosition;
 		newPosTarget.x = Mathf.Lerp(newPosTarget.x, newPos.x, Time.deltaTime*4.5f);
-		newPosTarget.z = transform.localPosition.z+6;
+		newPosTarget.z = transform.localPosition.z+7;
 		
 		newPosTarget.y = 2;
 		flow_target.transform.localPosition = newPosTarget;

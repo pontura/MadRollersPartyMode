@@ -6,6 +6,20 @@
 		"maxScore": 0,
 		"areaSetData": [
 		{
+			"total_areas": 6,
+			"bending":-17,
+			"randomize": true,
+			"areas": [
+			"subibaja1Horizontal",
+			"subibaja2Horizontal"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.5,
+				"z": -1
+			}
+		},
+		{
 			"total_areas": 2,
 			"bending":-15,
 			"randomize": true,

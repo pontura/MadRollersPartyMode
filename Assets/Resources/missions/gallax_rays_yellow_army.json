@@ -28,6 +28,20 @@
 			}
 		},
 		{
+			"total_areas": 2,
+			"bending":-17,
+			"randomize": true,
+			"areas": [
+			"subibaja_escupe1",
+			"subibaja_escupe2"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -2.0,
+				"z": -1.0
+			}
+		},
+		{
 			"total_areas": 1,
 			"randomize": true,
 			"areas": ["navesSimple1"],

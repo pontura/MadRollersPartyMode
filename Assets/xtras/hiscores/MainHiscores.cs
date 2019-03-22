@@ -22,7 +22,7 @@ public class MainHiscores : MonoBehaviour {
     public LeterChanger letterActive;
     public int puesto;
 
-	public int _hiscore = 0;
+	int _hiscore = 0;
 
     public List<Hiscore> arrengedHiscores;
     public List<Hiscore> hiscores;

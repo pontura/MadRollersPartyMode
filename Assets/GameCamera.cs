@@ -60,13 +60,16 @@ public class GameCamera : MonoBehaviour
 		Data.Instance.events.OnCameraZoomTo += OnCameraZoomTo;
 		Data.Instance.events.OnGameOver += OnGameOver;
 
-		//Data.Instance.events.OnGameStart += OnGameStart;
+        //Data.Instance.events.OnGameStart += OnGameStart;
+        if (!Data.Instance.isAndroid)
+        {
+            Component rpp = Data.Instance.videogamesData.GetActualVideogameData().retroPixelPro;
+            retroPixelPro = CopyComponent(rpp, cam.gameObject) as RetroPixelPro;
+            retroPixelPro.dither = 0;
+            pixelSize = 1;
+        }
 
-		Component rpp = Data.Instance.videogamesData.GetActualVideogameData ().retroPixelPro;
-		retroPixelPro = CopyComponent (rpp, cam.gameObject) as RetroPixelPro;
-		retroPixelPro.dither = 0;
-
-		pixelSize = 1;
+		
 
 		charactersManager = Game.Instance.GetComponent<CharactersManager>();       
 
@@ -208,17 +211,22 @@ public class GameCamera : MonoBehaviour
 
 	void SetPixels(float _pixelSize)
 	{
-		this.pixelSize = _pixelSize;
-		retroPixelPro.pixelSize = (int)(pixelSize);
+        if (!Data.Instance.isAndroid)
+            return;
+
+        this.pixelSize = _pixelSize;
+        retroPixelPro.pixelSize = (int)(pixelSize);
 	}
 	void UpdatePixels()
 	{
-		if (pixelSize < 1)
+        if (!Data.Instance.isAndroid)
+            return;
+        if (pixelSize < 1)
 			pixelSize = 1;
 		else 
 			pixelSize -= pixel_speed_recovery * Time.deltaTime;
 
-		retroPixelPro.pixelSize = (int)(pixelSize);
+        retroPixelPro.pixelSize = (int)(pixelSize);
 
 	}
 	void LateUpdate () 
@@ -253,8 +261,11 @@ public class GameCamera : MonoBehaviour
         {
             return;
         }
-		if (retroPixelPro.pixelSize > 1) 
-			UpdatePixels ();
+        if (!Data.Instance.isAndroid)
+        {
+            if (retroPixelPro.pixelSize > 1)
+                UpdatePixels();
+        }
 		
 		//if (team_id == 0)
 			newPos = charactersManager.getCameraPosition ();

@@ -21,6 +21,7 @@ public class CharacterControls : MonoBehaviour {
 	float jumpingPressedSince;
 	float jumpingPressedTime = 0.28f;
 
+
 	void Start () {
 		if (UnityEngine.SceneManagement.SceneManager.GetActiveScene ().name != "Game")
 			return;
@@ -48,47 +49,66 @@ public class CharacterControls : MonoBehaviour {
 			return;
 		if (Time.deltaTime == 0) return;
 
+        if (Data.Instance.isAndroid)
+            UpdateAccelerometer();
+        else
+            UpdateStandalone();
 
-		if (lastDH != InputManager.getDH (player.id)) {
-			lastDH = InputManager.getDH (player.id);
-			characterBehavior.characterMovement.DH (-lastDH);
-		}
-		
-		if (InputManager.getWeapon(player.id))
-			characterBehavior.shooter.ChangeNextWeapon ();
-
-		if (InputManager.getFireDown(player.id))
-			characterBehavior.shooter.CheckFire ();
-		
-		if (InputManager.getDash (player.id) && InputManager.getHorizontal(player.id) == 0) {
-			characterBehavior.characterMovement.DashForward ();
-		}
-
-		if (
-			characterBehavior.state == CharacterBehavior.states.RUN
-		) {			
-			if (InputManager.getJumpDown (player.id)) {
-				jumpingPressedSince = 0;
-			}
-			if (InputManager.getJump (player.id)) {
-				jumpingPressedSince += Time.deltaTime;
-				if (jumpingPressedSince > jumpingPressedTime)
-					Jump ();
-				else
-					characterBehavior.JumpingPressed ();
-			} else if (InputManager.getJumpUp (player.id)) {
-				Jump ();
-			}
-		} else if (InputManager.getJumpDown (player.id)) {
-			Jump ();
-		}
-		
-		moveByKeyboard();
-
-		if (characterBehavior.player.charactersManager == null || characterBehavior.player.charactersManager.gameOver)
+        if (characterBehavior.player.charactersManager == null || characterBehavior.player.charactersManager.gameOver)
 			return;
 		characterBehavior.UpdateByController(rotationY); 
 	}
+    void UpdateStandalone()
+    {
+        if (lastDH != InputManager.getDH(player.id))
+        {
+            lastDH = InputManager.getDH(player.id);
+            characterBehavior.characterMovement.DH(-lastDH);
+        }
+
+        if (InputManager.getWeapon(player.id))
+            characterBehavior.shooter.ChangeNextWeapon();
+
+        if (InputManager.getFireDown(player.id))
+            characterBehavior.shooter.CheckFire();
+
+        if (InputManager.getDash(player.id) && InputManager.getHorizontal(player.id) == 0)
+        {
+            characterBehavior.characterMovement.DashForward();
+        }
+
+        if (
+            characterBehavior.state == CharacterBehavior.states.RUN
+        )
+        {
+            if (InputManager.getJumpDown(player.id))
+            {
+                jumpingPressedSince = 0;
+            }
+            if (InputManager.getJump(player.id))
+            {
+                jumpingPressedSince += Time.deltaTime;
+                if (jumpingPressedSince > jumpingPressedTime)
+                    Jump();
+                else
+                    characterBehavior.JumpingPressed();
+            }
+            else if (InputManager.getJumpUp(player.id))
+            {
+                Jump();
+            }
+        }
+        else if (InputManager.getJumpDown(player.id))
+        {
+            Jump();
+        }
+        if (characterBehavior.player.charactersManager == null)
+            return;
+
+        if (characterBehavior.player.charactersManager.distance < 12)
+            return;
+        moveByKeyboard();
+    }
 	void Jump()
 	{
 		jumpingPressedSince = 0;
@@ -99,11 +119,7 @@ public class CharacterControls : MonoBehaviour {
 	float last_x_timer;
     private void moveByKeyboard()
     {
-		if (characterBehavior.player.charactersManager == null)
-			return;
 		
-		if (characterBehavior.player.charactersManager.distance<12)
-			return;
 		float _speed = InputManager.getHorizontal(player.id);
 
 		if ( _speed>0 && lastHorizontalKeyPressed <=0
@@ -162,53 +178,50 @@ public class CharacterControls : MonoBehaviour {
 		}
 		yield return null;
 	}
-//	void UpdateChilds()
-//	{
-//		foreach (CharacterBehavior cb in childs) {
-//			cb.controls.rotationY = rotationY / 1.5f;
-//			cb.transform.localRotation = transform.localRotation;
-//		}
-//	}
-//
+    //	void UpdateChilds()
+    //	{
+    //		foreach (CharacterBehavior cb in childs) {
+    //			cb.controls.rotationY = rotationY / 1.5f;
+    //			cb.transform.localRotation = transform.localRotation;
+    //		}
+    //	}
+    //
 
+                          
+    private void UpdateAccelerometer()
+    {
+        if (characterBehavior.player.charactersManager == null)
+            return;
 
+        if (characterBehavior.player.charactersManager.distance < 12)
+            return;
+        if (Input.touchCount > 0)
+        {
+            var touch = Input.touches[0];
+            if (touch.position.x < Screen.width / 2)
+            {
+                if (Input.GetTouch(0).phase == TouchPhase.Began)
+                    characterBehavior.Jump();
+                else
+                {
+                    characterBehavior.Jump();
+                }
+            }
+            else if (touch.position.x > Screen.width / 2)
+            {
+                characterBehavior.shooter.CheckFire();
+            }
+        }
+        else
+        {
+            characterBehavior.AllButtonsReleased();
+        }
+        float _speed = Input.acceleration.x * 10;
+        MoveInX(_speed);
 
+        //if (Time.deltaTime == 0) return;
+       // transform.localRotation = Quaternion.Euler(transform.localRotation.x, Input.acceleration.x * 50, rotationZ);
+        // transform.Translate(0, 0, Time.deltaTime * characterBehavior.speed);
 
-
-
-
-
-
-
-
-
-//	/// <summary>
-//	/// For mobile
-//	/// </summary>
-//	private void moveByAccelerometer()
-//	{
-//		if (Input.touchCount > 0)
-//		{
-//			var touch = Input.touches[0];
-//			if (touch.position.x < Screen.width / 2)
-//			{
-//				if (Input.GetTouch(0).phase == TouchPhase.Began)
-//					characterBehavior.Jump();
-//			}
-//			else if (touch.position.x > Screen.width / 2)
-//			{
-//				characterBehavior.shooter.CheckFire();
-//			}
-//		} else
-//		{
-//			characterBehavior.AllButtonsReleased();
-//		} 
-//
-//
-//		if (Time.deltaTime == 0) return;
-//		transform.localRotation = Quaternion.Euler(transform.localRotation.x, Input.acceleration.x * 50, rotationZ);
-//
-//		// transform.Translate(0, 0, Time.deltaTime * characterBehavior.speed);
-//
-//	}
+    }
 }

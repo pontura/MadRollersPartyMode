@@ -71,6 +71,7 @@ public class Data : MonoBehaviour {
 	public LoadingAsset loadingAsset;
    
     public int FORCE_LOCAL_SCORE;
+    public bool isAndroid;
 
     public PlayModes playMode;
     public enum PlayModes
@@ -104,7 +105,11 @@ public class Data : MonoBehaviour {
 
 		if (RESET)
 			PlayerPrefs.DeleteAll ();
-      //  Cursor.visible = false;
+
+#if UNITY_ANDROID
+        isAndroid = true;
+#endif
+        //  Cursor.visible = false;
 
         if (FORCE_LOCAL_SCORE > 0 )
             PlayerPrefs.SetInt("scoreLevel_1", FORCE_LOCAL_SCORE);

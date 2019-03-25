@@ -28,15 +28,32 @@ public class Continue : MonoBehaviour {
 	void Update()
 	{
 		if (canClick) {
-			for (int a = 0; a < 4; a++) {
-				if (InputManager.getJump (a))
-					OnJoystickClick ();
-				if (InputManager.getFireDown (a))
-					OnJoystickClick ();
-			}
+            if (Data.Instance.isAndroid)
+            {
+                UpdateAndroid();
+            }
+            else
+            {
+                for (int a = 0; a < 4; a++)
+                {
+                    if (InputManager.getJump(a))
+                        OnJoystickClick();
+                    if (InputManager.getFireDown(a))
+                        OnJoystickClick();
+                }
+            }
 		}
 	}
-	void OnDestroy()
+    void UpdateAndroid()
+    {
+        if (Input.touchCount > 0)
+        {
+            if (Input.touches[0].phase == TouchPhase.Ended)
+                OnJoystickClick();
+        }
+
+    }
+    void OnDestroy()
 	{
 		Data.Instance.events.OnGameOver -= OnGameOver;
 	}

@@ -2234,6 +2234,11 @@ PrefabInstance:
       propertyPath: defaultRotation.x
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114089265648518732, guid: 296b79a2282efe74fb57344ce388069a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114437328844667136, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 296b79a2282efe74fb57344ce388069a, type: 3}

@@ -15,6 +15,9 @@ public class CameraChromaManager : MonoBehaviour {
 	}
 
 	void Start () {
+        if (Data.Instance.isAndroid)
+            return;
+
 		Data.Instance.events.OnCameraChroma += OnCameraChroma;
 	}
 	void OnDestroy () {

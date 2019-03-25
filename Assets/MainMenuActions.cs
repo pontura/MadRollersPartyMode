@@ -14,12 +14,13 @@ public class MainMenuActions : MonoBehaviour {
       //  Data.Instance.GetComponent<Tracker>().TrackScreen("Main Menu");
       //  Data.Instance.events.OnInterfacesStart();
 
-        if (Application.platform == RuntimePlatform.Android)
-            Data.Instance.mode = Data.modes.ACCELEROMETER;
+     //   if (Application.platform == RuntimePlatform.Android)
+      //      Data.Instance.mode = Data.modes.ACCELEROMETER;
         
     }
     void Update()
     {
+        return;
         if (rankingLoaded) return;
         if (Social.Instance.hiscores.levels.Count == 0) return;
         if (Social.Instance.hiscores.levels[0].hiscore.Count == 0) return;

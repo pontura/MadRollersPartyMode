@@ -24,30 +24,49 @@ public class JoystickController : MonoBehaviour {
 		lastClickedTime += Time.deltaTime;
 		if (lastClickedTime > delayToReact)
 			processAxis = true;
-		for (int a = 0; a < 4; a++) {
-			if (InputManager.getJumpDown (a)) 
-				OnJoystickClick ();
-			if (InputManager.getFireDown (a)) 
-				OnJoystickClick ();
-			if (InputManager.getWeapon (a)) 
-				OnJoystickClick ();
-			if (InputManager.getDash (a)) 
-				OnJoystickClick ();
-			if (processAxis) {				
-				float v = InputManager.getVertical (a);
-				if (v < -0.5f)
-					OnJoystickUp ();
-				else if (v > 0.5f)
-					OnJoystickDown ();
-				
-				float h = InputManager.getHorizontal (a);
-				if (h < -0.5f)
-					OnJoystickRight ();
-				else if (h > 0.5f)
-					OnJoystickLeft ();
-			}
-		}
-	}
+        if (Data.Instance.isAndroid)
+            UpdateAndroid();
+        else
+            UpdateStandalone();
+
+    }
+    void UpdateAndroid()
+    {
+        if (Input.touchCount> 0)
+        {
+            if(Input.touches[0].phase == TouchPhase.Ended)
+                OnJoystickClick();
+        }
+            
+    }
+    void UpdateStandalone()
+    {
+        for (int a = 0; a < 4; a++)
+        {
+            if (InputManager.getJumpDown(a))
+                OnJoystickClick();
+            if (InputManager.getFireDown(a))
+                OnJoystickClick();
+            if (InputManager.getWeapon(a))
+                OnJoystickClick();
+            if (InputManager.getDash(a))
+                OnJoystickClick();
+            if (processAxis)
+            {
+                float v = InputManager.getVertical(a);
+                if (v < -0.5f)
+                    OnJoystickUp();
+                else if (v > 0.5f)
+                    OnJoystickDown();
+
+                float h = InputManager.getHorizontal(a);
+                if (h < -0.5f)
+                    OnJoystickRight();
+                else if (h > 0.5f)
+                    OnJoystickLeft();
+            }
+        }
+    }
 	void OnJoystickUp () {
 		Data.Instance.events.OnJoystickUp ();
 		ResetMove ();

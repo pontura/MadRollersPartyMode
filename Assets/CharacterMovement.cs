@@ -117,18 +117,7 @@ public class CharacterMovement : MonoBehaviour {
 	}
 	public void SetCharacterScorePosition()
 	{
-		characterScorePosition = Data.Instance.multiplayerData.GetPositionByScore (cb.player.id);
+        characterScorePosition = Data.Instance.multiplayerData.GetPositionByScore (cb.player.id);
 	}
-//	void OnReorderAvatarsByPosition(List<int> players)
-//	{
-//		print ("________________REORDER");
-//		StartCoroutine (RecalculatePosition ());
-//	}
-//	IEnumerator RecalculatePosition()
-//	{
-//		yield return new WaitForEndOfFrame ();
-//		this.characterScorePosition = Game.Instance.level.charactersManager.GetPositionByID(cb.player.id);
-//		//this.characterScorePosition = cb.player.id;
-//		yield return null;
-//	}
+
 }

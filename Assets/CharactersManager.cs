@@ -48,7 +48,9 @@ public class CharactersManager : MonoBehaviour {
 		canStartPlayers = true;
 		if (Data.Instance.isReplay) {
 			speedRun = MAX_SPEED;
-		} 
+		}
+        if (Data.Instance.isAndroid)
+            return;
 		Loop ();
     }
 	void Loop()	{
@@ -69,7 +71,7 @@ public class CharactersManager : MonoBehaviour {
 		if (Game.Instance.level.waitingToStart) return;
         if (gameOver) return;
 
-		if(speedRun> MAX_SPEED)
+		if(speedRun >= MAX_SPEED)
 			speedRun = MAX_SPEED;
 		else
 			speedRun += acceleration * Time.deltaTime;
@@ -79,17 +81,7 @@ public class CharactersManager : MonoBehaviour {
 		
     }
 	public virtual void OnUpdate(){ }
-    public int GetPositionByID(int _playerID)
-    {
-        int position = 0;
-        foreach(int playerID in playerPositions)
-        {
-            if(playerID == _playerID)
-                return position;
-            position++;
-        }
-        return position;
-    }
+
     public virtual void Init()
     {
 		Data.Instance.inputSavedAutomaticPlay.Init (this);

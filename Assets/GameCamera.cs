@@ -4,6 +4,7 @@ using AlpacaSound.RetroPixelPro;
 
 public class GameCamera : MonoBehaviour 
 {
+    public float fieldOfView;
 	public int team_id;
 	RetroPixelPro retroPixelPro;
 	public Camera cam;
@@ -52,7 +53,9 @@ public class GameCamera : MonoBehaviour
 	}
     void Start()
 	{
-		Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
+        fieldOfView = cam.fieldOfView;
+
+        Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
 		Data.Instance.events.OnChangeMood += OnChangeMood;
 		Data.Instance.events.OnVersusTeamWon += OnVersusTeamWon;
 		Data.Instance.events.OncharacterCheer += OncharacterCheer;
@@ -231,11 +234,13 @@ public class GameCamera : MonoBehaviour
 	}
 	void LateUpdate () 
 	{
-		if (state == states.SNAPPING_TO) { 
+        cam.fieldOfView = fieldOfView;
+        if (state == states.SNAPPING_TO) { 
 			Vector3 dest = snapTargetPosition;
 			dest.y += 1.5f;
-			dest.z -= 3f;
-			dest.x /= 2;
+            //dest.z -= 3f;
+            dest.z = transform.localPosition.z;
+            dest.x /= 2;
 			transform.localPosition = Vector3.Lerp (transform.localPosition, dest, 0.02f);
 			cam.transform.LookAt (snapTargetPosition);
 			return;	
@@ -313,7 +318,7 @@ public class GameCamera : MonoBehaviour
 
         state = states.END;
 		iTween.MoveTo(cam.gameObject, iTween.Hash(
-            "position", new Vector3(player.transform.localPosition.x, transform.localPosition.y - 6.5f, transform.localPosition.z - 0.8f),
+            "position", new Vector3(player.transform.localPosition.x, transform.localPosition.y - 1.5f, transform.localPosition.z - 0.8f),
             "time", 2f,
             "easetype", iTween.EaseType.easeOutCubic,
             "looktarget", player.transform
@@ -338,7 +343,9 @@ public class GameCamera : MonoBehaviour
 	}
 	public void SetOrientation(Vector4 orientation)
 	{
-		newCameraOrientationVector = cameraOrientationVector + new Vector3 (orientation.x, orientation.y, orientation.z);
+        if (Data.Instance.isAndroid)
+            orientation /= 4;
+        newCameraOrientationVector = cameraOrientationVector + new Vector3 (orientation.x, orientation.y, orientation.z);
 		newRotation = defaultRotation + new Vector3 (orientation.w, 0, 0);
 	}
     public void fallDown(int fallDownHeight)

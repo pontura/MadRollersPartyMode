@@ -77,9 +77,7 @@ public class CharacterControls : MonoBehaviour {
             characterBehavior.characterMovement.DashForward();
         }
 
-        if (
-            characterBehavior.state == CharacterBehavior.states.RUN
-        )
+        if ( characterBehavior.state == CharacterBehavior.states.RUN )
         {
             if (InputManager.getJumpDown(player.id))
             {
@@ -136,37 +134,57 @@ public class CharacterControls : MonoBehaviour {
 	bool playerPlayed;
 	public void MoveInX(float _speed)
 	{
-		
-		if (_speed < -0.5f || _speed > 0.5f) {
-			if (!playerPlayed) {
-				playerPlayed = true;
-				Data.Instance.multiplayerData.PlayerPlayed (characterBehavior.player.id);
-			}
-			float newPosX = _speed*speedX;
-			float newRot = turnSpeed * ( Time.deltaTime * 35);
-			if (newPosX > 0)
-				rotationY += newRot;
-			else if (newPosX < 0)
-				rotationY -= newRot;
-			else if (rotationY > 0)
-				rotationY -= newRot;
-			else if (rotationY < 0)
-				rotationY += newRot;
-		} else{
-			rotationY = 0;
-		}
+        if (Time.deltaTime == 0) return;
 
-		if (rotationY > 30) rotationY = 30;
-		else if (rotationY < -30) rotationY = -30;
+        if (Data.Instance.isAndroid)
+            RotateAccelerometer(_speed);
+        else
+            RotateStandalone(_speed);
 
-		if (Time.deltaTime == 0) return;
-
-		characterBehavior.SetRotation (rotationY);
-
+        characterBehavior.SetRotation (rotationY);
 		//if (childs.Count > 0)
 		//	UpdateChilds ();
 	}
+    void RotateAccelerometer(float _speed)
+    {
+        _speed *= 10;
+        if (_speed > -0.1f && _speed < 0.1f)
+            _speed = 0;
+        else if (_speed > 30)
+            _speed = 30;
+        else if (_speed < -30)
+            _speed = -30;
 
+        rotationY = _speed;
+    }
+    void RotateStandalone(float _speed)
+    {
+        if (_speed < -0.5f || _speed > 0.5f)
+        {
+            if (!playerPlayed)
+            {
+                playerPlayed = true;
+                Data.Instance.multiplayerData.PlayerPlayed(characterBehavior.player.id);
+            }
+            float newPosX = _speed * speedX;
+            float newRot = turnSpeed * (Time.deltaTime * 35);
+            if (newPosX > 0)
+                rotationY += newRot;
+            else if (newPosX < 0)
+                rotationY -= newRot;
+            else if (rotationY > 0)
+                rotationY -= newRot;
+            else if (rotationY < 0)
+                rotationY += newRot;
+        }
+        else
+        {
+            rotationY = 0;
+        }
+
+        if (rotationY > 30) rotationY = 30;
+        else if (rotationY < -30) rotationY = -30;
+    }
 	//childs:
 	IEnumerator ChildsJump()
 	{
@@ -194,20 +212,35 @@ public class CharacterControls : MonoBehaviour {
             return;
 
         if (characterBehavior.player.charactersManager.distance < 12)
-            return;
+            return;        
+
         if (Input.touchCount > 0)
         {
             var touch = Input.touches[0];
             if (touch.position.x < Screen.width / 2)
             {
-                if (Input.GetTouch(0).phase == TouchPhase.Began)
-                    characterBehavior.Jump();
-                else
+
+                if (  characterBehavior.state == CharacterBehavior.states.RUN )
                 {
-                    characterBehavior.Jump();
+                    if (Input.GetTouch(0).phase == TouchPhase.Began)
+                    {
+                        jumpingPressedSince = 0;
+                    }
+                        characterBehavior.Jump();
+
+                        jumpingPressedSince += Time.deltaTime;
+                        if (jumpingPressedSince > jumpingPressedTime)
+                            Jump();
+                        else
+                            characterBehavior.JumpingPressed();
+                      
                 }
-            }
-            else if (touch.position.x > Screen.width / 2)
+                else if (Input.GetTouch(0).phase == TouchPhase.Began)
+                {
+                    Jump();
+                }
+            }            
+            else
             {
                 characterBehavior.shooter.CheckFire();
             }
@@ -216,6 +249,7 @@ public class CharacterControls : MonoBehaviour {
         {
             characterBehavior.AllButtonsReleased();
         }
+        
         float _speed = Input.acceleration.x * 10;
         MoveInX(_speed);
 

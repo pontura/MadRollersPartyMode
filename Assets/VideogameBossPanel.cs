@@ -114,12 +114,18 @@ public class VideogameBossPanel : MonoBehaviour {
 	}
 	void OnBossActive(bool isOn)
 	{
-		if (isOn) {
-			panel.SetActive (true);
+        VideogameData vd = Data.Instance.videogamesData.GetActualVideogameData();
+        if (isOn) {
+            
+            Game.Instance.gameCamera.cam.backgroundColor = vd.bossFog;
+            RenderSettings.fogColor = vd.bossFog;
+            panel.SetActive (true);
 			state = states.IDLE;
 			Laugh(3);
-		} else {			
-			Mad (3);
+		} else {
+            Game.Instance.gameCamera.cam.backgroundColor = vd.fog;
+            RenderSettings.fogColor = vd.fog;
+            Mad (3);
 		}
 	}
 

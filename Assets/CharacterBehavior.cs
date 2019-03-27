@@ -138,9 +138,11 @@ public class CharacterBehavior : MonoBehaviour {
 	}
 	float rotationZ = 0;
 	float rotationX = 0;
-	public void SetRotation(float rotationY)
+    public float rotationY = 0;
+    public void SetRotation(float rotationY)
 	{
-		transform.localEulerAngles = new Vector3(0, rotationY, 0);
+        this.rotationY = rotationY;
+        transform.localEulerAngles = new Vector3(0, rotationY, 0);
 		madRoller.transform.localEulerAngles = new Vector3(rotationX, 0, rotationZ);
 	}
 

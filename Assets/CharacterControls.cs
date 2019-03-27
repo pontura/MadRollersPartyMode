@@ -58,55 +58,7 @@ public class CharacterControls : MonoBehaviour {
 			return;
 		characterBehavior.UpdateByController(rotationY); 
 	}
-    void UpdateStandalone()
-    {
-        if (lastDH != InputManager.getDH(player.id))
-        {
-            lastDH = InputManager.getDH(player.id);
-            characterBehavior.characterMovement.DH(-lastDH);
-        }
-
-        if (InputManager.getWeapon(player.id))
-            characterBehavior.shooter.ChangeNextWeapon();
-
-        if (InputManager.getFireDown(player.id))
-            characterBehavior.shooter.CheckFire();
-
-        if (InputManager.getDash(player.id) && InputManager.getHorizontal(player.id) == 0)
-        {
-            characterBehavior.characterMovement.DashForward();
-        }
-
-        if ( characterBehavior.state == CharacterBehavior.states.RUN )
-        {
-            if (InputManager.getJumpDown(player.id))
-            {
-                jumpingPressedSince = 0;
-            }
-            if (InputManager.getJump(player.id))
-            {
-                jumpingPressedSince += Time.deltaTime;
-                if (jumpingPressedSince > jumpingPressedTime)
-                    Jump();
-                else
-                    characterBehavior.JumpingPressed();
-            }
-            else if (InputManager.getJumpUp(player.id))
-            {
-                Jump();
-            }
-        }
-        else if (InputManager.getJumpDown(player.id))
-        {
-            Jump();
-        }
-        if (characterBehavior.player.charactersManager == null)
-            return;
-
-        if (characterBehavior.player.charactersManager.distance < 12)
-            return;
-        moveByKeyboard();
-    }
+  
 	void Jump()
 	{
 		jumpingPressedSince = 0;
@@ -205,7 +157,55 @@ public class CharacterControls : MonoBehaviour {
     //	}
     //
 
-                          
+    void UpdateStandalone()
+    {
+        if (lastDH != InputManager.getDH(player.id))
+        {
+            lastDH = InputManager.getDH(player.id);
+            characterBehavior.characterMovement.DH(-lastDH);
+        }
+
+        if (InputManager.getWeapon(player.id))
+            characterBehavior.shooter.ChangeNextWeapon();
+
+        if (InputManager.getFireDown(player.id))
+            characterBehavior.shooter.CheckFire();
+
+        if (InputManager.getDash(player.id) && InputManager.getHorizontal(player.id) == 0)
+        {
+            characterBehavior.characterMovement.DashForward();
+        }
+
+        if (characterBehavior.state == CharacterBehavior.states.RUN)
+        {
+            if (InputManager.getJumpDown(player.id))
+            {
+                jumpingPressedSince = 0;
+            }
+            if (InputManager.getJump(player.id))
+            {
+                jumpingPressedSince += Time.deltaTime;
+                if (jumpingPressedSince > jumpingPressedTime)
+                    Jump();
+                else
+                    characterBehavior.JumpingPressed();
+            }
+            else if (InputManager.getJumpUp(player.id))
+            {
+                Jump();
+            }
+        }
+        else if (InputManager.getJumpDown(player.id))
+        {
+            Jump();
+        }
+        if (characterBehavior.player.charactersManager == null)
+            return;
+
+        if (characterBehavior.player.charactersManager.distance < 12)
+            return;
+        moveByKeyboard();
+    }
     private void UpdateAccelerometer()
     {
         if (characterBehavior.player.charactersManager == null)
@@ -223,19 +223,17 @@ public class CharacterControls : MonoBehaviour {
                 if (  characterBehavior.state == CharacterBehavior.states.RUN )
                 {
                     if (Input.GetTouch(0).phase == TouchPhase.Began)
-                    {
                         jumpingPressedSince = 0;
-                    }
-                        characterBehavior.Jump();
 
-                        jumpingPressedSince += Time.deltaTime;
-                        if (jumpingPressedSince > jumpingPressedTime)
-                            Jump();
-                        else
-                            characterBehavior.JumpingPressed();
-                      
+                    characterBehavior.Jump();
+
+                    jumpingPressedSince += Time.deltaTime;
+                    if (jumpingPressedSince > jumpingPressedTime)
+                        Jump();
+                    else
+                        characterBehavior.JumpingPressed();                      
                 }
-                else if (Input.GetTouch(0).phase == TouchPhase.Began)
+                else if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 {
                     Jump();
                 }

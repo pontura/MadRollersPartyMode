@@ -28,7 +28,7 @@ public class GameCamera : MonoBehaviour
 	public Vector3 newCameraOrientationVector;
 
 	public Vector3 defaultRotation =  new Vector3 (47,0,0);
-	public Vector3 newRotation;
+//	public Vector3 newRotation;
     
     public bool onExplotion;
 	float explotionForce = 0.25f;
@@ -209,7 +209,7 @@ public class GameCamera : MonoBehaviour
 		Vector3 pos = flow_target.transform.localPosition - transform.localPosition;
 		var newRot = Quaternion.LookRotation(pos);
 
-		cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, newRot, Time.deltaTime*10);
+		cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, newRot, Time.deltaTime*5);
 	}
 
 	void SetPixels(float _pixelSize)
@@ -271,7 +271,13 @@ public class GameCamera : MonoBehaviour
             if (retroPixelPro.pixelSize > 1)
                 UpdatePixels();
         }
-		
+        else
+        {
+            
+            Vector3 rot = transform.localEulerAngles;
+            rot.z = -(charactersManager.getMainCharacter().rotationY / 6);
+            transform.localEulerAngles = rot;
+        }
 		//if (team_id == 0)
 			newPos = charactersManager.getCameraPosition ();
 	//	else
@@ -344,9 +350,9 @@ public class GameCamera : MonoBehaviour
 	public void SetOrientation(Vector4 orientation)
 	{
         if (Data.Instance.isAndroid)
-            orientation /= 4;
+            orientation /= 8;
         newCameraOrientationVector = cameraOrientationVector + new Vector3 (orientation.x, orientation.y, orientation.z);
-		newRotation = defaultRotation + new Vector3 (orientation.w, 0, 0);
+	//	newRotation = defaultRotation + new Vector3 (orientation.w, 0, 0);
 	}
     public void fallDown(int fallDownHeight)
     {

@@ -142,11 +142,10 @@ public class Level : MonoBehaviour {
 	}
 	void SetNewVideogameSettings()
 	{
-
 		VideogameData videogameData = Data.Instance.videogamesData.GetActualVideogameData ();
-		RenderSettings.skybox = videogameData.skybox;
 		RenderSettings.fogColor = videogameData.fog;
-	}
+        Game.Instance.gameCamera.cam.backgroundColor = videogameData.fog;
+    }
 	private void  reset()
 	{
         if (!playing) return;

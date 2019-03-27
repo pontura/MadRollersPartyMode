@@ -2143,15 +2143,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12186928
+      value: 0.18909544
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2163,7 +2163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9925462
+      value: 0.98195875
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_RootOrder
@@ -2171,17 +2171,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 14
+      value: 21.8
       objectReference: {fileID: 0}
     - target: {fileID: 20793291910522168, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: m_FocalLength
-      value: 6.4578514
+      value: 4.020107
       objectReference: {fileID: 0}
     - target: {fileID: 20793291910522168, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: field of view
-      value: 164
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 20793291910522168, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
@@ -2211,12 +2211,12 @@ PrefabInstance:
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: cameraOrientationVector.z
-      value: -1.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: cameraOrientationVector.y
-      value: 7
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
@@ -2226,12 +2226,12 @@ PrefabInstance:
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: newCameraOrientationVector.y
-      value: 7
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: newCameraOrientationVector.z
-      value: -1.7
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
@@ -2261,7 +2261,7 @@ PrefabInstance:
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: fieldOfView
-      value: 166
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 114297646402590362, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}

@@ -17,9 +17,6 @@ public class MissionSelector : MonoBehaviour {
 	public int videogameID;
 	int missionUnblockedID;
 
-	void Start () {
-		LoadVideoGameData (Data.Instance.videogamesData.actualID);
-	}
 	public void LoadVideoGameData(int _videogameID)
 	{
 		this.videogameID = _videogameID;

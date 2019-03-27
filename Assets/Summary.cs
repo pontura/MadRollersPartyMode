@@ -11,7 +11,10 @@ public class Summary : MonoBehaviour {
     private int countDown;
     public Animation anim;
 
-	public List<MainMenuButton> buttons;
+    public GameObject standalonePanel;
+    public GameObject mobilePanel;
+
+    public List<MainMenuButton> buttons;
 	public int optionSelected = 0;
     private bool isOn;
 
@@ -19,6 +22,16 @@ public class Summary : MonoBehaviour {
 
     void Start()
     {
+        if(Data.Instance.isAndroid)
+        {
+            standalonePanel.SetActive(false);
+            mobilePanel.SetActive(true);
+        }
+        else
+        {
+            standalonePanel.SetActive(true);
+            mobilePanel.SetActive(false);
+        }
         panel.SetActive(false);
 		if (Data.Instance.playMode == Data.PlayModes.STORYMODE) {		
 			Data.Instance.events.OnGameOver += OnGameOver;

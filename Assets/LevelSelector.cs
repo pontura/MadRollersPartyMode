@@ -20,7 +20,7 @@ public class LevelSelector : MonoBehaviour {
 	public MissionButton diskette;
 	VideogameData videogameData;
 	public int videgameID;
-	VideogamesUIManager videogameUI;
+	//VideogamesUIManager videogameUI;
 	bool canInteract;
 	float timePassed;
 	MissionSelector missionSelector;
@@ -43,16 +43,18 @@ public class LevelSelector : MonoBehaviour {
 		}
 		Data.Instance.isReplay = false;
 		missionSelector = GetComponent<MissionSelector> ();
-		Data.Instance.multiplayerData.ResetAll ();
+        
+
+        Data.Instance.multiplayerData.ResetAll ();
 		Data.Instance.events.OnResetScores ();
 
 		title.text = "SELECT GAME";
 
 		videgameID = Data.Instance.videogamesData.actualID;
-
-		videogameUI = GetComponent<VideogamesUIManager> ();
-		videogameUI.Init ();
-		SetSelected ();
+        missionSelector.LoadVideoGameData(videgameID);
+        //videogameUI = GetComponent<VideogamesUIManager> ();
+        //videogameUI.Init ();
+        SetSelected ();
 
 		Data.Instance.voicesManager.PlaySpecificClipFromList (Data.Instance.voicesManager.UIItems, 0);
 
@@ -150,7 +152,7 @@ public class LevelSelector : MonoBehaviour {
 		videogameData = Data.Instance.videogamesData.all [videgameID];
 		missionSelector.LoadVideoGameData (videgameID);
 		diskette.Init (videogameData);
-		videogameUI.Change ();
+		//videogameUI.Change ();
 		if(Data.Instance.playMode == Data.PlayModes.STORYMODE)
 			Data.Instance.handWriting.WriteTo (credits, videogameData.credits, null);
 		else

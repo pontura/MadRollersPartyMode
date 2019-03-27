@@ -126,7 +126,10 @@ public class Game : MonoBehaviour {
         Data.Instance.events.OnResetLevel();
        // Application.LoadLevel("LevelSelector");
 		Data.Instance.events.ForceFrameRate (1);
-        Data.Instance.LoadLevel("LevelSelector");
+        if(Data.Instance.isAndroid)
+            Data.Instance.LoadLevel("LevelSelectorMobile");
+        else
+           Data.Instance.LoadLevel("LevelSelector");
     }
 	public void LoadGame()
 	{

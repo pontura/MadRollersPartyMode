@@ -20,6 +20,9 @@ public class MissionButton : MonoBehaviour {
 
 	public VideogameData videogameData;
 
+
+    // se usa tanto para mobile como para Standalone!
+
 	public void Init (VideogameData videogameData) {
 		this.videogameData = videogameData;
 		logo.sprite = videogameData.logo;
@@ -27,12 +30,23 @@ public class MissionButton : MonoBehaviour {
 		anim ["MissionButtonOn"].normalizedTime = 0;
 		anim.Play ("MissionButtonOn");
 	}
+
+    // solo version Mobile Android!
     public void OnClick()
     {
-		anim.Play ("MissionTopSetActive");
+        print("clicked");
+		anim.Play ("videoGameButtonMobile");
+        Data.Instance.videogamesData.actualID = videogameData.id;
+        Data.Instance.missions.MissionActiveID = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;
+        Invoke("DelayedClick", 0.5f);
     }
+
 	public void SetOn()
 	{
 		anim.Play ("MissionTopSetActive");
 	}
+    void DelayedClick()
+    {
+        Data.Instance.LoadLevel("Game");
+    }
 }

@@ -130,15 +130,21 @@ public class MainMenu : MonoBehaviour {
 	void MissionsScene()
 	{
 		Reset ();
-		//Data.Instance.playMode = Data.PlayModes.STORY;
-		Data.Instance.LoadLevel("LevelSelector");
-	}
+        //Data.Instance.playMode = Data.PlayModes.STORY;
+        if (Data.Instance.isAndroid)
+            Data.Instance.LoadLevel("LevelSelectorMobile");
+        else
+            Data.Instance.LoadLevel("LevelSelector");
+    }
 	void Compite()
 	{
 		Reset ();
-		//Data.Instance.playMode = Data.PlayModes.COMPETITION;
-		Data.Instance.LoadLevel("LevelSelector");
-	}
+        //Data.Instance.playMode = Data.PlayModes.COMPETITION;
+        if (Data.Instance.isAndroid)
+            Data.Instance.LoadLevel("LevelSelectorMobile");
+        else
+            Data.Instance.LoadLevel("LevelSelector");
+    }
 	void Versus()
 	{
 		Reset ();

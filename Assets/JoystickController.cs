@@ -32,6 +32,10 @@ public class JoystickController : MonoBehaviour {
     }
     void UpdateAndroid()
     {
+        if (Input.GetMouseButton(0))
+        {
+            OnJoystickClick();
+        }
         if (Input.touchCount> 0)
         {
             if(Input.touches[0].phase == TouchPhase.Ended)

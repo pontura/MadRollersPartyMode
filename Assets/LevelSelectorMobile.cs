@@ -22,7 +22,7 @@ public class LevelSelectorMobile : MonoBehaviour
 
     void Start()
     {
-        Data.Instance.isReplay = false;
+        
         missionSelector = GetComponent<MissionSelector>();
         Data.Instance.multiplayerData.ResetAll();
         Data.Instance.events.OnResetScores();
@@ -34,7 +34,10 @@ public class LevelSelectorMobile : MonoBehaviour
         InitButton(diskette1, 0);
         InitButton(diskette2, 1);
         InitButton(diskette3, 2);
-        
+
+        Data.Instance.multiplayerData.player1 = true;
+        Data.Instance.isReplay = true;
+
     }
     void InitButton(MissionButton diskette, int id)
     {
@@ -57,5 +60,10 @@ public class LevelSelectorMobile : MonoBehaviour
     public void Go()
     {
         Data.Instance.LoadLevel("MainMenu");
+    }
+    public void ResetAll()
+    {
+        PlayerPrefs.DeleteAll();
+        Start();
     }
 }

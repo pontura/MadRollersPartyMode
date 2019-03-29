@@ -214,39 +214,39 @@ public class CharacterControls : MonoBehaviour {
         if (characterBehavior.player.charactersManager.distance < 12)
             return;        
 
-        if (Input.touchCount > 0)
-        {
-            var touch = Input.touches[0];
-            if (touch.position.x < Screen.width / 2)
-            {
+        //if (Input.touchCount > 0)
+        //{
+        //    var touch = Input.touches[0];
+        //    if (touch.position.x < Screen.width / 2)
+        //    {
 
-                if (  characterBehavior.state == CharacterBehavior.states.RUN )
-                {
-                    if (Input.GetTouch(0).phase == TouchPhase.Began)
-                        jumpingPressedSince = 0;
+        //        if (  characterBehavior.state == CharacterBehavior.states.RUN )
+        //        {
+        //            if (Input.GetTouch(0).phase == TouchPhase.Began)
+        //                jumpingPressedSince = 0;
 
-                    characterBehavior.Jump();
+        //            characterBehavior.Jump();
 
-                    jumpingPressedSince += Time.deltaTime;
-                    if (jumpingPressedSince > jumpingPressedTime)
-                        Jump();
-                    else
-                        characterBehavior.JumpingPressed();                      
-                }
-                else if (Input.GetTouch(0).phase == TouchPhase.Ended)
-                {
-                    Jump();
-                }
-            }            
-            else
-            {
-                characterBehavior.shooter.CheckFire();
-            }
-        }
-        else
-        {
-            characterBehavior.AllButtonsReleased();
-        }
+        //            jumpingPressedSince += Time.deltaTime;
+        //            if (jumpingPressedSince > jumpingPressedTime)
+        //                Jump();
+        //            else
+        //                characterBehavior.JumpingPressed();                      
+        //        }
+        //        else if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        //        {
+        //            Jump();
+        //        }
+        //    }            
+        //    else
+        //    {
+        //        characterBehavior.shooter.CheckFire();
+        //    }
+        //}
+        //else
+        //{
+        //    characterBehavior.AllButtonsReleased();
+        //}
         
         float _speed = Input.acceleration.x * 10;
         MoveInX(_speed);

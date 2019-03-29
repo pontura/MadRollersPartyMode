@@ -269,6 +269,136 @@ PrefabInstance:
       propertyPath: all.Array.data[0].fog.b
       value: 0.9622642
       objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_good.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_bad.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: deads.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: welcome.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: killThemAll.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.data[3].text
+      value: Now, start working
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.data[3].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c7abab143630b6a4f86123fa32f9bf81, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.data[4].text
+      value: Try the special
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.data[4].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b3cb606461cae50459d8ac84d684a520, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_good.Array.data[1].text
+      value: Oh, are you hurt?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_good.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2fb54593b85cbf140970f408e9963f3d, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_good.Array.data[2].text
+      value: Oh, be careful
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_good.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 681c2b7df60611549af54498c84162ba, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_bad.Array.data[1].text
+      value: Oh, be careful
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_bad.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 681c2b7df60611549af54498c84162ba, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_bad.Array.data[2].text
+      value: Oh, are you hurt?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: lose_bad.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2fb54593b85cbf140970f408e9963f3d, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: deads.Array.data[1].text
+      value: Bye bye, sweetheart
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: deads.Array.data[1].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a1a61063c317a5449af01cf40b8f96e, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: welcome.Array.data[8].text
+      value: Good luck
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: welcome.Array.data[8].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 39226500430e4ac4e9d8eda7a7e32a8c, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: killThemAll.Array.data[2].text
+      value: Destroy everything
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: killThemAll.Array.data[2].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 51d839d9e2698d942900a55b418d950d, type: 3}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.data[5].text
+      value: use_device as a steering wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114892904904857298, guid: e69c3317a5dec5945b3feea00990d858,
+        type: 3}
+      propertyPath: tutorials.Array.data[5].audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6d26b1ffff4cb4346b24c6392e22afd0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
 --- !u!1 &391945969

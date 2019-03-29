@@ -21,8 +21,10 @@ public class InputSavedAutomaticPlay : MonoBehaviour {
 	int id = 1;
 
 	public void Init(CharactersManager charactersManager) {
-		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE)
+		//if (Data.Instance.playMode == Data.PlayModes.PARTYMODE)
 			return;
+
+
 		this.charactersManager = charactersManager;
 		foreach (SavedData s in allPlayersSavedData) {
 			AddCharacter ();
@@ -40,26 +42,26 @@ public class InputSavedAutomaticPlay : MonoBehaviour {
 		id++;
 	}
 
-	InputSaverData lastSavedDataUsed;
-	void Update () {
+	//InputSaverData lastSavedDataUsed;
+	//void Update () {
 		
-		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE)
-			return;
-		if (allPlayersSavedData.Count == 0 || !isPlaying || characters.Count==0)
-			return;
+	//	if (Data.Instance.playMode == Data.PlayModes.PARTYMODE)
+	//		return;
+	//	if (allPlayersSavedData.Count == 0 || !isPlaying || characters.Count==0)
+	//		return;
 
-		foreach(CharacterBehavior cb in characters)
-		{
-			if (cb.state == CharacterBehavior.states.DEAD ||
-			    cb.state == CharacterBehavior.states.FALL ||
-			    cb.state == CharacterBehavior.states.CRASH) 
-			{
-				//is dead;
-			} else if(cb.player != null){
-				UpdatePlayer (cb);
-			}
-		}
-	}
+	//	foreach(CharacterBehavior cb in characters)
+	//	{
+	//		if (cb.state == CharacterBehavior.states.DEAD ||
+	//		    cb.state == CharacterBehavior.states.FALL ||
+	//		    cb.state == CharacterBehavior.states.CRASH) 
+	//		{
+	//			//is dead;
+	//		} else if(cb.player != null){
+	//			UpdatePlayer (cb);
+	//		}
+	//	}
+	//}
 	void UpdatePlayer (CharacterBehavior cb) {
 
 		int playerID = cb.player.id;
@@ -104,6 +106,9 @@ public class InputSavedAutomaticPlay : MonoBehaviour {
 	}
 	public void SaveNewList(List<InputSaverData> newList)
 	{
+        return;
+
+
 		if (allPlayersSavedData.Count > 2)
 			allPlayersSavedData.RemoveAt (0);
 		//allPlayersSavedData.Clear ();
@@ -120,6 +125,9 @@ public class InputSavedAutomaticPlay : MonoBehaviour {
 	}
 	public void Reset()
 	{
+        return;
+
+
 		foreach (SavedData data in allPlayersSavedData) {
 			data.lastDirection = 0;
 			data.lastIdDataUsed = 0;

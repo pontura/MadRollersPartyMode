@@ -214,7 +214,7 @@ public class GameCamera : MonoBehaviour
 
 	void SetPixels(float _pixelSize)
 	{
-        if (!Data.Instance.isAndroid)
+        if (Data.Instance.isAndroid)
             return;
 
         this.pixelSize = _pixelSize;
@@ -222,7 +222,7 @@ public class GameCamera : MonoBehaviour
 	}
 	void UpdatePixels()
 	{
-        if (!Data.Instance.isAndroid)
+        if (Data.Instance.isAndroid)
             return;
         if (pixelSize < 1)
 			pixelSize = 1;

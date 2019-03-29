@@ -6,17 +6,25 @@ public class JoysticksCanvas : MonoBehaviour {
 
 	public List<JoystickPlayer> players;
 	bool isMissionComplete;
+    public GameObject standalonePanel;
 
 	void Start()
 	{
-		Data.Instance.events.OnAddNewPlayer += OnAddNewPlayer;
-		Data.Instance.events.OnAvatarDie += OnAvatarDie;
-		Data.Instance.events.OnGameOver += OnGameOver;
-		Data.Instance.events.OnMissionComplete += OnMissionComplete;
-		Data.Instance.events.OnVersusTeamWon += OnVersusTeamWon;
+        if (Data.Instance.isAndroid)
+        {
+            standalonePanel.SetActive(false);
+            return;
+        }
+        Data.Instance.events.OnGameOver += OnGameOver;
+        Data.Instance.events.OnAvatarDie += OnAvatarDie;
+        Data.Instance.events.OnAddNewPlayer += OnAddNewPlayer;
+        Data.Instance.events.OnMissionComplete += OnMissionComplete;
 
-		if(Data.Instance.playMode != Data.PlayModes.PARTYMODE)
-			Data.Instance.events.OnListenerDispatcher += OnListenerDispatcher;
+        if (Data.Instance.playMode != Data.PlayModes.PARTYMODE)
+            Data.Instance.events.OnListenerDispatcher += OnListenerDispatcher;
+
+        standalonePanel.SetActive(true);
+      
 	}
 	void OnDestroy()
 	{
@@ -24,7 +32,6 @@ public class JoysticksCanvas : MonoBehaviour {
 		Data.Instance.events.OnAvatarDie -= OnAvatarDie;
 		Data.Instance.events.OnGameOver -= OnGameOver;
 		Data.Instance.events.OnMissionComplete -= OnMissionComplete;
-		Data.Instance.events.OnVersusTeamWon -= OnVersusTeamWon;
 		Data.Instance.events.OnListenerDispatcher -= OnListenerDispatcher;
 	}
 	void OnListenerDispatcher(ListenerDispatcher.myEnum message)
@@ -35,10 +42,6 @@ public class JoysticksCanvas : MonoBehaviour {
 				jp.HideResults ();
 		}
 	}
-	void OnVersusTeamWon(int team_id)
-	{
-		OnGameOver (false);
-	}
 	void OnMissionComplete(int missionID)
 	{
 		isMissionComplete = true;
@@ -47,8 +50,9 @@ public class JoysticksCanvas : MonoBehaviour {
 	}
 	void OnGameOver(bool isTimeOver)
 	{
-		foreach (JoystickPlayer jp in players)
-			jp.OnGameOver (false);
+        foreach (JoystickPlayer jp in players)
+            jp.OnGameOver(false);
+        
 	}
 	public void RefreshStates() 
 	{

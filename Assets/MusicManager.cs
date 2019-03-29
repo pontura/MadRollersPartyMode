@@ -61,7 +61,7 @@ public class MusicManager : MonoBehaviour {
 		else
 			ChangePitch (1);
 	}
-	void ChangePitch(float pitchValue)
+	public void ChangePitch(float pitchValue)
 	{
 		StopAllCoroutines ();
 		StartCoroutine (ChangePitchCoroutine (pitchValue));

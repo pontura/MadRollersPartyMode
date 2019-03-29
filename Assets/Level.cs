@@ -73,7 +73,6 @@ public class Level : MonoBehaviour {
 		data.events.OnAddObjectExplotion += OnAddObjectExplotion;
 		//data.events.OnAddHeartsByBreaking += OnAddHeartsByBreaking;
 		data.events.StartMultiplayerRace += StartMultiplayerRace;
-		data.events.SetVictoryArea += SetVictoryArea;
 		Data.Instance.events.OnGameStart += OnGameStart;
 
 		charactersManager = game.GetComponent<CharactersManager>();
@@ -117,7 +116,6 @@ public class Level : MonoBehaviour {
         data.events.OnAddWallExplotion -= OnAddWallExplotion;
         data.events.OnAddObjectExplotion -= OnAddObjectExplotion;
         data.events.StartMultiplayerRace -= StartMultiplayerRace;
-        data.events.SetVictoryArea -= SetVictoryArea;
        // data.events.OnAddHeartsByBreaking -= OnAddHeartsByBreaking;
     }
     void StartMultiplayerRace()
@@ -246,12 +244,6 @@ public class Level : MonoBehaviour {
             }
         }
     }
-    bool showVictory;
-	void SetVictoryArea()
-    {
-		//showVictory = true;
-    }
-	int tutorialID;
 	private void Update () {
 	
 		if (Data.Instance.playMode == Data.PlayModes.VERSUS )

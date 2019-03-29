@@ -33,7 +33,7 @@ public class MainMenuButton : MonoBehaviour {
         switch (id)
         {
             case 0:
-                //Data.Instance.inputSavedAutomaticPlay.RemoveAllData();
+                Data.Instance.inputSavedAutomaticPlay.RemoveAllData();
                 Data.Instance.isReplay = true;
                 Game.Instance.ResetLevel();
                 break;

@@ -12,7 +12,9 @@ public class UICountDown : MonoBehaviour {
 	bool isOn;
 
 	void Start () {	
-		panel.SetActive (false);	
+		panel.SetActive (false);
+        if (Data.Instance.isAndroid)
+            Invoke("Done", 0.6f);
 		if (Data.Instance.isReplay)
 			return;
 		
@@ -37,11 +39,15 @@ public class UICountDown : MonoBehaviour {
 		countDownField.text = countDown.ToString ();
 		panel.GetComponent<Animation>().Play("logo");
 		if (countDown <= 0) {
-			Data.Instance.events.StartMultiplayerRace ();
-			panel.SetActive (false);
-			return;
+            Done();
+            return;
 		}
 		countDown--;
 		Invoke ("SetNextCountDown", 1f);
 	}
+    void Done()
+    {
+        Data.Instance.events.StartMultiplayerRace();
+        panel.SetActive(false);
+    }
 }

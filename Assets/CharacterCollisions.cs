@@ -56,9 +56,24 @@ public class CharacterCollisions : MonoBehaviour {
 					break;
 				}
 			}
-
-			if (other.transform.eulerAngles.x==0 && transform.position.y < other.transform.position.y + 0.2f)
-				characterBehavior.SuperJumpByBumped(1200, 0.5f, false);      
+            float difY = transform.position.y - other.transform.position.y;
+            
+            if (other.transform.eulerAngles.x == 0 && difY < 1.6f)
+               {
+                if (difY < 0.15f)
+                {
+                    characterBehavior.Hit();
+                    return;
+                }
+                else if (difY < 0.5f)
+                    characterBehavior.SuperJumpByBumped(2000, 0.5f, false);
+                else
+                    characterBehavior.SuperJumpByBumped(1200, 0.5f, false);
+                Vector3 pos = characterBehavior.transform.position;
+                pos.y += 0.5f;
+                characterBehavior.transform.position = pos;
+                print("choco con piso + " + difY);
+            }
         }
         else if ( other.tag == "enemy" )
         {

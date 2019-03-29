@@ -159,6 +159,18 @@ PrefabInstance:
       propertyPath: playMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
+      propertyPath: isAndroid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
+      propertyPath: versusManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
+      propertyPath: RESET
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114317075688720918, guid: e69c3317a5dec5945b3feea00990d858,
         type: 3}
       propertyPath: m_Enabled
@@ -399,7 +411,9 @@ PrefabInstance:
       propertyPath: tutorials.Array.data[5].audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 6d26b1ffff4cb4346b24c6392e22afd0, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114317075688720918, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
+    - {fileID: 11440242, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
 --- !u!1 &391945969
 GameObject:

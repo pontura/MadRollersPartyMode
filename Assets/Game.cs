@@ -49,7 +49,6 @@ public class Game : MonoBehaviour {
 		} else {
 			gameCamera.Init ();
 		}
-		GetComponent<CompetitionManager> ().Init ();
 		GetComponent<CharactersManager>().Init();
 		//GetComponent<RainManager> ().Init ();
 		level.Init();

@@ -44,8 +44,6 @@ public class Data : MonoBehaviour {
     [HideInInspector]
     public Missions missions;
     [HideInInspector]
-    public Competitions competitions;
-    [HideInInspector]
     public MultiplayerData multiplayerData;
 	[HideInInspector]
 	public VideogamesData videogamesData;
@@ -107,7 +105,7 @@ public class Data : MonoBehaviour {
 			PlayerPrefs.DeleteAll ();
 
 #if UNITY_ANDROID
-        isAndroid = true;
+       // isAndroid = true;
 #endif
         //  Cursor.visible = false;
 
@@ -135,7 +133,6 @@ public class Data : MonoBehaviour {
         events = GetComponent<Events>();
         missions = GetComponent<Missions>();
 		missions.Init ();
-        competitions = GetComponent<Competitions>();
         multiplayerData = GetComponent<MultiplayerData>();
 		videogamesData = GetComponent<VideogamesData> ();
 		inputSaver = GetComponent<InputSaver> ();
@@ -154,8 +151,6 @@ public class Data : MonoBehaviour {
 //			multiplayerData.player4 = true;
 
        // competitions.Init();
-        if(userData)
-            userData.Init();
 		
         GetComponent<Tracker>().Init();
         GetComponent<CurvedWorldManager>().Init();

@@ -33,19 +33,31 @@ public class LoadingAsset : MonoBehaviour {
 	}
 	IEnumerator LoadingRoutine()
 	{
-		Data.Instance.voicesManager.PlaySpecificClipFromList (Data.Instance.voicesManager.UIItems, 1);
+        string username = UserData.Instance.username;
+
+        Data.Instance.voicesManager.PlaySpecificClipFromList (Data.Instance.voicesManager.UIItems, 1);
 		Data.Instance.GetComponent<MusicManager>().OnLoadingMusic();
 		field.text = "";		
 		AddText("*** MAD ROLLERS ***");
 		yield return new WaitForSeconds (0.2f);
 		AddText("Buenos Aires USER ALLOWING ACCESS!");
 		yield return new WaitForSeconds (0.35f);
-		AddText("outrun party! <location_pin>");
+        if(username != "")
+            AddText("Logging " + username + " OK!");
+        else
+            AddText("tumba-gallardo<location_pin>");
 		yield return new WaitForSeconds (0.4f);
-		AddText("Goto 1985");
+        AddText(username + " -> GOTO 1985 ");
 		yield return new WaitForSeconds (0.5f);
 		AddText("Loading " + Data.Instance.videogamesData.GetActualVideogameData ().name + "...");
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("Game");
+        if (Data.Instance.isAndroid)
+        {
+            AddText("COMPLETE!");
+            yield return new WaitForSeconds(0.25f);
+            SetOn(false);
+            yield break;
+        }
 		yield return new WaitForSeconds (0.5f);
 
 		int i = texts.Length;

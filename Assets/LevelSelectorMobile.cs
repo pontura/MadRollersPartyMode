@@ -36,7 +36,7 @@ public class LevelSelectorMobile : MonoBehaviour
         InitButton(diskette3, 2);
 
         Data.Instance.multiplayerData.player1 = true;
-        Data.Instance.isReplay = true;
+       // Data.Instance.isReplay = true;
 
     }
     void InitButton(MissionButton diskette, int id)

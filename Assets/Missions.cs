@@ -105,13 +105,15 @@ public class Missions : MonoBehaviour {
 		this.level = level;
 		areasLength = -4;
 		StartNewMission ();
-		if (!Data.Instance.isReplay) {
-			if (!Data.Instance.DEBUG && Data.Instance.playMode == Data.PlayModes.PARTYMODE)
+        if (Data.Instance.isReplay || Data.Instance.isAndroid)
+        {
+            AddAreaByName("continue_Multiplayer");
+        }
+        else {
+            if (!Data.Instance.DEBUG && Data.Instance.playMode == Data.PlayModes.PARTYMODE)
 				ShuffleMissions ();
 			AddAreaByName ("start_Multiplayer");
-		} else {
-			AddAreaByName ("continue_Multiplayer");
-		}
+		} 
 	}
 	void ShuffleMissions()
 	{		

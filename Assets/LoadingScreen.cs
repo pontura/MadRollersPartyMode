@@ -8,6 +8,11 @@ public class LoadingScreen : MonoBehaviour {
 		Invoke("Next", 1);
 	}
 	void Next () {
+        if(Data.Instance.isAndroid)
+        {
+            Data.Instance.LoadLevel("MainMenuMobile");
+            return;
+        }
 		#if UNITY_EDITOR
 		Data.Instance.LoadLevel("MainMenu");
 		#else

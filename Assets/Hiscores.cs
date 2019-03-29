@@ -75,79 +75,22 @@ public class Hiscores : MonoBehaviour {
     void checkToSaveHiscore(int competitionID, float score)
     {
 		return;
-        Debug.Log("Check to save HISCORE: competitionID: " + competitionID + " oldScore: " + levels[competitionID - 1].myScore + " new score: " + score);
-        if (levels[competitionID - 1].myScore >= score) return;
-
-        bool isNew = false;
-        if (levels[competitionID - 1].myScore == 0)
-            isNew = true;
-
-        levels[competitionID - 1].myScore = (int)score;
-
-        PlayerPrefs.SetInt("scoreLevel_" + competitionID, (int)score);
-        SocialEvents.OnCompetitionHiscore(competitionID, (int)score, isNew);
     }
     void OnHiscoresLoaded(string receivedData)
     {
 		return;
-        levels[0].hiscore.Clear();
-        Debug.Log("Sores Init: " + receivedData);
-
-        string[] allData = Regex.Split(receivedData, "</n>");
-
-        for (var i = 0; i < allData.Length - 1; i++)
-        {
-            string[] userData = Regex.Split(allData[i], ":");
-            Hiscore hiscore = new Hiscore();
-            hiscore.id = int.Parse(userData[0]);
-            hiscore.score = int.Parse(userData[1]);
-            hiscore.facebookID = userData[2];
-            hiscore.username = Data.Instance.userData.GetUserNameSmaller(userData[3]);
-            levels[0].hiscore.Add(hiscore);
-
-            //por las dudas uqe habia otro score grabado local
-            if (hiscore.facebookID == Data.Instance.userData.facebookId)
-            {
-                Debug.Log(":______________ hiscore.facebookID " + hiscore.facebookID + " " + Data.Instance.userData.facebookId + " score: " + hiscore.score);
-                levels[0].myScore = hiscore.score;
-            }
-        }
-
-        //por ahora lo hago aca...
-        if (levels[0].myScore > 0)
-        {
-            LoadMyHiscoreIfNotExistesInRanking(Data.Instance.userData.facebookId, levels[0].myScore);
-        }
     }
     void LoadMyHiscoreIfNotExistesInRanking(string facebookID, int score)
     {
 		return;
-        bool exists = false;
-        foreach (Hiscore hiscore in levels[0].hiscore)
-        {
-            if (facebookID == hiscore.facebookID)
-                exists = true;
-        }
-        if (!exists)
-        {
-            Hiscore hiscore = new Hiscore();
-            hiscore.id = Data.Instance.userData.userId;
-            hiscore.score = score;
-            hiscore.facebookID = facebookID;
-            hiscore.username = "Yo";
-            levels[0].hiscore.Add(hiscore);
-        }
-        ArrengeHiscoresByScore();
     }
     public void ArrengeHiscoresByScore()
     {
 		return;
-        levels[0].hiscore = levels[0].hiscore.OrderBy(x => x.score).ToList();
-        levels[0].hiscore.Reverse();
     }
     public Hiscore GetMyNextGoal()
     {
-        string facebookID = Data.Instance.userData.facebookId;
+        string facebookID = "";// = Data.Instance.userData.facebookId;
 
         if (levels[0].hiscore.Count == 0) return null;
 
@@ -165,14 +108,6 @@ public class Hiscores : MonoBehaviour {
     public void SetMyScoreWhenPlaying(int newScore)
     {
 		return;
-        print("SetMyScoreWhenPlaying newScore: " + newScore + " oldScore: " + levels[0].myScore);
-        foreach (Hiscore hiscore in levels[0].hiscore)
-        {
-            if (Data.Instance.userData.facebookId == hiscore.facebookID)
-                hiscore.score = newScore;
-        }
-        levels[0].myScore = newScore;
-        ArrengeHiscoresByScore();
     }
     public int GetMyScore()
     {

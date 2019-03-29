@@ -47,7 +47,6 @@ public class CharacterBehavior : MonoBehaviour {
 
 	public Player player;
 
-	public GameObject model;
 	public Data data;
 
 	public int jumpsNumber;
@@ -213,13 +212,14 @@ public class CharacterBehavior : MonoBehaviour {
 			if (startJumping + 0.2f < Time.time) {
 				Vector3 pos = transform.position;
 				pos.y += 1;
-				grounded = Physics.Linecast (pos, groundCheck.position, 1 << LayerMask.NameToLayer ("Floor"));
+                grounded = Physics.Linecast (pos, groundCheck.position, 1 << LayerMask.NameToLayer ("Floor"));
 				if (grounded)
 					OnFloor ();
 			}
 		} else {
 			RaycastHit coverHit;
-			if (Physics.Linecast (transform.position, groundCheck.position, out coverHit)) {
+			if (Physics.Linecast (transform.position, groundCheck.position, out coverHit, 1 << LayerMask.NameToLayer("Floor")))
+            {
 				if (sliderEffect.speed != 0) {
 					SliderFloor sliderFloor = coverHit.transform.gameObject.GetComponent<SliderFloor>();
 					if (sliderFloor == null) {

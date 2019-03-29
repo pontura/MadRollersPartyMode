@@ -42,8 +42,8 @@ public class Tutorial : MonoBehaviour
     {
         ResetAnim();
         ResetSignals();
-        if (PlayerPrefs.GetString("tutorial") == "done")
-            Destroy(this.gameObject);
+        if (!Data.Instance.isAndroid || PlayerPrefs.GetString("tutorial") == "done")
+            Destroy(this);
         else
         {
             
@@ -68,7 +68,7 @@ public class Tutorial : MonoBehaviour
         if (!isActive)
         {
             PlayerPrefs.SetString("tutorial", "done");
-            Destroy(this.gameObject);
+            Destroy(this);
         }
     }
     void ResetMove()

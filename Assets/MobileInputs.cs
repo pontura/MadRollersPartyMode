@@ -21,6 +21,10 @@ public class MobileInputs : MonoBehaviour
             Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
             Data.Instance.events.OnGameOver += OnGameOver;
         }
+        else
+        {
+            Destroy(this);
+        }
     }
     void OnDestroy()
     {

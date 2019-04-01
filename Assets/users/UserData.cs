@@ -11,7 +11,9 @@ public class UserData : MonoBehaviour
     public Sprite sprite;
     public bool RESET_ALL_DATA;
 	public string path;
-	
+    public HiscoresByMissions hiscoresByMissions;
+
+
     public static UserData Instance
     {
         get
@@ -22,8 +24,7 @@ public class UserData : MonoBehaviour
 
                 if (mInstance == null)
                 {
-                    GameObject go = Instantiate(Resources.Load<GameObject>(PREFAB_PATH)) as GameObject;
-                    mInstance = go.GetComponent<UserData>();
+                    return null;
                 }
             }
             return mInstance;
@@ -31,8 +32,15 @@ public class UserData : MonoBehaviour
     }
     void Awake()
     {
-        mInstance = this;
-		
+        if (!mInstance)
+            mInstance = this;
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        DontDestroyOnLoad(this);
+
         if (RESET_ALL_DATA)
             PlayerPrefs.DeleteAll();
 
@@ -42,7 +50,8 @@ public class UserData : MonoBehaviour
         if(username != "")
             userID = PlayerPrefs.GetString("userID");
 
-        DontDestroyOnLoad(this);
+        hiscoresByMissions = GetComponent<HiscoresByMissions>();
+        hiscoresByMissions.Init();
         LoadUserPhoto();
     }
     public bool IsLogged()

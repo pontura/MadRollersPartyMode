@@ -8,8 +8,8 @@ public class Events : MonoBehaviour {
     //public System.Action OnFacebookIdAdded = delegate { };
     //public System.Action<string, string> OnFacebookUserLoaded = delegate { };
     //public System.Action<string, int, int, bool> OnSetUserData = delegate { };
-
-	public System.Action RefreshHiscores = delegate { };
+    public System.Action<string> OnChangeScene = delegate { };
+    public System.Action RefreshHiscores = delegate { };
 
     public System.Action<Texture2D, int> OnHiscore = delegate { };   
 
@@ -37,7 +37,10 @@ public class Events : MonoBehaviour {
 
 	public System.Action OnMissionProgress = delegate { };
     public System.Action<int> OnMissionComplete = delegate { };
+
+    //lo llama level:
 	public void MissionComplete() { OnMissionComplete(Data.Instance.missions.MissionActiveID); }    
+
 	public System.Action NewMissionStart = delegate { };
 
 	public System.Action<string> ShowNotification = delegate { };

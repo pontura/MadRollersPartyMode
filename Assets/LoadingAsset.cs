@@ -33,7 +33,9 @@ public class LoadingAsset : MonoBehaviour {
 	}
 	IEnumerator LoadingRoutine()
 	{
-        string username = UserData.Instance.username;
+        string username = "";
+        if(UserData.Instance != null)
+            username = UserData.Instance.username;
 
         Data.Instance.voicesManager.PlaySpecificClipFromList (Data.Instance.voicesManager.UIItems, 1);
 		Data.Instance.GetComponent<MusicManager>().OnLoadingMusic();

@@ -14,6 +14,6 @@ public class RegistrationScreen : MonoBehaviour
 
     public void Done()
     {
-        Data.Instance.LoadLevel("MainMenuMobile");
+        Data.Instance.LoadLevel("LevelSelectorMobile");
     }
 }

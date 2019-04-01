@@ -41,7 +41,14 @@ public class MobileInputs : MonoBehaviour
     }
     CharacterBehavior GetCharacter()
     {
-        return Game.Instance.level.charactersManager.getMainCharacter();
+        CharacterBehavior cb = Game.Instance.level.charactersManager.getMainCharacter();
+        if (cb == null)
+        {
+            panel.SetActive(false);
+            Destroy(this);
+            return null;
+        }
+        return cb;
     }
     void Update()
     {

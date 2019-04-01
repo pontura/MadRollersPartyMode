@@ -9,11 +9,9 @@ public class MissionButton : MonoBehaviour {
 	//public GameObject thumbPanel;
 
     public Image background;
-	public GameObject lockImage;
     public int id;
 	public int id_in_videogame;
 	public int videoGameID;
-	public bool isLocked;
 
 	public Image logo;
 	public Image floppyCover;
@@ -34,7 +32,6 @@ public class MissionButton : MonoBehaviour {
     // solo version Mobile Android!
     public void OnClick()
     {
-        print("clicked");
 		anim.Play ("videoGameButtonMobile");
         Data.Instance.videogamesData.actualID = videogameData.id;
         Data.Instance.missions.MissionActiveID = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;

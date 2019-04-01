@@ -118,7 +118,6 @@ public class Tutorial : MonoBehaviour
     void Update()
     {
         float distance = Game.Instance.level.charactersManager.getDistance();
-        print(distance);
         CheckTutorial(distance);
     }
     int voiceSaid = -1;

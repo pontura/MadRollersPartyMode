@@ -112,7 +112,14 @@ public class Data : MonoBehaviour {
         if (FORCE_LOCAL_SCORE > 0 )
             PlayerPrefs.SetInt("scoreLevel_1", FORCE_LOCAL_SCORE);
 
-        mInstance = this;
+
+        if (!mInstance)
+            mInstance = this;
+        else
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 		DontDestroyOnLoad(this);
         
 		if (LevelDataDebug.Instance) {
@@ -188,6 +195,7 @@ public class Data : MonoBehaviour {
     {
 		Data.Instance.events.ForceFrameRate (1);
 		float delay = 0.1f;
+        events.OnChangeScene(levelName);
 		if(DEBUG && forceVideogameID != -1 && forceMissionID != -1 && levelName == "LevelSelector")
 		{
 			levelName = "Game";

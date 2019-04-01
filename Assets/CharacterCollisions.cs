@@ -72,7 +72,6 @@ public class CharacterCollisions : MonoBehaviour {
                 Vector3 pos = characterBehavior.transform.position;
                 pos.y += 0.5f;
                 characterBehavior.transform.position = pos;
-                print("choco con piso + " + difY);
             }
         }
         else if ( other.tag == "enemy" )

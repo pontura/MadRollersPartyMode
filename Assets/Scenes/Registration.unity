@@ -552,11 +552,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   userID: 
   username: 
-  retosGanados: 0
-  retosPerdidos: 0
   sprite: {fileID: 0}
-  RESET_ALL_DATA: 1
+  RESET_ALL_DATA: 0
   path: 
+  hiscoresByMissions: {fileID: 0}
 --- !u!4 &1958535563
 Transform:
   m_ObjectHideFlags: 0
@@ -822,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 6320811a2831a554781a0df64fca7903, type: 2}
+  m_Material: {fileID: 2100000, guid: d023123452ce9ef4287e54e5b42fde3f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:

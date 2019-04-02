@@ -9,6 +9,7 @@ public class HandWriting : MonoBehaviour {
 
 	public void WriteTo(Text field, string textToWrite,  System.Action OnReadyFunc)
 	{
+        StopAllCoroutines();
 		field.text = "";
 		StartCoroutine (WriteLoop (field, textToWrite, OnReadyFunc));
 	}

@@ -12,6 +12,7 @@ public class MobileInputs : MonoBehaviour
     public GameObject ButtonJump;
     public GameObject ButtonFire1;
     public GameObject ButtonFire2;
+    public Tutorial tutorial;
 
     private void Start()
     {
@@ -71,6 +72,7 @@ public class MobileInputs : MonoBehaviour
     }
     public void Jump()
     {
+        ResetTutorial();
         if (GetCharacter() == null)
             return;
         if (GetCharacter().state != CharacterBehavior.states.RUN)
@@ -91,15 +93,22 @@ public class MobileInputs : MonoBehaviour
     }
     public void Shoot()
     {
+        ResetTutorial();
         if (GetCharacter() == null)
             return;
         GetCharacter().shooter.SetFire(Weapon.types.SIMPLE, 0.25f);
     }
     public void ShootTriple()
     {
+        ResetTutorial();
         if (GetCharacter() == null)
             return;
         GetCharacter().shooter.SetFire(Weapon.types.TRIPLE, 0.45f);
+    }
+    void ResetTutorial()
+    {
+        if (tutorial != null)
+            tutorial.ResetTimeScale();
     }
 
 }

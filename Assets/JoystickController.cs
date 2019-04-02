@@ -8,7 +8,11 @@ public class JoystickController : MonoBehaviour {
 	bool processAxis;
 	bool isOff;
 	float delayToReact = 0.3f;
-
+    void Start()
+    {
+        if (Data.Instance.isAndroid)
+            Destroy(this);
+    }
 	public void SetOff()
 	{
 		isOff = true;
@@ -24,24 +28,7 @@ public class JoystickController : MonoBehaviour {
 		lastClickedTime += Time.deltaTime;
 		if (lastClickedTime > delayToReact)
 			processAxis = true;
-        if (Data.Instance.isAndroid)
-            UpdateAndroid();
-        else
-            UpdateStandalone();
-
-    }
-    void UpdateAndroid()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            OnJoystickClick();
-        }
-        if (Input.touchCount> 0)
-        {
-            if(Input.touches[0].phase == TouchPhase.Ended)
-                OnJoystickClick();
-        }
-            
+        UpdateStandalone();
     }
     void UpdateStandalone()
     {

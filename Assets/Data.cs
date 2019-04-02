@@ -25,11 +25,6 @@ public class Data : MonoBehaviour {
 	public bool RESET;
 
     public int competitionID = 1;
-    //public bool isArcade;
-    
-
-    public int levelUnlocked_level_1 = 0;
-	public int levelUnlocked_level_2 = 0;
 
     public float volume;
     public int scoreForArcade;
@@ -135,8 +130,6 @@ public class Data : MonoBehaviour {
 			this.testAreaName =  LevelDataDebug.Instance.testArea;
 		}
 
-		//setAvatarUpgrades();
-       // levelUnlockedID = PlayerPrefs.GetInt("levelUnlocked_0");
         events = GetComponent<Events>();
         missions = GetComponent<Missions>();
 		missions.Init ();
@@ -147,27 +140,9 @@ public class Data : MonoBehaviour {
 		versusManager = GetComponent<VersusManager> ();
 		handWriting = GetComponent<HandWriting> ();
 		texts = GetComponent<Texts> ();
-
-//		if (totalJoysticks > 0)
-//			multiplayerData.player1 = true;
-//		if (totalJoysticks > 1)
-//			multiplayerData.player2 = true;
-//		if (totalJoysticks > 2)
-//			multiplayerData.player3 = true;
-//		if (totalJoysticks > 3)
-//			multiplayerData.player4 = true;
-
-       // competitions.Init();
-		
+        		
         GetComponent<Tracker>().Init();
         GetComponent<CurvedWorldManager>().Init();
-
-       // GetComponent<DataController>().Init();
-		//levelUnlocked_level_1 = PlayerPrefs.GetInt("levelUnlocked_level_1");
-		//levelUnlocked_level_2 = PlayerPrefs.GetInt("levelUnlocked_level_2");
-
-		levelUnlocked_level_1 = 100;
-		levelUnlocked_level_2 = 100;
 
         voicesManager.Init();
 

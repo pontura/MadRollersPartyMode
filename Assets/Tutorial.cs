@@ -54,6 +54,7 @@ public class Tutorial : MonoBehaviour
             Data.Instance.events.OnBossActive += OnBossActive;
             Data.Instance.events.OnAvatarShoot += OnAvatarShoot;
             Data.Instance.events.OnAvatarJump += OnAvatarJump;
+            Data.Instance.events.OnAvatarDie += OnAvatarDie;
         }
     }
    
@@ -62,6 +63,11 @@ public class Tutorial : MonoBehaviour
         Data.Instance.events.OnBossActive += OnBossActive;
         Data.Instance.events.OnAvatarShoot -= OnAvatarShoot;
         Data.Instance.events.OnAvatarJump -= OnAvatarJump;
+        Data.Instance.events.OnAvatarDie -= OnAvatarDie;
+    }
+    void OnAvatarDie(CharacterBehavior cb)
+    {
+        ResetTimeScale();
     }
     void OnBossActive(bool isActive)
     {
@@ -83,7 +89,6 @@ public class Tutorial : MonoBehaviour
         {
             ResetAnim();
             ResetSignals();
-            Data.Instance.events.RalentaTo(1, 1);
             Data.Instance.GetComponent<MusicManager>().ChangePitch(1);
             state = states.DONE_JUMP;
         }
@@ -91,7 +96,6 @@ public class Tutorial : MonoBehaviour
         {
             ResetAnim();
             ResetSignals();
-            Data.Instance.events.RalentaTo(1, 1);
             Data.Instance.GetComponent<MusicManager>().ChangePitch(1);
             state = states.DONE_DOUBLE_JUMP;
         }
@@ -102,7 +106,6 @@ public class Tutorial : MonoBehaviour
         {
             ResetAnim();
             ResetSignals();
-            Data.Instance.events.RalentaTo(1, 1);
             Data.Instance.GetComponent<MusicManager>().ChangePitch(1);
             state = states.DONE_SHOOT;
         }
@@ -110,7 +113,6 @@ public class Tutorial : MonoBehaviour
         {
             ResetAnim();
             ResetSignals();
-            Data.Instance.events.RalentaTo(1, 1);
             Data.Instance.GetComponent<MusicManager>().ChangePitch(1);
             state = states.DONE_TRIPLE_SHOOT;
         }
@@ -197,5 +199,11 @@ public class Tutorial : MonoBehaviour
     void ResetAnim()
     {
         anim.gameObject.SetActive(false);
+    }
+    public void ResetTimeScale()
+    {
+        if (state == states.DONE)
+            return;
+        Data.Instance.events.RalentaTo(1, 1);
     }
 }

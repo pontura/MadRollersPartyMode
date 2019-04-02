@@ -32,10 +32,14 @@ public class UserDataUI : MonoBehaviour
         {
             userRegistrationPanel.gameObject.SetActive(true);
             userRegistrationPanel.Init(this, userData.username);
+
+            userRegisteredPanel.gameObject.SetActive(false);
         } else
         {
             userRegisteredPanel.gameObject.SetActive(true);
-             userRegisteredPanel.Init(this, userData.username);
+            userRegisteredPanel.Init(this, userData.username);
+
+            userRegistrationPanel.gameObject.SetActive(false);
         }
     }
     public void EditData()

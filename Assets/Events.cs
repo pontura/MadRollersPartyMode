@@ -133,8 +133,9 @@ public class Events : MonoBehaviour {
 	public System.Action<string> OnBossSetNewAsset = delegate { };
 	public System.Action<int> OnBossSetTimer = delegate { };
 	public System.Action<float> OnBossHitsUpdate = delegate { };
+    public System.Action ResetMissionsBlocked = delegate { };
 
-	public System.Action<Vector3> OnProjectilStartSnappingTarget = delegate { };
+    public System.Action<Vector3> OnProjectilStartSnappingTarget = delegate { };
 	public System.Action<Vector3> OnCameraZoomTo = delegate { };
 	public System.Action<bool> FreezeCharacters = delegate { };
 	public System.Action<CameraChromaManager.types> OnCameraChroma = delegate { };

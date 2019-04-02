@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -10,7 +11,6 @@ public class MissionButton : MonoBehaviour {
 
     public Image background;
     public int id;
-	public int id_in_videogame;
 	public int videoGameID;
 
 	public Image logo;
@@ -18,10 +18,13 @@ public class MissionButton : MonoBehaviour {
 
 	public VideogameData videogameData;
 
+    public Text missionField;
+    public Text usernameField;
+    public int missionActive;
 
     // se usa tanto para mobile como para Standalone!
 
-	public void Init (VideogameData videogameData) {
+    public void Init (VideogameData videogameData) {
 		this.videogameData = videogameData;
 		logo.sprite = videogameData.logo;
 		floppyCover.sprite = videogameData.floppyCover;
@@ -46,4 +49,19 @@ public class MissionButton : MonoBehaviour {
     {
         Data.Instance.LoadLevel("Game");
     }
+    public void GetHiscore()
+    {
+        missionActive = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;
+        missionField.text = "HiSCORE MISSION " + (missionActive + 1);
+        usernameField.text = "<loading...>";
+        UserData.Instance.hiscoresByMissions.LoadHiscore(videogameData.id+1, missionActive, OnLoaded);
+    }
+    void OnLoaded(HiscoresByMissions.MissionHiscoreData data)
+    {
+        if (data == null || data.all.Count == 0)
+            return;
+       
+        usernameField.text = data.all[0].username + " - " + Utils.FormatNumbers(data.all[0].score);
+    }
+
 }

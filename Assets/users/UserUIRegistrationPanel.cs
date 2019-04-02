@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class UserUIRegistrationPanel : MonoBehaviour
 {
-    public Image image;
+    public RawImage image;
+    public AspectRatioFitter aspectRatioFilter;
+
     public Image imageTaken;
     public InputField field;
     UserDataUI userDataUI;
     public GameObject PhotoPanel;
     public GameObject PhotoTakenPanel;
+    public GameObject[] hideOnScreenshot;
     public Text buttonField;
     bool userExists;
 
     public void Init(UserDataUI userDataUI, string _username)
     {
+        PhotoPanel.SetActive(false);
         this.userDataUI = userDataUI;
         field.text = _username;
         if (_username == "")
@@ -24,6 +28,7 @@ public class UserUIRegistrationPanel : MonoBehaviour
         }
         else
         {
+            field.text = _username;
             userExists = true;
             buttonField.text = "Modificar";
         }
@@ -40,7 +45,7 @@ public class UserUIRegistrationPanel : MonoBehaviour
     {
         PhotoPanel.SetActive(true);
         PhotoTakenPanel.SetActive(false);
-        userDataUI.webcamPhoto.InitWebcam(image);
+        userDataUI.webcamPhoto.InitWebcam(image, aspectRatioFilter);
     }
     void ShowPhotoTaken()
     {
@@ -50,12 +55,18 @@ public class UserUIRegistrationPanel : MonoBehaviour
     }
     public void TakeSnapshot()
     {
+        foreach (GameObject go in hideOnScreenshot)
+            go.SetActive(false);
         userDataUI.webcamPhoto.TakeSnapshot(OnPhotoTaken);
     }
     void OnPhotoTaken()
     {
+        foreach (GameObject go in hideOnScreenshot)
+            go.SetActive(true);
+
         ShowPhotoTaken();
         userDataUI.userRegistrationForm.SavePhoto();
+       
     }
     public void ClickedNewPhoto()
     {

@@ -8,4 +8,9 @@ public class MobileMenuScreen : MonoBehaviour
     {
         Data.Instance.LoadLevel("Registration");
     }
+    public void ResetMissions()
+    {
+        Data.Instance.events.ResetMissionsBlocked();
+        Data.Instance.LoadLevel("LevelSelectorMobile");
+    }
 }

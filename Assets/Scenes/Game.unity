@@ -9373,6 +9373,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11471626, guid: d6fae757b899fd84dadae4510feb47b7, type: 3}
+    - {fileID: 11415832, guid: d6fae757b899fd84dadae4510feb47b7, type: 3}
+    - {fileID: 11439632, guid: d6fae757b899fd84dadae4510feb47b7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d6fae757b899fd84dadae4510feb47b7, type: 3}
 --- !u!114 &1272481443 stripped
 MonoBehaviour:
@@ -16025,6 +16027,7 @@ MonoBehaviour:
   ButtonJump: {fileID: 1536918443}
   ButtonFire1: {fileID: 767030776}
   ButtonFire2: {fileID: 1606935492}
+  tutorial: {fileID: 964237570}
 --- !u!1 &1852440946918926
 GameObject:
   m_ObjectHideFlags: 0

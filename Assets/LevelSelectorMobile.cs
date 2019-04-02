@@ -43,7 +43,8 @@ public class LevelSelectorMobile : MonoBehaviour
     {
         VideogameData data = Data.Instance.videogamesData.all[id];
         diskette.Init(data);
-        diskette.GetComponent<MissionSelector>().LoadVideoGameData(id);
+        diskette.GetComponent<MissionSelector>().LoadVideoGameData(id);    
+        diskette.GetHiscore();
     }
     public void Back()
     {

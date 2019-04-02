@@ -58,10 +58,27 @@ public class Missions : MonoBehaviour {
 
 		//if (Data.Instance.DEBUG)
 			LoadAll();
-		
-		data.events.OnMissionComplete += OnMissionComplete;
+
+        data.events.ResetMissionsBlocked += ResetMissionsBlocked;
+        data.events.OnMissionComplete += OnMissionComplete;
 	}
-	public void LoadAll()
+    void OnDestroy()
+    {
+        data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
+        data.events.OnMissionComplete -= OnMissionComplete;
+    }
+    void ResetMissionsBlocked()
+    {
+        foreach (VideogameData vData in Data.Instance.videogamesData.all)
+        {
+            int id = vData.id;
+            PlayerPrefs.SetInt("missionUnblockedID_" + id, 0);
+        }
+        foreach(MissionsByVideoGame mbv in videogames)
+            mbv.missionUnblockedID = 0;
+    }
+
+    public void LoadAll()
 	{
 		all = JsonUtility.FromJson<MissionsListInVideoGame> (_all.text);
 

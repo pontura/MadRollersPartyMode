@@ -25,13 +25,13 @@ public class MissionSignal : MonoBehaviour {
     {
 		if (message == ListenerDispatcher.myEnum.LevelFinish)
 		{
-			title.text = "";
+            MissionData missionData = missions.GetActualMissionData();
+            if (missions.MissionActiveID == 0)
+                return;
+            title.text = "";
 			subtitle.text = "";
 			SetState(true);
-			string text = "";
-			//text =  Data.Instance.videogamesData.GetActualVideogameData().name+ "\n";
-
-			MissionData missionData= missions.GetActualMissionData ();
+			string text = "";			
 			text += "MISSION " + (missions.MissionActiveID+1) + "\n";
 			text += missionData.title;
 			Data.Instance.handWriting.WriteTo(subtitle,text , DoneText2);

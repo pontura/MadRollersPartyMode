@@ -28,39 +28,49 @@ public class HiscoresByMissions : MonoBehaviour
         [HideInInspector]
         public int videogame;
         public string userID;
+        public string username;
         public int score;
     }
     public void Init()
     {
         Data.Instance.events.OnMissionComplete += OnMissionComplete;
-        LoadHiscore(1, 0, OnHiscoresLoaded);
     }
     private void OnDestroy()
     {
         Data.Instance.events.OnMissionComplete -= OnMissionComplete;
-    }
-    void OnHiscoresLoaded(string result)
-    {
-        print("OnHiscoresLoaded " + result);
-        all = new List<MissionHiscoreData>();
-        MissionHiscoreData missionHiscoreData = JsonUtility.FromJson<MissionHiscoreData>(result);
-        missionHiscoreData.mission = missionHiscoreData.all[0].mission;
-        missionHiscoreData.videogame = missionHiscoreData.all[0].videogame;
-        all.Add(missionHiscoreData);
-    }
+    }    
     void OnMissionComplete(int missionID)
     {
         Save(missionID, Data.Instance.multiplayerData.score);
         Data.Instance.multiplayerData.score = 0;
     }
-    public void LoadHiscore(int videogame, int mission, System.Action<string> OnDone)
+
+    //retorna List<HiscoresByMissions.MissionHiscoreData>
+    public void LoadHiscore(int videogame, int mission, System.Action<MissionHiscoreData> OnDone)
     {
+        MissionHiscoreData md = IfAlreadyLoaded(videogame, mission);
+
+        if (md != null)
+        {
+            OnDone(md);
+            return;
+        }
+
         string post_url = getHiscore;
         post_url += "?videogame=" + videogame;
         post_url += "&mission=" + mission;
         post_url += "&limit=10";
 
         StartCoroutine(Send(post_url, OnDone));
+    }
+    MissionHiscoreData IfAlreadyLoaded(int videogame, int mission)
+    {
+        foreach(MissionHiscoreData md in all)
+        {
+            if (md.videogame+1 == videogame && md.mission == mission)
+                return md;
+        }
+        return null;
     }
     public void Save(int mission, int score)
     {
@@ -73,13 +83,9 @@ public class HiscoresByMissions : MonoBehaviour
         post_url += "&score=" + score;
         post_url += "&hash=" + hash;
 
-        StartCoroutine( Send(post_url, Saved) );
+        StartCoroutine( Send(post_url, null) );
     }
-    void Saved(string result)
-    {
-        UsersEvents.OnPopup("Saved " + result);
-    }
-    IEnumerator Send(string post_url, System.Action<string> OnReady)
+    IEnumerator Send(string post_url, System.Action<MissionHiscoreData> OnDone)
     {
         print(post_url);
         WWW www = new WWW(post_url);
@@ -89,10 +95,41 @@ public class HiscoresByMissions : MonoBehaviour
             UsersEvents.OnPopup("Error sending al server: " + www.error);
         else
         {
-            OnReady( www.text );
+            if(OnDone != null)
+                OnDataSended( www.text , OnDone);
         }
     }
-   
+    void OnDataSended(string result, System.Action<MissionHiscoreData> OnDone)
+    {       
+        MissionHiscoreData missionHiscoreData = JsonUtility.FromJson<MissionHiscoreData>(result);
+
+        if (missionHiscoreData.all.Count == 0)
+        {
+            OnDone(null);
+            return;
+        }
+
+        missionHiscoreData.videogame = missionHiscoreData.all[0].videogame;
+        missionHiscoreData.mission = missionHiscoreData.all[0].mission;       
+
+        MissionHiscoreData md = IfAlreadyLoaded(missionHiscoreData.videogame, missionHiscoreData.mission);
+
+        if (md == null)
+            all.Add(missionHiscoreData);
+
+        OnDone(missionHiscoreData);
+    }
+    public MissionHiscoreUserData GetHiscore(int videogame, int mission)
+    {
+        foreach (MissionHiscoreData md in all)
+        {
+            if (md.videogame + 1 == videogame && md.mission == mission)
+            {
+                return md.all[0];
+            }
+        }
+        return null;
+    }
 
 
 }

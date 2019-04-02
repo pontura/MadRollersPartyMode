@@ -38,11 +38,7 @@ public class ArcadeGUI : MonoBehaviour {
         if (ended) return;
         if (Data.Instance.isAndroid)
         {
-            if (Input.touchCount > 0)
-            {
-                if (Input.touches[0].phase == TouchPhase.Ended && joysticksCanvas.CanRevive(0))
-                    characterManager.addNewCharacter(0);
-            }
+            return;
         }
         if ((InputManager.getFireDown(0) || InputManager.getJump(0)) && joysticksCanvas.CanRevive(0))
         {

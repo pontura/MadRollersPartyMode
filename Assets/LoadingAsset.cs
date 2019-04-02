@@ -24,19 +24,20 @@ public class LoadingAsset : MonoBehaviour {
 	public void SetOn(bool _isOn)
 	{
 		logo.sprite = Data.Instance.videogamesData.GetActualVideogameData ().loadingSplash;
-	//	videoPanel.SetActive (_isOn);
+
 		this.isOn = _isOn;
 		panel.SetActive (_isOn);
 		loadingPanel.SetActive (_isOn);
-		if (isOn)
-			StartCoroutine (LoadingRoutine ());
+        if (isOn)
+        {
+            if(Data.Instance.isAndroid)
+                StartCoroutine(LoadingRoutineAndroid()); 
+            else
+                StartCoroutine(LoadingRoutine()); 
+        }
 	}
 	IEnumerator LoadingRoutine()
 	{
-        string username = "";
-        if(UserData.Instance != null)
-            username = UserData.Instance.username;
-
         Data.Instance.voicesManager.PlaySpecificClipFromList (Data.Instance.voicesManager.UIItems, 1);
 		Data.Instance.GetComponent<MusicManager>().OnLoadingMusic();
 		field.text = "";		
@@ -44,22 +45,12 @@ public class LoadingAsset : MonoBehaviour {
 		yield return new WaitForSeconds (0.2f);
 		AddText("Buenos Aires USER ALLOWING ACCESS!");
 		yield return new WaitForSeconds (0.35f);
-        if(username != "")
-            AddText("Logging " + username + " OK!");
-        else
-            AddText("tumba-gallardo<location_pin>");
+        AddText("tumba-gallardo<location_pin>");
 		yield return new WaitForSeconds (0.4f);
-        AddText(username + " -> GOTO 1985 ");
+        AddText("-> GOTO 1985 ");
 		yield return new WaitForSeconds (0.5f);
-		AddText("Loading " + Data.Instance.videogamesData.GetActualVideogameData ().name + "...");
-		UnityEngine.SceneManagement.SceneManager.LoadScene ("Game");
-        if (Data.Instance.isAndroid)
-        {
-            AddText("COMPLETE!");
-            yield return new WaitForSeconds(0.25f);
-            SetOn(false);
-            yield break;
-        }
+		AddText("Hacking the system ...");
+        UnityEngine.SceneManagement.SceneManager.LoadScene ("Game");
 		yield return new WaitForSeconds (0.5f);
 
 		int i = texts.Length;
@@ -76,7 +67,42 @@ public class LoadingAsset : MonoBehaviour {
 		}
 		yield return null;
 	}
-	void AddText(string text)
+
+    IEnumerator LoadingRoutineAndroid()
+    {
+        VideogameData videogameData = Data.Instance.videogamesData.GetActualVideogameData();
+        HiscoresByMissions.MissionHiscoreUserData missionHiscoreUserData = UserData.Instance.hiscoresByMissions.GetHiscore(videogameData.id + 1, Data.Instance.missions.MissionActiveID);
+        string username = UserData.Instance.username;
+
+        Data.Instance.voicesManager.PlaySpecificClipFromList(Data.Instance.voicesManager.UIItems, 1);
+        Data.Instance.GetComponent<MusicManager>().OnLoadingMusic();
+        field.text = "";
+        AddText("*** MAD ROLLERS ***");
+        yield return new WaitForSeconds(0.5f);
+        AddText("Loading " + videogameData.name + "...");
+        yield return new WaitForSeconds(0.2f);
+        if (missionHiscoreUserData != null)
+        {
+            AddText("*****************");
+            yield return new WaitForSeconds(0.12f);
+            AddText("Hiscore by:");
+            yield return new WaitForSeconds(0.1f);
+            AddText("HACKER: " + missionHiscoreUserData.username + " [" + Utils.FormatNumbers( missionHiscoreUserData.score) + "]");
+            yield return new WaitForSeconds(0.15f);
+            AddText("in mission_id: [" + Data.Instance.missions.MissionActiveID + "]");
+            AddText("*****************");
+            AddText(" ");
+            yield return new WaitForSeconds(5f);
+        }
+        AddText("Buenos Aires <" + username + "> USER ALLOWING ACCESS!");        
+        yield return new WaitForSeconds(0.35f);
+        AddText(username + " -> GOTO 1985 ");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+        AddText("COMPLETE!");
+        yield return new WaitForSeconds(0.35f);
+        SetOn(false);
+    }
+    void AddText(string text)
 	{
 		field.text += text +'\n';
 	}

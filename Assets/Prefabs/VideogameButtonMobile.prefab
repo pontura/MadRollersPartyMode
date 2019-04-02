@@ -928,7 +928,6 @@ RectTransform:
   - {fileID: 224311743442661654}
   - {fileID: 2003260884}
   - {fileID: 506065950}
-  - {fileID: 8412059056007123958}
   - {fileID: 7868922185871481810}
   - {fileID: 3794128231339415098}
   m_Father: {fileID: 0}
@@ -1015,7 +1014,6 @@ MonoBehaviour:
   anim: {fileID: 111039201507087284}
   background: {fileID: 114484944020726878}
   id: 0
-  id_in_videogame: 0
   videoGameID: 0
   logo: {fileID: 114012297630781114}
   floppyCover: {fileID: 114429407698694780}
@@ -1033,6 +1031,9 @@ MonoBehaviour:
     intro_logo: {fileID: 0}
     retroPixelPro: {fileID: 0}
     credits: 
+  missionField: {fileID: 7100055833193048600}
+  usernameField: {fileID: 8952081225120069524}
+  missionActive: 0
 --- !u!111 &111039201507087284
 Animation:
   m_ObjectHideFlags: 0
@@ -1471,12 +1472,13 @@ RectTransform:
   - {fileID: 224689490145879564}
   - {fileID: 224921204646892844}
   - {fileID: 224186140185936508}
+  - {fileID: 8412059056007123958}
   m_Father: {fileID: 224452069359536498}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000019073486, y: 48.100006}
+  m_AnchoredPosition: {x: 0.0000019073486, y: 52.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1885349440513096
@@ -1611,7 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.64705884, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1656,15 +1658,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 658134511095717859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.8, y: 67.9, z: 3.3}
+  m_LocalPosition: {x: 5.799991, y: 19.800003, z: 0.19999957}
   m_LocalScale: {x: 0.4166667, y: 0.41630724, z: 0.4163071}
   m_Children:
   - {fileID: 510817111}
   - {fileID: 839284203}
   - {fileID: 844773275}
   - {fileID: 2091339107}
-  m_Father: {fileID: 224452069359536498}
-  m_RootOrder: 7
+  m_Father: {fileID: 224090013508793478}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3056032491864436429
 GameObject:
@@ -1698,7 +1700,7 @@ RectTransform:
   m_Children:
   - {fileID: 8545576402359500906}
   m_Father: {fileID: 224452069359536498}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1726,14 +1728,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
+  m_Color: {r: 0.20038268, g: 0.4026136, b: 0.745283, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1853,7 +1855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1881,7 +1883,7 @@ GameObject:
   - component: {fileID: 8556265768972189818}
   - component: {fileID: 8952081225120069524}
   m_Layer: 5
-  m_Name: videoGameTitle (1)
+  m_Name: username-score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1927,7 +1929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1947,7 +1949,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PONTURA - 2,900
+  m_Text: 
 --- !u!1 &6838856345296578124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,7 +1981,7 @@ RectTransform:
   - {fileID: 7820300664025312492}
   - {fileID: 1073599640413393058}
   m_Father: {fileID: 224452069359536498}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1998,7 +2000,7 @@ GameObject:
   - component: {fileID: 1389430592668026063}
   - component: {fileID: 7100055833193048600}
   m_Layer: 5
-  m_Name: videoGameTitle
+  m_Name: missionHiscoreField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2044,7 +2046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2064,4 +2066,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HISCORE MISSION 4
+  m_Text: 

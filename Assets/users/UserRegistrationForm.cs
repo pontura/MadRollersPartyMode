@@ -7,9 +7,6 @@ public class UserRegistrationForm : MonoBehaviour
 {
     public UserDataUI ui;
     private string secretKey = "pontura";
-    string setUserURL = "http://madrollers.com/game/setUser.php";
-    string setUserURLUpload = "http://madrollers.com/game/updateUser.php";
-    string imageURLUploader = "http://madrollers.com/game/uploadPhoto.php";
 
     UserData userData;
     public bool imageUploaded;
@@ -66,6 +63,7 @@ public class UserRegistrationForm : MonoBehaviour
     }
     public void SavePhoto()
     {
+       
         string imagePath = UserData.Instance.path;
 
         if (UserData.Instance.userID == "")
@@ -74,12 +72,12 @@ public class UserRegistrationForm : MonoBehaviour
             return;
         }
 
-        StartCoroutine(UploadFileCo(imagePath + UserData.Instance.userID + ".png", imageURLUploader));
+        StartCoroutine(UploadFileCo(imagePath + UserData.Instance.userID + ".png", userData.URL + userData.imageURLUploader));
     }
     IEnumerator SendData(string username)
     {
         string hash = Utils.Md5Sum(UserData.Instance.userID + username + secretKey);
-        string post_url = setUserURL + "?userID=" + WWW.EscapeURL(UserData.Instance.userID) + "&username=" + username + "&hash=" + hash;
+        string post_url = userData.URL + userData.setUserURL + "?userID=" + WWW.EscapeURL(UserData.Instance.userID) + "&username=" + username + "&hash=" + hash;
         print(post_url);
         WWW www = new WWW(post_url);
         yield return www;
@@ -104,7 +102,7 @@ public class UserRegistrationForm : MonoBehaviour
     IEnumerator UploadData(string username)
     {
         string hash = Utils.Md5Sum(UserData.Instance.userID + username + secretKey);
-        string post_url = setUserURLUpload + "?userID=" + WWW.EscapeURL(UserData.Instance.userID) + "&username=" + username + "&hash=" + hash;
+        string post_url = userData.URL + userData.setUserURLUpload + "?userID=" + WWW.EscapeURL(UserData.Instance.userID) + "&username=" + username + "&hash=" + hash;
         print(post_url);
         WWW www = new WWW(post_url);
         yield return www;

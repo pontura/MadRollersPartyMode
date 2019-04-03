@@ -37,7 +37,7 @@ public class UserDataUI : MonoBehaviour
         } else
         {
             userRegisteredPanel.gameObject.SetActive(true);
-            userRegisteredPanel.Init(this, userData.username);
+            userRegisteredPanel.Init(this, userData.userID, userData.username);
 
             userRegistrationPanel.gameObject.SetActive(false);
         }

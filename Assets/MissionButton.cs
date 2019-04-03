@@ -58,7 +58,7 @@ public class MissionButton : MonoBehaviour {
     }
     void OnLoaded(HiscoresByMissions.MissionHiscoreData data)
     {
-        if (data == null || data.all.Count == 0)
+        if (data == null || data.all.Count == 0 || !isActiveAndEnabled)
             return;
        
         usernameField.text = data.all[0].username + " - " + Utils.FormatNumbers(data.all[0].score);

@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class UserData : MonoBehaviour
 {
+    public string URL = "http://madrollers.com/game/";
+    public string setUserURL = "setUser.php";
+    public string setUserURLUpload = "updateUser.php";
+    public string imageURLUploader = "uploadPhoto.php";
+    public string imagesURL = "users/";
+
     const string PREFAB_PATH = "UserData";
     static UserData mInstance = null;
     public string userID;
@@ -12,7 +18,7 @@ public class UserData : MonoBehaviour
     public bool RESET_ALL_DATA;
 	public string path;
     public HiscoresByMissions hiscoresByMissions;
-
+    public AvatarImages avatarImages;
 
     public static UserData Instance
     {
@@ -39,20 +45,28 @@ public class UserData : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+
         DontDestroyOnLoad(this);
 
         if (RESET_ALL_DATA)
             PlayerPrefs.DeleteAll();
 
-		path = Application.persistentDataPath + "/";
-
         username = PlayerPrefs.GetString("username");
-        if(username != "")
-            userID = PlayerPrefs.GetString("userID");
+#if UNITY_EDITOR
+        path = Application.dataPath + "/../";
+#else
+        path = Application.persistentDataPath + "/";
+#endif
 
+        avatarImages = GetComponent<AvatarImages>();
         hiscoresByMissions = GetComponent<HiscoresByMissions>();
-        hiscoresByMissions.Init();
-        LoadUserPhoto();
+        hiscoresByMissions.Init();    
+       
+        if (username != "")
+        {
+            userID = PlayerPrefs.GetString("userID");
+            avatarImages.GetImageFor(userID, null);
+        }
     }
     public bool IsLogged()
     {
@@ -90,7 +104,11 @@ public class UserData : MonoBehaviour
 	}
     void LoadUserPhoto()
     {
-        sprite = LoadSprite(Application.persistentDataPath + "/" + UserData.Instance.userID + ".png");
+#if UNITY_EDITOR
+        sprite = LoadSprite(Application.dataPath + "/../" + UserData.Instance.userID + ".png");
+#else
+         sprite = LoadSprite(Application.persistentDataPath + "/" + UserData.Instance.userID + ".png");
+#endif
     }
     private Sprite LoadSprite(string path)
     {

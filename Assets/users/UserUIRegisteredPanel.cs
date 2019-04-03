@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class UserUIRegisteredPanel : MonoBehaviour
 {
-    public Image image;
+    public AvatarThumb avatarThumb;
     public Text field;
     UserDataUI userDataUI;
-    public void Init(UserDataUI userDataUI, string _username)
+
+    public void Init(UserDataUI userDataUI, string userID, string _username)
     {
         this.userDataUI = userDataUI;
-        image.sprite = UserData.Instance.sprite;
+        avatarThumb.Init(userID );
         field.text = _username;
     }
     public void OnEditUserData()

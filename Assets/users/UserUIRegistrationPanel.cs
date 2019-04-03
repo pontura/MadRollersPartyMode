@@ -8,13 +8,12 @@ public class UserUIRegistrationPanel : MonoBehaviour
     public RawImage image;
     public AspectRatioFitter aspectRatioFilter;
 
-    public Image imageTaken;
+    public AvatarThumb avatarThumb;
     public InputField field;
     UserDataUI userDataUI;
     public GameObject PhotoPanel;
     public GameObject PhotoTakenPanel;
     public GameObject[] hideOnScreenshot;
-    public Text buttonField;
     bool userExists;
 
     public void Init(UserDataUI userDataUI, string _username)
@@ -22,15 +21,10 @@ public class UserUIRegistrationPanel : MonoBehaviour
         PhotoPanel.SetActive(false);
         this.userDataUI = userDataUI;
         field.text = _username;
-        if (_username == "")
-        {
-            buttonField.text = "Registrar";
-        }
-        else
+        if (_username != "")
         {
             field.text = _username;
             userExists = true;
-            buttonField.text = "Modificar";
         }
         if (UserData.Instance.sprite == null)
         {
@@ -51,10 +45,11 @@ public class UserUIRegistrationPanel : MonoBehaviour
     {
         PhotoPanel.SetActive(false);
         PhotoTakenPanel.SetActive(true);
-        imageTaken.sprite = UserData.Instance.sprite;
+        avatarThumb.Init( UserData.Instance.userID );
     }
     public void TakeSnapshot()
     {
+        UserData.Instance.avatarImages.ResetAvatar(UserData.Instance.userID);
         foreach (GameObject go in hideOnScreenshot)
             go.SetActive(false);
         userDataUI.webcamPhoto.TakeSnapshot(OnPhotoTaken);

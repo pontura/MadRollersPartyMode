@@ -20,7 +20,13 @@ public class AvatarImages : MonoBehaviour
 
     private void Awake()
     {
+        UsersEvents.FileUploaded += FileUploaded;
         userData = GetComponent<UserData>();
+    }
+    void FileUploaded()
+    {
+        ResetAvatar(UserData.Instance.userID);
+        GetImageFor(UserData.Instance.userID, null);
     }
     public void GetImageFor(string userID, System.Action<Texture2D> OnLoaded)
     {

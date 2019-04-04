@@ -50,7 +50,7 @@ public class WebcamPhoto : MonoBehaviour
         for (int a = 0; a<devices.Length; a++)
         {
             if (devices[a].isFrontFacing)
-                webcam = new WebCamTexture(devices[a].name, Screen.width/2, Screen.height / 2);
+                webcam = new WebCamTexture(devices[a].name, Screen.width, Screen.height);
         }
         if (webcam == null)
             return;

@@ -127,8 +127,7 @@ public class UserRegistrationForm : MonoBehaviour
 
     IEnumerator UploadFileCo(string localFileName, string uploadURL)
     {
-        print("file" + localFileName);
-        print("to: " + uploadURL);
+        print("file" + localFileName + " to: " + uploadURL);
         WWW localFile = new WWW("file:///" + localFileName);
         yield return localFile;
         if (localFile.error == null)
@@ -143,8 +142,8 @@ public class UserRegistrationForm : MonoBehaviour
         WWW upload = new WWW(uploadURL, postForm);
         yield return upload;
         if (upload.error == null)
-            UsersEvents.OnPopup( "upload done :" + upload.text);
+            UsersEvents.FileUploaded();
         else
-            UsersEvents.OnPopup( "Error during upload: " + upload.error);
+            UsersEvents.OnPopup("Error during upload: " + upload.error);
     }
 }

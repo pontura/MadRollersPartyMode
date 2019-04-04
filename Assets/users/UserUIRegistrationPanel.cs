@@ -26,14 +26,7 @@ public class UserUIRegistrationPanel : MonoBehaviour
             field.text = _username;
             userExists = true;
         }
-        if (UserData.Instance.sprite == null)
-        {
-            ShowNewPhoto();
-        }
-        else
-        {            
-            ShowPhotoTaken();
-        }
+        ShowEditPanel();
     }
     void ShowNewPhoto()
     {
@@ -41,7 +34,7 @@ public class UserUIRegistrationPanel : MonoBehaviour
         PhotoTakenPanel.SetActive(false);
         userDataUI.webcamPhoto.InitWebcam(image, aspectRatioFilter);
     }
-    void ShowPhotoTaken()
+    void ShowEditPanel()
     {
         PhotoPanel.SetActive(false);
         PhotoTakenPanel.SetActive(true);
@@ -59,7 +52,7 @@ public class UserUIRegistrationPanel : MonoBehaviour
         foreach (GameObject go in hideOnScreenshot)
             go.SetActive(true);
 
-        ShowPhotoTaken();
+        ShowEditPanel();
         userDataUI.userRegistrationForm.SavePhoto();
        
     }

@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: 1.4830405
+  m_AspectRatio: 2.2465365
 --- !u!222 &1093866033
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -902,12 +902,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc85cbb60c35483448f38d975c1c92a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  URL: http://madrollers.com/game/
+  setUserURL: setUser.php
+  setUserURLUpload: updateUser.php
+  imageURLUploader: uploadPhoto.php
+  imagesURL: users/
   userID: 
   username: 
   sprite: {fileID: 0}
   RESET_ALL_DATA: 0
   path: 
   hiscoresByMissions: {fileID: 0}
+  avatarImages: {fileID: 0}
 --- !u!4 &1958535563
 Transform:
   m_ObjectHideFlags: 0
@@ -1659,7 +1665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7515892264840707711}
   m_Layer: 5
-  m_Name: photoTaken
+  m_Name: editData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1994,7 +2000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7515892265284768681}
   m_Layer: 5
-  m_Name: photo
+  m_Name: takePhoto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

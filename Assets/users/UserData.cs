@@ -65,6 +65,7 @@ public class UserData : MonoBehaviour
         if (username != "")
         {
             userID = PlayerPrefs.GetString("userID");
+            print("userID " + userID);
             avatarImages.GetImageFor(userID, null);
         }
     }

@@ -9,4 +9,17 @@ public class BackgroundSideData : MonoBehaviour {
 	public float offset;
 	[HideInInspector]
 	public string backgroundSideName;
+
+    public GameObject hideOnLowRes;
+
+    void Start()
+    {
+        if (hideOnLowRes == null)
+            return;
+
+        if (Data.Instance.isAndroid)
+            hideOnLowRes.SetActive(false);
+        else
+            hideOnLowRes.SetActive(true);
+    }
 }

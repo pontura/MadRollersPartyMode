@@ -27,6 +27,15 @@ public class UserUIRegistrationPanel : MonoBehaviour
             userExists = true;
         }
         ShowEditPanel();
+        UsersEvents.OnUserUploadDone += OnUserUploadDone;
+    }
+    void OnUserUploadDone()
+    {
+        avatarThumb.Reset();
+    }
+    void OnDestroy()
+    {
+        UsersEvents.OnUserUploadDone -= OnUserUploadDone;
     }
     void ShowNewPhoto()
     {

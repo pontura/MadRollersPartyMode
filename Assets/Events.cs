@@ -138,5 +138,6 @@ public class Events : MonoBehaviour {
     public System.Action<Vector3> OnProjectilStartSnappingTarget = delegate { };
 	public System.Action<Vector3> OnCameraZoomTo = delegate { };
 	public System.Action<bool> FreezeCharacters = delegate { };
-	public System.Action<CameraChromaManager.types> OnCameraChroma = delegate { };
+    public System.Action<int> ChangePlayer = delegate { };
+    public System.Action<CameraChromaManager.types> OnCameraChroma = delegate { };
 }

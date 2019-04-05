@@ -12,5 +12,6 @@ public class MobileMenuScreen : MonoBehaviour
     {
         Data.Instance.events.ResetMissionsBlocked();
         Data.Instance.LoadLevel("LevelSelectorMobile");
+        PlayerPrefs.SetString("tutorial", "");
     }
 }

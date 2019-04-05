@@ -22,12 +22,12 @@ public class LevelSelectorMobile : MonoBehaviour
 
     void Start()
     {
-        
+
         missionSelector = GetComponent<MissionSelector>();
         Data.Instance.multiplayerData.ResetAll();
         Data.Instance.events.OnResetScores();
 
-        title.text = "SELECT GAME";
+        title.text = "SELECT A VIDEOGAME TO DESTROY";
         videgameID = Data.Instance.videogamesData.actualID;
         Data.Instance.voicesManager.PlaySpecificClipFromList(Data.Instance.voicesManager.UIItems, 0);
 
@@ -35,7 +35,21 @@ public class LevelSelectorMobile : MonoBehaviour
         InitButton(diskette2, 1);
         InitButton(diskette3, 2);
 
-        Data.Instance.multiplayerData.player1 = true;
+        switch (UserData.Instance.playerID)
+        {
+            case 0:
+                Data.Instance.multiplayerData.player1 = true;
+                break;
+            case 1:
+                Data.Instance.multiplayerData.player2 = true;
+                break;
+            case 2:
+                Data.Instance.multiplayerData.player3 = true;
+                break;
+            default:
+                Data.Instance.multiplayerData.player4 = true;
+                break;
+        }
        // Data.Instance.isReplay = true;
 
     }

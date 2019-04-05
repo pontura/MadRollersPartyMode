@@ -79,6 +79,7 @@ public class Tutorial : MonoBehaviour
     }
     void ResetMove()
     {
+        Data.Instance.events.RalentaTo(1, 1);
         ResetAnim();
         ResetSignals();
         state = states.ROTATE_DONE;
@@ -137,7 +138,8 @@ public class Tutorial : MonoBehaviour
             Anim("device");
             moveDevice.SetActive(true);
             state = states.ROTATE;
-            Invoke("ResetMove", 2.5f);
+            Data.Instance.events.RalentaTo(0.5f, 0.5f);
+            Invoke("ResetMove", 1.45f);
         } else
         if (distance > 176 && state == states.ROTATE_DONE)
         {

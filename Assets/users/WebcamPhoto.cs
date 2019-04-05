@@ -78,12 +78,9 @@ public class WebcamPhoto : MonoBehaviour
     System.Action OnDone;
     public void TakeSnapshot(System.Action OnDone)
     {
-        if(devices.Length==0)
-            return;
-
         this.OnDone = OnDone;
 
-        string fileName = UserData.Instance.userID + ".png";
+        string fileName = Application.persistentDataPath + "/" + UserData.Instance.userID + ".png";
         ScreenCapture.CaptureScreenshot(fileName);
        
         Invoke("Delayed", 0.5f);

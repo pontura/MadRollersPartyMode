@@ -24,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042347638057224}
-  m_LocalRotation: {x: 0.8169436, y: -0, z: -0.000000027939674, w: 0.57671756}
+  m_LocalRotation: {x: 0.9098527, y: 0, z: 0, w: 0.41493154}
   m_LocalPosition: {x: 0, y: 3.1999998, z: -9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4471179286011236}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 109.56, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 130.97, y: 0, z: 0}
 --- !u!108 &108238830960015050
 Light:
   m_ObjectHideFlags: 0
@@ -41,8 +41,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.77205884, g: 0.77205884, b: 0.77205884, a: 1}
-  m_Intensity: 0.4
+  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -61,7 +61,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 149249
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -78,7 +78,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4193045401204474}
-  - component: {fileID: 114628957916094874}
   m_Layer: 0
   m_Name: lucesSpace
   m_TagString: Untagged
@@ -103,21 +102,6 @@ Transform:
   m_Father: {fileID: 4807984151650312}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114628957916094874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1083866692030734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0659b0c21190fd4db2aebf898bfaa6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boyland: {fileID: 0}
-  gallax: {fileID: 0}
-  inferno: {fileID: 0}
 --- !u!1 &1143194689739292
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +367,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4793793781876154}
-  - component: {fileID: 114472879820356970}
   m_Layer: 0
   m_Name: lucesBoyLand
   m_TagString: Untagged
@@ -408,21 +391,6 @@ Transform:
   m_Father: {fileID: 4807984151650312}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114472879820356970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341777017239852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0659b0c21190fd4db2aebf898bfaa6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boyland: {fileID: 0}
-  gallax: {fileID: 0}
-  inferno: {fileID: 0}
 --- !u!1 &1475009330277150
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4601742034806760
 Transform:
   m_ObjectHideFlags: 0
@@ -508,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4995024325610292
 Transform:
   m_ObjectHideFlags: 0
@@ -577,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4433498037364732
 Transform:
   m_ObjectHideFlags: 0
@@ -654,13 +622,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555768410846616}
-  m_LocalRotation: {x: 0.8169436, y: -0, z: -0.000000027939674, w: 0.57671756}
+  m_LocalRotation: {x: 0.9098527, y: 0, z: 0, w: 0.41493154}
   m_LocalPosition: {x: 0, y: 3.1999998, z: -9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4193045401204474}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 109.56, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 130.97, y: 0, z: 0}
 --- !u!108 &108127315475729376
 Light:
   m_ObjectHideFlags: 0
@@ -671,8 +639,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.77205884, g: 0.77205884, b: 0.77205884, a: 1}
-  m_Intensity: 0.4
+  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -691,7 +659,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 149249
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -708,7 +676,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4471179286011236}
-  - component: {fileID: 114825184603427774}
   m_Layer: 0
   m_Name: lucesInferno
   m_TagString: Untagged
@@ -733,21 +700,6 @@ Transform:
   m_Father: {fileID: 4807984151650312}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114825184603427774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694287331702408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0659b0c21190fd4db2aebf898bfaa6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boyland: {fileID: 0}
-  gallax: {fileID: 0}
-  inferno: {fileID: 0}
 --- !u!1 &1895176871125006
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,13 +724,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1895176871125006}
-  m_LocalRotation: {x: 0.8169436, y: -0, z: -0.000000027939674, w: 0.57671756}
+  m_LocalRotation: {x: 0.9098527, y: 0, z: 0, w: 0.41493154}
   m_LocalPosition: {x: 0, y: 3.1999998, z: -9.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4793793781876154}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 109.56, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 130.97, y: 0, z: 0}
 --- !u!108 &108623587565892078
 Light:
   m_ObjectHideFlags: 0
@@ -789,8 +741,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.77205884, g: 0.77205884, b: 0.77205884, a: 1}
-  m_Intensity: 0.4
+  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -809,7 +761,7 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 149249
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1

@@ -16,4 +16,8 @@ public class AvatarThumb : MonoBehaviour
     {
         image.sprite = Sprite.Create(texture2d, new Rect(0, 0, texture2d.width, texture2d.height), new Vector2(0.5f, 0.5f));
     }
+    public void Reset()
+    {
+        image.sprite = null;
+    }
 }

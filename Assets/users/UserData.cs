@@ -19,6 +19,7 @@ public class UserData : MonoBehaviour
 	public string path;
     public HiscoresByMissions hiscoresByMissions;
     public AvatarImages avatarImages;
+    public int playerID;
 
     public static UserData Instance
     {
@@ -51,9 +52,11 @@ public class UserData : MonoBehaviour
         if (RESET_ALL_DATA)
             PlayerPrefs.DeleteAll();
 
+        playerID = PlayerPrefs.GetInt("playerID");
+
         username = PlayerPrefs.GetString("username");
 #if UNITY_EDITOR
-        path = Application.dataPath + "/../";
+        path = Application.persistentDataPath + "/";
 #else
         path = Application.persistentDataPath + "/";
 #endif

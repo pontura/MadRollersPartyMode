@@ -16,6 +16,11 @@ public class AudioSpectrumView : MonoBehaviour {
 	AudioSpectrum audioSpectrum;
 
 	void Start () {
+        if(Data.Instance.isAndroid)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 		audioSpectrum = Data.Instance.voicesManager.audioSpectrum;
 		Data.Instance.events.OnTalk += OnTalk;
 		panel.SetActive (false);

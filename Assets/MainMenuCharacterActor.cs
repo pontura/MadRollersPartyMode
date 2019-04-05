@@ -13,5 +13,7 @@ public class MainMenuCharacterActor : MonoBehaviour {
 		p.transform.SetParent (container);
 		p.transform.localScale = Vector3.one;
 		p.transform.localPosition = Vector3.zero;
-	}
+        p.isPlaying = false;
+
+    }
 }

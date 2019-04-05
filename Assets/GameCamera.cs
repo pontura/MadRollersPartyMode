@@ -349,7 +349,7 @@ public class GameCamera : MonoBehaviour
 	}
 	public void SetOrientation(Vector4 orientation)
 	{
-        if (Data.Instance.isAndroid)
+       // if (Data.Instance.isAndroid)
             orientation /= 8;
         newCameraOrientationVector = cameraOrientationVector + new Vector3 (orientation.x, orientation.y, orientation.z);
 	//	newRotation = defaultRotation + new Vector3 (orientation.w, 0, 0);

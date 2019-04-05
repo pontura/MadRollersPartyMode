@@ -374,7 +374,7 @@ public class CharacterBehavior : MonoBehaviour {
 	}
 	public bool IsJumping()
 	{
-		if(!grounded)
+		if(jumpingPressed || !grounded)
 			return true;
 		return false;
 	}

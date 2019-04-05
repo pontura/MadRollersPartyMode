@@ -6691,99 +6691,9 @@ MonoBehaviour:
     moveForward: []
     soData: []
     isChild: 0
-  - name: palm
-    pos: {x: -10.19, y: -0.62, z: 9.59}
-    rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: -10.73, y: -0.62, z: 4.86}
-    rot: {x: 0, y: 270, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: -9.63, y: -0.62, z: 1.03}
-    rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 11.1, y: -0.62, z: -3.2}
-    rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 11.1, y: -0.62, z: -6.58}
-    rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 9.37, y: -0.62, z: -10.41}
-    rot: {x: 0, y: 270, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 9.75, y: -0.62, z: -1.71}
-    rot: {x: 0, y: 180, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
   - name: palmTall
     pos: {x: 9.75, y: -0.62, z: 8.4}
     rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palmTall
-    pos: {x: 8.6, y: -0.62, z: 3.6}
-    rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palmTall
-    pos: {x: -10.2, y: -0.62, z: -2.8}
-    rot: {x: 0, y: 270, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palmTall
-    pos: {x: -11.4, y: -0.62, z: -6.4}
-    rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
     bossSettings: []
@@ -6807,7 +6717,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1607946064814444}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36c09387fd1372140a72bc39ea3b489e, type: 3}
   m_Name: 

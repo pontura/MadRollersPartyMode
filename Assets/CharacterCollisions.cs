@@ -76,7 +76,9 @@ public class CharacterCollisions : MonoBehaviour {
         }
         else if ( other.tag == "enemy" )
         {
-			if (characterBehavior.IsJumping()) {	
+            print("______________" + characterBehavior.state + characterBehavior.IsJumping());
+
+            if (characterBehavior.IsJumping()) {	
 				MmoCharacter mmoCharacter = other.GetComponent<MmoCharacter> ();
 				if (mmoCharacter != null) {		
 					other.GetComponent<MmoCharacter> ().Die ();

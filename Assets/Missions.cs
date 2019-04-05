@@ -50,8 +50,10 @@ public class Missions : MonoBehaviour {
 	int areaID = 0;
 
 	VideogamesData videogamesData;
-
-	public void Init()
+    void Start()
+    {
+    }
+    public void Init()
 	{	
 		videogamesData = GetComponent<VideogamesData> ();
 		data = Data.Instance;

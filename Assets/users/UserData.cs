@@ -109,9 +109,9 @@ public class UserData : MonoBehaviour
     void LoadUserPhoto()
     {
 #if UNITY_EDITOR
-        sprite = LoadSprite(Application.dataPath + "/../" + UserData.Instance.userID + ".png");
+        sprite = LoadSprite(UserData.Instance.path + UserData.Instance.userID + ".png");
 #else
-         sprite = LoadSprite(Application.persistentDataPath + "/" + UserData.Instance.userID + ".png");
+         sprite = LoadSprite(UserData.Instance.userID + ".png");
 #endif
     }
     private Sprite LoadSprite(string path)

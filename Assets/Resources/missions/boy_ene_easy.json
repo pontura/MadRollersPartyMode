@@ -18,7 +18,7 @@
 		},
 		{
 			"total_areas": 2,
-			"bending":-7,
+			"bending":-12,
 			"randomize": true,
 			"areas": [
 			"CoinsHard1",
@@ -54,7 +54,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 1.7,
+				"y": 0,
 				"z": -1
 			}
 		},
@@ -67,7 +67,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -3.5,
+				"y": -1.5,
 				"z": -1.7
 			}
 		},
@@ -81,7 +81,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -3,
+				"y": -2,
 				"z": -1.5
 			}
 		},
@@ -93,7 +93,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -2.5,
+				"y": -1.5,
 				"z": -1.25
 			}
 		},
@@ -107,8 +107,8 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -3,
-				"z": -1.25
+				"y": -4,
+				"z": -1.5
 			}
 		},
 		{

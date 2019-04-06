@@ -101,22 +101,18 @@ public class UserData : MonoBehaviour
 	{
 		Debug.Log("Loading image from local...");
 		if(sprite == null)
-			Invoke("LoopUntilPhotoIsLoadedLoop", 1);
+			Invoke("LoopUntilPhotoIsLoadedLoop", 2);
 		else
 			func();
 		LoadUserPhoto();
 	}
     void LoadUserPhoto()
     {
-#if UNITY_EDITOR
-        sprite = LoadSprite(UserData.Instance.path + UserData.Instance.userID + ".png");
-#else
-         sprite = LoadSprite(UserData.Instance.userID + ".png");
-#endif
+        sprite = LoadSprite(path + userID + ".png");
     }
     private Sprite LoadSprite(string path)
     {
-        Debug.Log("Searching for image in " + path);
+        Debug.Log("Busca imagen en: " + path);
         if (string.IsNullOrEmpty(path)) return null;
         if (System.IO.File.Exists(path))
         {

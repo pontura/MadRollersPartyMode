@@ -81,10 +81,12 @@ public class WebcamPhoto : MonoBehaviour
         this.OnDone = OnDone;
 
 #if UNITY_EDITOR
-        string fileName = Application.persistentDataPath + "/" + UserData.Instance.userID + ".png";
+        string fileName = UserData.Instance.path + UserData.Instance.userID + ".png";
 #else
         string fileName = UserData.Instance.userID + ".png";
 #endif
+        print("____________ GUARDA SCREENSHOT en : " + UserData.Instance.path + UserData.Instance.userID + ".png");
+
         ScreenCapture.CaptureScreenshot(fileName);
        
         Invoke("Delayed", 0.5f);

@@ -32,7 +32,7 @@ public class AvatarImages : MonoBehaviour
     {
         foreach (Data d in all)
         {
-            if (d.userID == userID)
+            if (d.userID == userID && d.texture != null)
             {
                 OnLoaded(d.texture);
                 return;

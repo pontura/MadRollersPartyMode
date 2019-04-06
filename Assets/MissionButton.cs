@@ -21,6 +21,7 @@ public class MissionButton : MonoBehaviour {
     public Text missionField;
     public Text usernameField;
     public int missionActive;
+    public LevelSelectorMobile levelSelectorMobile;
 
     // se usa tanto para mobile como para Standalone!
 
@@ -31,6 +32,10 @@ public class MissionButton : MonoBehaviour {
 		anim ["MissionButtonOn"].normalizedTime = 0;
 		anim.Play ("MissionButtonOn");
 	}
+    public void SetMobile(LevelSelectorMobile levelSelectorMobile)
+    {
+        this.levelSelectorMobile = levelSelectorMobile;
+    }
 
     // solo version Mobile Android!
     public void OnClick()
@@ -38,13 +43,18 @@ public class MissionButton : MonoBehaviour {
 		anim.Play ("videoGameButtonMobile");
         Data.Instance.videogamesData.actualID = videogameData.id;
         Data.Instance.missions.MissionActiveID = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;
-        Invoke("DelayedClick", 0.5f);
+        Invoke("DelayedClick", 1);
+        levelSelectorMobile.OnMissionButtonClicked(this);
     }
 
 	public void SetOn()
 	{
 		anim.Play ("MissionTopSetActive");
 	}
+    public void SetMenuButtonOff()
+    {
+        anim.Play("MissionButtonOff");
+    }
     void DelayedClick()
     {
         Data.Instance.LoadLevel("Game");

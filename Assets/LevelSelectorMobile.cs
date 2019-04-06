@@ -57,8 +57,18 @@ public class LevelSelectorMobile : MonoBehaviour
     {
         VideogameData data = Data.Instance.videogamesData.all[id];
         diskette.Init(data);
+        diskette.SetMobile(this);
         diskette.GetComponent<MissionSelector>().LoadVideoGameData(id);    
         diskette.GetHiscore();
+    }
+    public void OnMissionButtonClicked(MissionButton button)
+    {
+        if (diskette1 != button)
+            diskette1.SetMenuButtonOff();
+        if (diskette2 != button)
+            diskette2.SetMenuButtonOff();
+        if (diskette3 != button)
+            diskette3.SetMenuButtonOff();
     }
     public void Back()
     {

@@ -29,6 +29,11 @@ public class UserUIRegistrationPanel : MonoBehaviour
         ShowEditPanel();
         UsersEvents.OnUserUploadDone += OnUserUploadDone;
     }
+    void OnEnable()
+    {
+        if(UserData.Instance.username != "")
+            field.text = UserData.Instance.username;
+    }
     void OnUserUploadDone()
     {
         avatarThumb.Reset();

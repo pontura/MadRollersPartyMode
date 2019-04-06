@@ -80,7 +80,7 @@ public class WebcamPhoto : MonoBehaviour
     {
         this.OnDone = OnDone;
 
-#if unity_editor
+#if UNITY_EDITOR
         string fileName = Application.persistentDataPath + "/" + UserData.Instance.userID + ".png";
 #else
         string fileName = UserData.Instance.userID + ".png";

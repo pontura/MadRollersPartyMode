@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 111039201507087284}
   background: {fileID: 114484944020726878}
-  id: 0
+  id: 2
   videoGameID: 0
   logo: {fileID: 114012297630781114}
   floppyCover: {fileID: 114429407698694780}
@@ -1046,7 +1046,7 @@ Animation:
   m_Animation: {fileID: 0}
   m_Animations:
   - {fileID: 7400000, guid: 0c545e0a82977e04494f7a4a2bf7ce03, type: 2}
-  - {fileID: 7400000, guid: 3f421d4e085457643a983af2f154583f, type: 2}
+  - {fileID: 7400000, guid: 17464c10ac70cdb428512b8d46931494, type: 2}
   - {fileID: 7400000, guid: 8ff859484ef72944690332be69a2af4e, type: 2}
   - {fileID: 7400000, guid: 4c6f3e338d3e5d543b062538eafe0bd8, type: 2}
   m_WrapMode: 0

@@ -51,7 +51,9 @@ public class CharactersManager : MonoBehaviour {
 		}
         if (Data.Instance.isAndroid)
             return;
-		Loop ();
+
+        if (!Data.Instance.isAndroid)
+            Loop ();
     }
 	void Loop()	{
 		foreach (CharacterBehavior cb in characters)

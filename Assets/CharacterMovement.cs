@@ -65,16 +65,19 @@ public class CharacterMovement : MonoBehaviour {
 	{
 		Vector3 goTo = transform.position;
 
-//		if (cb.isOver)
-//		{
-//			goTo.x = cb.isOver.transform.localPosition.x;
-//			goTo.y = cb.isOver.transform.localPosition.y + 1;
-//			goTo.z = cb.isOver.transform.localPosition.z+0.2f;
-//		}
-//		else
-//		{
+        //		if (cb.isOver)
+        //		{
+        //			goTo.x = cb.isOver.transform.localPosition.x;
+        //			goTo.y = cb.isOver.transform.localPosition.y + 1;
+        //			goTo.z = cb.isOver.transform.localPosition.z+0.2f;
+        //		}
+        //		else
+        //		{
 
-		float _z = cb.player.charactersManager.distance - (characterScorePosition/1.25f);
+        float _z = cb.player.charactersManager.distance;
+        if(!Data.Instance.isAndroid)
+             _z -= (characterScorePosition/1.25f);
+
 		if (cb.controls.isAutomata)
 				_z -= 2;
 	//		if (team_for_versus == 2) {

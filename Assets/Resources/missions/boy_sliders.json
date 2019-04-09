@@ -5,7 +5,7 @@
 		"id": 0,
 		"maxScore": 0,
 		"areaSetData": [{
-			"total_areas": 4,
+			"total_areas": 3,
 			"randomize": false,
 			"areas": ["slider_intro3",
 			"slider_intro4",
@@ -32,7 +32,7 @@
 			}
 		},
 		{
-			"total_areas": 4,
+			"total_areas": 3,
 			"randomize": false,
 			"areas": ["slider1",
 			"sliderBossCubos",

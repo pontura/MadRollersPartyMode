@@ -17,7 +17,7 @@
 			}
 		},
 		{
-			"total_areas": 2,
+			"total_areas": 1,
 			"bending":-12,
 			"randomize": true,
 			"areas": [
@@ -26,7 +26,7 @@
 			"coinsHard3"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 0.0,
+				"y": -1.0,
 				"z": 0.0
 			}
 		},
@@ -39,40 +39,25 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -1.0,
+				"y": -2.0,
 				"z": -0.5
 			}
 		},
 		{
-			"total_areas": 2,
-			"bending":-20,
-			"randomize": false,
-			"areas": [
-			"killRunnerSimple_1",
-			"killRunnerSimple_2",
-			"killRunnerSimple_3"
-			],
-			"cameraOrientation": {
-				"x": 0.0,
-				"y": 0,
-				"z": -1
-			}
-		},
-		{
 			"total_areas": 1,
-			"bending":-15,
+			"bending":-13,
 			"randomize": false,
 			"areas": [
 			"killRunnerSimple_4"
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -1.5,
-				"z": -1.7
+				"y": 1,
+				"z": -1
 			}
 		},
 		{
-			"total_areas": 2,
+			"total_areas": 1,
 			"randomize": true,
 			"areas": [
 			"killRunner2",
@@ -81,20 +66,8 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -2,
-				"z": -1.5
-			}
-		},
-		{
-			"total_areas": 1,
-			"randomize": true,
-			"areas": [
-			"killRunner_2Caminos"
-			],
-			"cameraOrientation": {
-				"x": 0.0,
-				"y": -1.5,
-				"z": -1.25
+				"y": 1,
+				"z": 0
 			}
 		},
 		{
@@ -107,7 +80,7 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -4,
+				"y": -3,
 				"z": -1.5
 			}
 		},
@@ -115,7 +88,9 @@
 			"total_areas": 1,
 			"bending":-15,
 			"randomize": true,
-			"areas": ["descansoAnchoMinimal"],
+			"areas": [
+			"descansoAnchoMinimal"
+			],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": 2.0,
@@ -131,8 +106,8 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -2.0,
-				"z": -1.0
+				"y": -2.5,
+				"z": -1.25
 			}
 		},
 		{

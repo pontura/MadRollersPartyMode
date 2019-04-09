@@ -64,11 +64,11 @@ public class Missions : MonoBehaviour {
         data.events.ResetMissionsBlocked += ResetMissionsBlocked;
         data.events.OnMissionComplete += OnMissionComplete;
 	}
-    void OnDestroy()
-    {
-        data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
-        data.events.OnMissionComplete -= OnMissionComplete;
-    }
+    //void OnDestroy()
+    //{
+    //    data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
+    //    data.events.OnMissionComplete -= OnMissionComplete;
+    //}
     void ResetMissionsBlocked()
     {
         foreach (VideogameData vData in Data.Instance.videogamesData.all)

@@ -5,7 +5,6 @@ using System.Collections;
 public class LevelComplete : MonoBehaviour {
 
 	public GameObject panel;
-	public Stars stars;
     public Text[] fields;
 
 	void Start()
@@ -14,7 +13,6 @@ public class LevelComplete : MonoBehaviour {
 	}
      void OnDestroy()
      {
-         stars = null;
 		fields = null;
      }
     public void Init(int missionNum)
@@ -26,23 +24,6 @@ public class LevelComplete : MonoBehaviour {
     //    int quarter = maxScore / 4;
 
 		string titleText ="";
-
-        int starsQty;
-		//if (missionScore >= quarter * 4) {
-			titleText = "EXCELLENT";
-			starsQty = 3;
-//		//} else if (missionScore >= quarter * 2) {
-//			titleText = "WELL DONE";
-//			starsQty = 2;
-//		} else if (missionScore >= quarter) {
-//			titleText = "OK...";
-//			starsQty = 1;
-//		} else {
-//			titleText = "POOR...";
-//			starsQty = 0;
-//		}
-
-        stars.Init(starsQty);
 
 		foreach (Text label in fields)
 			Data.Instance.handWriting.WriteTo(label, titleText, null);

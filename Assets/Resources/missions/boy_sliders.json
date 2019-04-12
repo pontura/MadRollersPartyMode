@@ -6,8 +6,10 @@
 		"maxScore": 0,
 		"areaSetData": [{
 			"total_areas": 3,
+			"bending":-15,
 			"randomize": false,
-			"areas": ["slider_intro3",
+			"areas": [
+			"slider_intro3",
 			"slider_intro4",
 			"slider_intro5_doble",
 			"slider_intro1",
@@ -32,7 +34,21 @@
 			}
 		},
 		{
+			"total_areas": 2,
+			"bending":-30,
+			"randomize": false,
+			"areas": [
+			"sliderWalls_seguidas1"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -1
+			}
+		},
+		{
 			"total_areas": 3,
+			"bending":-15,
 			"randomize": false,
 			"areas": ["slider1",
 			"sliderBossCubos",

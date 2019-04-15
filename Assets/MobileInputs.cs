@@ -70,8 +70,15 @@ public class MobileInputs : MonoBehaviour
         jumpingPressedSince = 0;
         GetCharacter().Jump();
     }
+    void Vibrate()
+    {
+#if UNITY_ANDROID
+        Handheld.Vibrate();
+#endif
+    }
     public void Jump()
     {
+        Vibrate();
         ResetTutorial();
         if (GetCharacter() == null)
             return;
@@ -93,6 +100,7 @@ public class MobileInputs : MonoBehaviour
     }
     public void Shoot()
     {
+        Vibrate();
         ResetTutorial();
         if (GetCharacter() == null)
             return;
@@ -100,6 +108,7 @@ public class MobileInputs : MonoBehaviour
     }
     public void ShootTriple()
     {
+        Vibrate();
         ResetTutorial();
         if (GetCharacter() == null)
             return;

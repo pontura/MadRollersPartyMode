@@ -115,7 +115,7 @@
 			"descansoAnchoMinimal",
 			"boss_Pacmans_intro_free_simple",
 			"boss_Pacmans_intro",
-			"boss_Pacmans_intro_free_simple"],
+			"boss_Pacmans_intro_free"],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": -2.0,
@@ -126,8 +126,10 @@
 			"total_areas": 1000,
 			"randomize": true,
 			"bending":-18,
-			"areas": ["boss_Pacmans_intro_free",
-			"boss_Pacmans_intro_free_simple"],
+			"areas": [
+			"boss_Pacmans_intro_free",
+			"boss_Pacmans_intro_free2"
+			],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": -3,

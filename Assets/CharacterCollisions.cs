@@ -60,17 +60,20 @@ public class CharacterCollisions : MonoBehaviour {
             
             if (other.transform.eulerAngles.x == 0 && difY < 1.6f)
                {
-                if (difY < 0.15f)
+                Vector3 pos = characterBehavior.transform.position;
+                if (difY < -0.5f)
                 {
                     characterBehavior.Hit();
                     return;
                 }
+                else if (difY < 0.15f)
+                    characterBehavior.SuperJumpByBumped(2600, 0.5f, false);
                 else if (difY < 0.5f)
                     characterBehavior.SuperJumpByBumped(2000, 0.5f, false);
                 else
                     characterBehavior.SuperJumpByBumped(1200, 0.5f, false);
-                Vector3 pos = characterBehavior.transform.position;
-                pos.y += 0.5f;
+               
+                pos.y += difY;
                 characterBehavior.transform.position = pos;
             }
         }

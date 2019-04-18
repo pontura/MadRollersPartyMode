@@ -103,6 +103,7 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"descansoAnchoMinimal",
 			"boss_serpientes",

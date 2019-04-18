@@ -30,7 +30,8 @@
 		{
 			"total_areas": 6,
 			"randomize": true,
-			"areas": ["2lados",
+			"areas": [
+			"2lados",
 			"2lados 1"],
 			"cameraOrientation": {
 				"x": 0.0,
@@ -52,7 +53,9 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
-			"areas": ["boss_calle_CentroFree",
+			"boss": true,
+			"areas": [
+			"boss_calle_CentroFree",
 			"boss_calle_Centro_boss",
 			"boss_calle_CentroFree"],
 			"cameraOrientation": {

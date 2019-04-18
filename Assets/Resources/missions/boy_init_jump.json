@@ -111,6 +111,7 @@
 			"total_areas": 3,
 			"randomize": false,
 			"bending":-12,
+			"boss": true,
 			"areas": [			
 			"descansoAnchoMinimal",
 			"boss_Pacmans_intro_free_simple",

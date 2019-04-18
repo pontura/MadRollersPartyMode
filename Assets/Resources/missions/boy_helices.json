@@ -67,7 +67,9 @@
 		{
 			"total_areas": 2,
 			"randomize": false,
-			"areas": ["boss_naves_boyland",
+			"boss": true,
+			"areas": [
+			"boss_naves_boyland",
 			"boss_ancho_free"],
 			"cameraOrientation": {
 				"x": 0.0,

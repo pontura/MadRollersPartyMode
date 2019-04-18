@@ -11,6 +11,7 @@ public class Data : MonoBehaviour {
 	[HideInInspector]
 	public string testAreaName;
 
+    public bool playOnlyBosses;
 	public bool canContinue;
 	public int totalCredits;
 	public int credits;
@@ -121,8 +122,9 @@ public class Data : MonoBehaviour {
 			playMode = PlayModes.STORYMODE;
 			DEBUG = LevelDataDebug.Instance.isDebbug;
 			this.isArcadeMultiplayer = LevelDataDebug.Instance.isArcadeMultiplayer;
+            this.playOnlyBosses = LevelDataDebug.Instance.playOnlyBosses;
 
-			if (isArcadeMultiplayer)
+            if (isArcadeMultiplayer)
 				playMode = PlayModes.PARTYMODE;
 			
 			this.forceVideogameID = LevelDataDebug.Instance.videogameID;

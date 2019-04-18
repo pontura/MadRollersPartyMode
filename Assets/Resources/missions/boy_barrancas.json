@@ -86,6 +86,7 @@
 			"total_areas": 2,
 			"bending":-12,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"boss_Ball",
 			"barrancas_free"

@@ -101,6 +101,7 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"boss_2_filas",
 			"boss_2_filas_free",

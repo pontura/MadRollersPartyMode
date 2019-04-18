@@ -35,7 +35,9 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
-			"areas": ["boss_Crusader",
+			"boss": true,
+			"areas": [
+			"boss_Crusader",
 			"areaFree_boss1",
 			"areaFree_boss1"],
 			"cameraOrientation": {

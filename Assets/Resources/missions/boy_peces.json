@@ -70,6 +70,7 @@
 		{
 			"total_areas": 1,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"boss_agua",
 			"boss_agua_free2"

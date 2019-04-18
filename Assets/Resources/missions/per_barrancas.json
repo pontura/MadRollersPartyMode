@@ -20,7 +20,9 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
-			"areas": ["cilindro1",
+			"boss": true,
+			"areas": [
+			"cilindro1",
 			"cilindroBossPer",
 			"cilindro1",
 			"cilindro1"],

@@ -31,7 +31,9 @@ public class MissionButton : MonoBehaviour {
 		floppyCover.sprite = videogameData.floppyCover;
 		anim ["MissionButtonOn"].normalizedTime = 0;
 		anim.Play ("MissionButtonOn");
-	}
+        missionField.text = videogameData.name;
+        usernameField.text = "MISSION 0";
+    }
     public void SetMobile(LevelSelectorMobile levelSelectorMobile)
     {
         this.levelSelectorMobile = levelSelectorMobile;

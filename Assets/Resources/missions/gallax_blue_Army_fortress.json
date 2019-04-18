@@ -70,8 +70,11 @@
 		{
 			"total_areas": 2,
 			"randomize": false,
-			"areas": ["paredes1Boss",
-			"paredes1BossFree1"],
+			"boss": true,
+			"areas": [
+			"paredes1Boss",
+			"paredes1BossFree1"
+			],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": -5.5,

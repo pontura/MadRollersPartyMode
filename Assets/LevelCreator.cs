@@ -5,7 +5,8 @@ using System;
 using UnityEditor;
 public class LevelCreator : MonoBehaviour {
 
-	public bool isArcadeMultiplayer;
+    public bool playOnlyBosses;
+    public bool isArcadeMultiplayer;
 	public bool Debbug;
 
 	//[HideInInspector]
@@ -23,7 +24,8 @@ public class LevelCreator : MonoBehaviour {
 
 	void Start () {
 		if (Debbug) {
-			LevelDataDebug.Instance.isArcadeMultiplayer = isArcadeMultiplayer;
+            LevelDataDebug.Instance.playOnlyBosses = playOnlyBosses;
+            LevelDataDebug.Instance.isArcadeMultiplayer = isArcadeMultiplayer;
 			LevelDataDebug.Instance.isDebbug = true;
 			LevelDataDebug.Instance.videogameID = videoGameID-1;
 			LevelDataDebug.Instance.missionID = missionID;

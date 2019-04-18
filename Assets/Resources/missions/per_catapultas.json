@@ -18,7 +18,7 @@
 			}
 		},
 		{
-			"total_areas": 5,
+			"total_areas": 6,
 			"randomize": true,
 			"areas": [
 			"cataputas_x2",
@@ -33,7 +33,9 @@
 		{
 			"total_areas": 10000,
 			"randomize": false,
-			"areas": ["water_1",
+			"boss": true,
+			"areas": [
+			"water_1",
 			"cataputas_x2_boss",
 			"cataputas_x2_free"],
 			"cameraOrientation": {

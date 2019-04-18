@@ -125,7 +125,9 @@
 		{
 			"total_areas": 4,
 			"randomize": false,
-			"areas": ["firewallsBoss",
+			"boss": true,
+			"areas": [
+			"firewallsBoss",
 			"firewallsBossFree"],
 			"cameraOrientation": {
 				"x": 0.0,

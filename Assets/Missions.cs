@@ -5,7 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Missions : MonoBehaviour {
-	
+
+    public bool hasReachedBoss;
 	public TextAsset _all;
 	public MissionsListInVideoGame all;
 
@@ -150,7 +151,8 @@ public class Missions : MonoBehaviour {
 	}
 	void OnMissionComplete(int id)
 	{
-		times_trying_same_mission = 0;
+        hasReachedBoss = false;
+        times_trying_same_mission = 0;
 		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
 			AddAreaByName ("areaChangeLevel");
 			return;
@@ -221,8 +223,21 @@ public class Missions : MonoBehaviour {
 	int total_areas = 1;
 	void SetNextArea()
 	{
-		CreateCurrentArea ();
-		MissionData.AreaSetData data = MissionActive.areaSetData [areaSetId];
+        MissionData.AreaSetData data = MissionActive.areaSetData[areaSetId];
+        if ((Data.Instance.playOnlyBosses || hasReachedBoss) && !data.boss && areaSetId < MissionActive.areaSetData.Count - 2)
+        {
+            print("escquiva areaSet porque ya llegó al boss");
+            areaSetId++;
+            ResetAreaSet();
+            SetNextArea();
+            return;
+        }
+
+        if (data.boss)
+            hasReachedBoss = true;
+
+        CreateCurrentArea ();
+		
 		Game.Instance.gameCamera.SetOrientation (data.cameraOrientation);
 		total_areas = data.total_areas;
 		float bending = data.bending;
@@ -231,6 +246,7 @@ public class Missions : MonoBehaviour {
 			Data.Instance.events.ChangeCurvedWorldX(bending);
 	//	if (MissionActive.areaSetData [areaSetId].randomize && Game.Instance.level.charactersManager.getTotalCharacters()==1) 
 		//	total_areas /= 1.25f;
+        
 		
 		if (areaNum >= total_areas) {
 			if (areaSetId < MissionActive.areaSetData.Count - 1) {

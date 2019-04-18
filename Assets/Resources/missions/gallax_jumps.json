@@ -128,6 +128,7 @@
 			"total_areas": 3,
 			"bending":-2,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"descansoAnchoMinimal",
 			"boss_naves",

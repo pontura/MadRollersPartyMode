@@ -44,7 +44,9 @@
 		{
 			"total_areas": 5,
 			"randomize": false,
-			"areas": ["ruedaBoss",
+			"boss": true,
+			"areas": [
+			"ruedaBoss",
 			"ruedaBossFree1",
 			"ruedaBossFree2",
 			"ruedaBossFree3",

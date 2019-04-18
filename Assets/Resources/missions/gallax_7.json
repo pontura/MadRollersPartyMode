@@ -135,8 +135,11 @@
 		{
 			"total_areas": 1,
 			"randomize": false,
-			"areas": ["subibajaBoss",
-			"subibajaBossFree"],
+			"boss": true,
+			"areas": [
+			"subibajaBoss",
+			"subibajaBossFree"
+			],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": 1.0,

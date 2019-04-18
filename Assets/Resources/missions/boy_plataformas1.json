@@ -94,6 +94,7 @@
 			"total_areas": 8,
 			"bending":-4,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"curvo_av_retro_boss",
 			"pisoCurvo_boss_free",

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelDataDebug : MonoBehaviour {
-	[HideInInspector]
-	public bool isArcadeMultiplayer;
+    [HideInInspector]
+    public bool isArcadeMultiplayer;
+    [HideInInspector]
+	public bool playOnlyBosses;
 	[HideInInspector]
 	public bool isDebbug;
 	[HideInInspector]

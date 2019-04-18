@@ -105,8 +105,11 @@
 		{
 			"total_areas": 1,
 			"randomize": false,
-			"areas": ["boss_2filas_boyland",
-			"boss_2_filas_boyland_free"],
+			"boss": true,
+			"areas": [
+			"boss_2filas_boyland",
+			"boss_2_filas_boyland_free"
+			],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": -2,

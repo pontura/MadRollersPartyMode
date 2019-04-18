@@ -57,7 +57,9 @@
 		{
 			"total_areas": 4,
 			"randomize": false,
-			"areas": ["descanso1",
+			"boss": true,
+			"areas": [
+			"descanso1",
 			"descanso2",
 			"boss_Calecitas",
 			"boss_45grados_free"],

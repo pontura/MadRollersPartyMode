@@ -57,14 +57,31 @@
 			"total_areas": 3,
 			"bending":-15,
 			"randomize": false,
+			"boss": true,
 			"areas": [
-			"descanso1",
-			"boss_Calecitas",
-			"boss_45grados_free"],
+			"descansoMuyAnchoEntrance",
+			"descansoMuyAncho",
+			"descansoMuyAncho",
+			"boss_navesOcultas",
+			"descansoMuyAncho"],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": -2.0,
 				"z": 0.0
+			}
+		},
+		{
+			"total_areas": 3,
+			"bending":-15,
+			"randomize": true,
+			"areas": [
+			"descansoMuyAncho",
+			"descansoMuyAnchoSalto",
+			"descansoMuyAnchoEscupen"],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -2.0
 			}
 		}],
 		"backgroundSides": []

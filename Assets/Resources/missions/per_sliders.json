@@ -34,7 +34,9 @@
 		{
 			"total_areas": 3,
 			"randomize": false,
-			"areas": ["slider1",
+			"boss": true,
+			"areas": [
+			"slider1",
 			"sliderBossCubosPer",
 			"sliderWalls_seguidas1",
 			"sliderWalls_seguidas2"],

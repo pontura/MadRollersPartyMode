@@ -107,6 +107,7 @@
 		{
 			"total_areas": 10000,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"boss_circular",
 			"areaFree_boss2"

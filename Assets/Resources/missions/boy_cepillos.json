@@ -50,7 +50,9 @@
 		{
 			"total_areas": 10000,
 			"randomize": false,
-			"areas": ["water_1",
+			"boss": true,
+			"areas": [
+			"water_1",
 			"boss_circular",
 			"areaFree_boss2"],
 			"cameraOrientation": {

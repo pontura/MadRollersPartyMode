@@ -125,6 +125,7 @@
 		{
 			"total_areas": 4,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"bossVienen",
 			"bossVienenFree"

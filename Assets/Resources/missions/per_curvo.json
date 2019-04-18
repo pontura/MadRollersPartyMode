@@ -32,7 +32,9 @@
 		{
 			"total_areas": 6,
 			"randomize": false,
-			"areas": ["pisoCurvo_boss",
+			"boss": true,
+			"areas": [
+			"pisoCurvo_boss",
 			"pisoCurvo_boss_free"],
 			"cameraOrientation": {
 				"x": 0.0,

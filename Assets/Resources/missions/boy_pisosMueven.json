@@ -81,6 +81,7 @@
 		{
 			"total_areas": 2,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"container_boss",
 			"container_boss_centro"

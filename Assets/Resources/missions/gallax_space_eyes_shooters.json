@@ -59,7 +59,9 @@
 		{
 			"total_areas": 2,
 			"randomize": false,
-			"areas": ["boss_2_filas_eyes",
+			"boss": true,
+			"areas": [
+			"boss_2_filas_eyes",
 			"boss_2_filas_free_eyes"],
 			"cameraOrientation": {
 				"x": 0.0,

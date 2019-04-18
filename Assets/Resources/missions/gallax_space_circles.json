@@ -63,6 +63,7 @@
 		{
 			"total_areas": 10,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"cilindroDoubleBoss",
 			"cilindroDoubleBossFree"],

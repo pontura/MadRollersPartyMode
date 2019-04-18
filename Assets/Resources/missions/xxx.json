@@ -30,6 +30,7 @@
 		{
 			"total_areas": 10000,
 			"randomize": false,
+			"boss":true,
 			"areas": ["water_1",
 			"boss_circular",
 			"areaFree_boss2"],

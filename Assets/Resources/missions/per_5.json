@@ -46,7 +46,9 @@
 		{
 			"total_areas": 100,
 			"randomize": false,
-			"areas": ["escupe_boss",
+			"boss": true,
+			"areas": [
+			"escupe_boss",
 			"escupeBoss_free1"],
 			"cameraOrientation": {
 				"x": 0.0,

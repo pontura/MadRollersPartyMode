@@ -21,6 +21,7 @@
 		{
 			"total_areas": 4,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"pisoCurvo_V_boss_avanzan",
 			"pisoCurvo_boss_free"],

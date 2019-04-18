@@ -6,6 +6,7 @@
 		"maxScore": 150,
 		"areaSetData": [{
 			"total_areas": 1,
+			"bending": -16,
 			"randomize": true,
 			"areas": ["ruedasEnemigos",
 			"ruedaSimple"],
@@ -50,12 +51,13 @@
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": 0.0,
-				"z": 0.0
+				"z": -2
 			}
 		},
 		{
 			"total_areas": 14,
 			"randomize": false,
+			"bending": -8,
 			"areas": [
 			"boss1Corre",
 			"boss1Corre2",
@@ -71,8 +73,8 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 2.0,
-				"z": -5.0
+				"y": 6.0,
+				"z": -18.0
 			}
 		},
 		{
@@ -84,8 +86,8 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 1.5,
-				"z": -3.5
+				"y": 7.0,
+				"z": -16.0
 			}
 		},		
 		{
@@ -97,21 +99,23 @@
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 1.0,
-				"z": -3.0
+				"y": 6.0,
+				"z": -15.0
 			}
 		},		
 		{
 			"total_areas": 10000,
+			"bending": -15,
 			"randomize": false,
+			"boss": true,
 			"areas": [
 			"bossHuyenCorriendo",
 			"barrancas_free_ancha"
 			],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 0.0,
-				"z": -2.0
+				"y": 7.0,
+				"z": -14.0
 			}
 		}
 		],

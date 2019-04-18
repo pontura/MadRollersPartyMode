@@ -5,7 +5,7 @@
 		"id": 0,
 		"maxScore": 0,
 		"areaSetData": [{
-			"total_areas": 60,
+			"total_areas": 70,
 			"bending":-15,
 			"randomize": true,
 			"areas": ["pisoCurvo1",
@@ -58,6 +58,7 @@
 		{
 			"total_areas": 8,
 			"bending":-12,
+			"boss": true,
 			"randomize": false,
 			"areas": [
 			"pisoCurvo_boss",

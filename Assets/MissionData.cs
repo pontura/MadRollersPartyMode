@@ -16,6 +16,7 @@ public class MissionData  {
 	[Serializable]
 	public class AreaSetData
 	{
+        public bool boss;
 		public int total_areas;
 		public float bending;
 		public bool randomize;

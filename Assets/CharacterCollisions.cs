@@ -60,6 +60,12 @@ public class CharacterCollisions : MonoBehaviour {
             
             if (other.transform.eulerAngles.x == 0 && difY < 1.6f)
                {
+
+                //si es una plataforma rotada se va:
+                SceneObject so = other.transform.GetComponentInParent<SceneObject>();
+                if (so != null && so.transform.localEulerAngles != Vector3.zero)
+                    return;
+
                 Vector3 pos = characterBehavior.transform.position;
                 if (difY < -0.5f)
                 {

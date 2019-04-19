@@ -15,7 +15,7 @@
 			}
 		},
 		{
-			"total_areas": 4,
+			"total_areas": 3,
 			"randomize": false,
 			"areas": ["pisoSaltaAlto",
 			"pisoSaltaAlto 1",
@@ -30,6 +30,23 @@
 			}
 		},
 		{
+			"total_areas": 1,
+			"randomize": false,
+			"areas": [
+			"pisoSaltaAlto",
+			"pisoSaltaAlto 1",
+			"pisoSaltaAlto 1 1",
+			"pisoSaltaAlto",
+			"pisoSaltaAlto 1",
+			"pisoSaltaAlto 1 1"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 2,
+				"z": -2
+			}
+		},
+		{
 			"total_areas": 6,
 			"randomize": false,
 			"boss": true,
@@ -38,10 +55,11 @@
 			"resorteMovedizo_Boss_free"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": 1.0,
-				"z": -1.0
+				"y": 3,
+				"z": -4
 			}
-		}],
+		}
+		],
 		"backgroundSides": []
 	}]
 }

@@ -150,6 +150,9 @@ MonoBehaviour:
     Count: 1
   - Prefab: {fileID: 11470794, guid: 7629abd859eb33748b101b242aef2f5d, type: 3}
     Count: 1
+  - Prefab: {fileID: 4972257332484314806, guid: 8c8a9418d3fd5184ca7253421b2fbe56,
+      type: 3}
+    Count: 1
   Scene: {fileID: 0}
   pixelsPool: {fileID: 114105150858126812}
 --- !u!114 &114105150858126812

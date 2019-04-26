@@ -6,10 +6,12 @@
 		"maxScore": 0,
 		"areaSetData": [
 		{
-			"total_areas": 45,
+			"total_areas": 55,
 			"randomize": true,
 			"areas": [
 			"pisoCurvo1",
+			"pisoCurvoSnakes",
+			"pisoCurvoSnakes2",
 			"pisoCurvo2",
 			"pisoCurvo3",
 			"pisoCurvo4",

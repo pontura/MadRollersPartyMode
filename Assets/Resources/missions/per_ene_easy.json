@@ -36,7 +36,7 @@
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": 0.0,
-				"z": 0.0
+				"z": -2
 			}
 		},
 		{
@@ -46,13 +46,14 @@
 			"cilindro_simple 1"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -1.5,
-				"z": -0.5
+				"y": 1,
+				"z": -4
 			}
 		},
 		{
 			"total_areas": 3,
 			"randomize": false,
+			"bending": -20,
 			"boss": true,
 			"areas": [
 			"boss_calle_CentroFree",
@@ -60,20 +61,21 @@
 			"boss_calle_CentroFree"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -2.5,
-				"z": -1.0
+				"y": -8,
+				"z": -8
 			}
 		},
 		{
 			"total_areas": 3,
+			"bending": -15,
 			"randomize": true,
 			"areas": ["boss_calle_CentroFree",
 			"boss_calle_CentroFree 1",
 			"boss_calle_Centro_Cruz"],
 			"cameraOrientation": {
 				"x": 0.0,
-				"y": -0.4000000059604645,
-				"z": -0.5
+				"y": -12,
+				"z": -14
 			}
 		}],
 		"backgroundSides": []

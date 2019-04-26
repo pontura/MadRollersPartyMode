@@ -141,9 +141,9 @@ public class SceneObjectsBehavior : MonoBehaviour {
 			case "Cascade": 
 			case "firewall":        
 			case "Baranda1":  
-			case "Ray":  
-			//case "Tumba":  
-			case "enemyNaveSimple":  
+			case "Ray":
+            case "Special3":
+            case "enemyNaveSimple":  
 			case "BichoVuela":
 			case "palm":
 			case "palmTall":

@@ -78,7 +78,7 @@ public class FXExplotion : SceneObject {
 			return;
 		}
 		Breakable breakable = other.GetComponent<Breakable> ();
-		if (breakable!=null)
+		if (breakable!=null && !breakable.dontBeKilledByFloorExplotions)
 		{
 			breakable.breakOut(transform.position);
 			return;

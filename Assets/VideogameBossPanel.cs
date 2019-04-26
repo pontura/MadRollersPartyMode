@@ -33,7 +33,8 @@ public class VideogameBossPanel : MonoBehaviour {
 		
 		Data.Instance.events.OnAvatarDie += OnAvatarDie;
 		Data.Instance.events.OnGameOver += OnGameOver;
-	}
+        Data.Instance.events.OnBossSpecial += OnBossSpecial;
+    }
 	void OnGameStart()
 	{
 		StartCoroutine (InitCoroutine ());
@@ -54,14 +55,40 @@ public class VideogameBossPanel : MonoBehaviour {
 		Data.Instance.events.OnBossActive -= OnBossActive;
 		Data.Instance.events.OnBossDropBomb -= OnBossDropBomb;
 		Data.Instance.events.OnBossDropRay -= OnBossDropRay;		
-		Data.Instance.events.OnAvatarDie -= OnAvatarDie;	
+        Data.Instance.events.OnBossSpecial -= OnBossSpecial;
+        Data.Instance.events.OnAvatarDie -= OnAvatarDie;	
 		Data.Instance.events.OnGameOver -= OnGameOver;
 	}
 	void OnGameOver(bool isTimeOver)
 	{
 		Laugh (10);
 	}
-	void OnBossDropRay(int _x)
+    void OnBossSpecial(int _x)
+    {
+        if (Data.Instance.videogamesData.actualID != 2)
+            return;
+        StopAllCoroutines();
+        panel.SetActive(true);
+
+        state = states.ATTACK;
+        if (_x < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
+        else
+            transform.localScale = new Vector3(1, 1, 1);
+        StartCoroutine(SnakesCoroutine());
+
+    }
+    IEnumerator SnakesCoroutine()
+    {
+        if (Data.Instance.videogamesData.actualID == 2)
+            PlayAnim("attack");
+        yield return new WaitForSeconds(3);
+        animation.Play("videoGameBossOut");
+        yield return new WaitForSeconds(2);
+        SetOff();
+    }
+
+    void OnBossDropRay(int _x)
 	{
 		if (Data.Instance.videogamesData.actualID != 1)
 			return;
@@ -159,6 +186,7 @@ public class VideogameBossPanel : MonoBehaviour {
 		
 		if (state == states.MAD)
 			return;
+        StopAllCoroutines();
 		state = states.MAD;
 		StartCoroutine (MadCoroutine(timer));
 	}
@@ -194,7 +222,7 @@ public class VideogameBossPanel : MonoBehaviour {
 	}
 	IEnumerator MadCoroutine (float timer)
 	{
-		if(Data.Instance.videogamesData.actualID == 0)
+		if(Data.Instance.videogamesData.actualID == 0 || Data.Instance.videogamesData.actualID == 2)
 			PlayAnim ("mad");
 		yield return new WaitForSeconds (timer);
 		animation.Play ("videoGameBossOut");

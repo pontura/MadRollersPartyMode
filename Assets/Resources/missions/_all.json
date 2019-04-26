@@ -33,14 +33,15 @@
 	],
 	"missionsVideoGame3": [
 		"per_init_jumps",
-		"per_catapultas",	
-		"per_ene_easy",
-		"per_barrancas",
-		"per_vienen_de_atras",		
+		"per_ene_easy",	
+		"per_snakes",		
+		"per_vienen_de_atras",
+		"per_lava_gargolas",
+		"per_catapultas",		
+		"per_barrancas",				
 		"per_curvo",
-		"per_5",
 		"per_6",
 		"per_7",
-		"per_sliders"
+		"per_sliders"			
 	]
 }

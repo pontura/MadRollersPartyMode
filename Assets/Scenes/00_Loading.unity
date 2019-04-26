@@ -222,17 +222,17 @@ PrefabInstance:
     - target: {fileID: 114470505979592602, guid: e69c3317a5dec5945b3feea00990d858,
         type: 3}
       propertyPath: all.Array.data[2].bossFog.r
-      value: 0.10980392
+      value: 0.20392157
       objectReference: {fileID: 0}
     - target: {fileID: 114470505979592602, guid: e69c3317a5dec5945b3feea00990d858,
         type: 3}
       propertyPath: all.Array.data[2].bossFog.g
-      value: 0.28235295
+      value: 0.043137256
       objectReference: {fileID: 0}
     - target: {fileID: 114470505979592602, guid: e69c3317a5dec5945b3feea00990d858,
         type: 3}
       propertyPath: all.Array.data[2].bossFog.b
-      value: 0.09019608
+      value: 0.29411766
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}

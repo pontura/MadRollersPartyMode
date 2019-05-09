@@ -7,7 +7,7 @@ public class StartingPlatform : SceneObject {
 	//public GameObject[] platforms;
 	public SpriteRenderer logo;
 	public Player playerToInstantiate;
-	public Transform[] containers;
+	public Animation[] containers;
 	public List<int> ids;
 	public int avatarID;
 
@@ -15,13 +15,13 @@ public class StartingPlatform : SceneObject {
 	{
 		base.OnRestart( pos );
 		int id = 0;
-		foreach (Transform t in containers) {
-			Player newPlayer = Instantiate (playerToInstantiate, Vector3.zero, Quaternion.identity, t);
-			newPlayer.transform.localPosition = Vector3.zero;
-			newPlayer.isPlaying = false;	
-			newPlayer.id = id;
-			id++;
-		}
+		//foreach (Transform t in containers) {
+		//	Player newPlayer = Instantiate (playerToInstantiate, Vector3.zero, Quaternion.identity, t);
+		//	newPlayer.transform.localPosition = Vector3.zero;
+		//	newPlayer.isPlaying = false;	
+		//	newPlayer.id = id;
+		//	id++;
+		//}
 		Data.Instance.events.OnCharacterInit += OnCharacterInit;
 //		foreach (GameObject go in platforms) {
 //			Vector3 pos = go.transform.localPosition;
@@ -45,7 +45,8 @@ public class StartingPlatform : SceneObject {
 			if (i == _avatarID)
 				return;
 		}
-		ids.Add (_avatarID);
-		Destroy (containers [_avatarID].gameObject);
-	}
+        containers[_avatarID].Play("usbOn");
+        //ids.Add (_avatarID);
+        //	Destroy (containers [_avatarID].gameObject);
+    }
 }

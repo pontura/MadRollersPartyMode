@@ -47,7 +47,7 @@ public class Game : MonoBehaviour {
 			Invoke ("Delayed", 0.5f);
 			state = states.PLAYING;
 		} else {
-			gameCamera.Init ();
+            gameCamera.Init ();
 		}
 		GetComponent<CharactersManager>().Init();
 		//GetComponent<RainManager> ().Init ();

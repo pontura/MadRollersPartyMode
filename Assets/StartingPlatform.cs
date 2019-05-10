@@ -10,11 +10,14 @@ public class StartingPlatform : SceneObject {
 	public Animation[] containers;
 	public List<int> ids;
 	public int avatarID;
+    public GameObject lights;
 
 	public override void OnRestart(Vector3 pos)
 	{
 		base.OnRestart( pos );
-		int id = 0;
+        Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
+
+        int id = 0;
 		//foreach (Transform t in containers) {
 		//	Player newPlayer = Instantiate (playerToInstantiate, Vector3.zero, Quaternion.identity, t);
 		//	newPlayer.transform.localPosition = Vector3.zero;
@@ -30,9 +33,18 @@ public class StartingPlatform : SceneObject {
 //		}
 		logo.sprite = Data.Instance.videogamesData.GetActualVideogameData ().intro_logo;
 	}
+    void StartMultiplayerRace()
+    {
+        lights.SetActive(false);
+    }
+    void OnDestroy()
+    {
+        Data.Instance.events.StartMultiplayerRace -= StartMultiplayerRace;
+    }
 	public override void OnPool()
 	{
-		playerToInstantiate = null;
+        Data.Instance.events.StartMultiplayerRace -= StartMultiplayerRace;
+        playerToInstantiate = null;
 		Data.Instance.events.OnCharacterInit -= OnCharacterInit;
 	}
 	void OnCharacterInit(int _avatarID)

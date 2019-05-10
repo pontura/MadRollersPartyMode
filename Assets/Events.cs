@@ -25,6 +25,7 @@ public class Events : MonoBehaviour {
     public System.Action<bool> OnFadeALittle = delegate { };
     public System.Action OnInterfacesStart = delegate { };
     public System.Action OnGameStart = delegate { };
+    public System.Action OnIntro = delegate { };
     public System.Action<bool> OnGamePaused = delegate { };
     public System.Action<bool> SetSettingsButtonStatus = delegate { };
 	public System.Action<string> OnDestroySceneObject = delegate { };

@@ -21,8 +21,8 @@ public class VideogameBossPanel : MonoBehaviour {
 	void Start()
 	{
 		panel.SetActive (false);
-		
-		Data.Instance.events.OnGameStart += OnGameStart;
+
+        Data.Instance.events.OnGameStart += OnGameStart;
 		Data.Instance.events.OnBossActive += OnBossActive;
 
 		if (Data.Instance.videogamesData.actualID == 0)
@@ -34,8 +34,18 @@ public class VideogameBossPanel : MonoBehaviour {
 		Data.Instance.events.OnAvatarDie += OnAvatarDie;
 		Data.Instance.events.OnGameOver += OnGameOver;
         Data.Instance.events.OnBossSpecial += OnBossSpecial;
+        Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
     }
-	void OnGameStart()
+    void StartMultiplayerRace()
+    {
+        print("StartMultiplayerRace");
+        if(!Data.Instance.isReplay)
+        {
+            OnBossActive(false);
+        }
+    }
+
+    void OnGameStart()
 	{
 		StartCoroutine (InitCoroutine ());
 	}
@@ -49,16 +59,18 @@ public class VideogameBossPanel : MonoBehaviour {
 		yield return new WaitForSeconds (1);
 		panel.SetActive (false);
 	}
-	void OnDestroy()
+
+    void OnDestroy()
 	{
-		Data.Instance.events.OnGameStart -= OnGameStart;
+        Data.Instance.events.OnGameStart -= OnGameStart;
 		Data.Instance.events.OnBossActive -= OnBossActive;
 		Data.Instance.events.OnBossDropBomb -= OnBossDropBomb;
 		Data.Instance.events.OnBossDropRay -= OnBossDropRay;		
         Data.Instance.events.OnBossSpecial -= OnBossSpecial;
         Data.Instance.events.OnAvatarDie -= OnAvatarDie;	
 		Data.Instance.events.OnGameOver -= OnGameOver;
-	}
+        Data.Instance.events.StartMultiplayerRace -= StartMultiplayerRace;
+    }
 	void OnGameOver(bool isTimeOver)
 	{
 		Laugh (10);

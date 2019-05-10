@@ -43,7 +43,7 @@ public class UICountDown : MonoBehaviour {
             return;
 		}
 		countDown--;
-		Invoke ("SetNextCountDown", 1f);
+		Invoke ("SetNextCountDown", 1.25f);
 	}
     void Done()
     {

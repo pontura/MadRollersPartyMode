@@ -11,7 +11,7 @@ public class CharactersManager : MonoBehaviour {
 
 	public Vector3 characterPosition = new Vector3(0,0,0);
 
-    private float separationX  = 2;
+    private float separationX  = 4.5f;
 
     public float distance;
 	private float MAX_SPEED = 19;
@@ -201,7 +201,7 @@ public class CharactersManager : MonoBehaviour {
         pos.x = 0;
 
 		if(distance<20)
-			pos.x = (3.5f * id) - (5.3f);
+             pos.x = (separationX * id) - ((separationX * 2) - separationX / 2);
 		
         addCharacter(pos, id);
 
@@ -260,7 +260,7 @@ public class CharactersManager : MonoBehaviour {
         else if (Data.Instance.isReplay)
 			_x = ((float)positionID * separationOnReplay)  - (((((float)totalCharacters-1))/2)*separationOnReplay);
 		else
-			_x = (3.5f * positionID+1) - (5.3f);
+			_x = (separationX * positionID+1) - ((separationX*2)- separationX/2);
 
 		//print ("positionID : " + positionID + "   separationOnReplay: " + separationOnReplay  + "    CalculateInitialPosition " + _x + "  totalCharacters " + totalCharacters);
 

@@ -21,7 +21,6 @@ public class GameCamera : MonoBehaviour
 	public Vector3 snapTargetPosition;
     private CharactersManager charactersManager;
 
-    public Vector3 startRotation = new Vector3(0, 0,0);
     public Vector3 startPosition = new Vector3(0, 0,0);
 
 	public Vector3 cameraOrientationVector = new Vector3 (0, 4.5f, -0.8f);
@@ -70,29 +69,30 @@ public class GameCamera : MonoBehaviour
             retroPixelPro = CopyComponent(rpp, cam.gameObject) as RetroPixelPro;
             retroPixelPro.dither = 0;
             pixelSize = 1;
-        }
+        }        	
+
+		charactersManager = Game.Instance.GetComponent<CharactersManager>();  
 
 		
 
-		charactersManager = Game.Instance.GetComponent<CharactersManager>();       
-
-		cam.transform.localEulerAngles = startRotation;       
-
-
-		transform.localPosition = new Vector3(0,2,-1.5f);
-		Vector3 newPos = transform.localPosition;
-
-
 		_Y_correction = 2;
 		if (!Data.Instance.isReplay) {
-			anim.Play ("cameraIntro");
-			newPos.y = 4.5f;
-		} else {
-			state = states.START;
-			//anim.Play ("intro");
-			newPos.y = 0;
-		}
-		transform.localPosition = newPos;
+            Data.Instance.events.OnBossActive(true);
+            //anim.Play ("cameraIntro");
+            newPos.y = 4.5f;
+            cam.sensorSize = new Vector2(6, cam.sensorSize.y);
+
+            transform.localEulerAngles = new Vector3(3,0,0);
+            transform.localPosition = new Vector3(0, 11, -17);
+
+            cam.transform.localPosition = new Vector3(0,2,0);
+        } else {
+            cam.sensorSize = new Vector2(18, cam.sensorSize.y);
+            state = states.START;
+            transform.localPosition = new Vector3(0, 2, -1.5f);
+            newPos.y = 0;
+        }
+		
 
     }
     void OnDestroy()
@@ -232,9 +232,19 @@ public class GameCamera : MonoBehaviour
         retroPixelPro.pixelSize = (int)(pixelSize);
 
 	}
+    float camSensorSpeed = 10f;
 	void LateUpdate () 
 	{
-        cam.fieldOfView = fieldOfView;
+        if (state == states.START || state == states.WAITING_TO_TRAVEL)
+            return;
+
+        if(cam.sensorSize.x<18)
+        {
+            float cms = cam.sensorSize.x;
+            cms += camSensorSpeed*Time.deltaTime;
+            cam.sensorSize = new Vector2(cms, cam.sensorSize.y);
+        }
+
         if (state == states.SNAPPING_TO) { 
 			Vector3 dest = snapTargetPosition;
 			dest.y += 1.5f;
@@ -244,17 +254,7 @@ public class GameCamera : MonoBehaviour
 			transform.localPosition = Vector3.Lerp (transform.localPosition, dest, 0.02f);
 			cam.transform.LookAt (snapTargetPosition);
 			return;	
-		}
-        if (state == states.START)
-        {           
-//			if(Data.Instance.playMode == Data.PlayModes.VERSUS)
-//			{
-//				Vector3 myPos = transform.localPosition;
-//				Vector3 destPos = new Vector3 (0, 4, -Data.Instance.versusManager.GetArea().z_length-4);
-//				transform.localPosition = Vector3.Lerp (myPos, destPos, 0.07f);					
-//			}
-			return;
-        }
+		}       
 		else if (state == states.END && Data.Instance.playMode == Data.PlayModes.VERSUS) {
 			if (flow_target != null) {
 				cam.transform.LookAt (flow_target.transform);

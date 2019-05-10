@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 1160979223}
     - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
       propertyPath: isAndroid
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
       propertyPath: RESET
@@ -181,7 +181,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
       propertyPath: playMode
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 583726289, guid: e69c3317a5dec5945b3feea00990d858, type: 3}
       propertyPath: m_SizeDelta.y

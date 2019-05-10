@@ -57,7 +57,7 @@ public class HiscoresByMissions : MonoBehaviour
         }
 
         string post_url = getHiscore;
-        post_url += "?videogame=" + videogame;
+        post_url += "?videogame=" + (videogame-1);
         post_url += "&mission=" + mission;
         post_url += "&limit=10";
 

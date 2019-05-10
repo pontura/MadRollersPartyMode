@@ -71,6 +71,7 @@ public class CharacterBehavior : MonoBehaviour {
 	}
 
 	void Start () {
+
 		sliderEffect = GetComponent<SliderEffect> ();
 		characterMovement = GetComponent<CharacterMovement> ();
 		data = Data.Instance;  
@@ -87,11 +88,10 @@ public class CharacterBehavior : MonoBehaviour {
 			rb.isKinematic = false;
 		}
 
-		data.events.OnVersusTeamWon += OnVersusTeamWon;
-		data.events.OnAvatarProgressBarEmpty += OnAvatarProgressBarEmpty;
-		data.events.OncharacterCheer += OncharacterCheer;
-
-		data.events.StartMultiplayerRace += StartMultiplayerRace;
+        Data.Instance.events.OnVersusTeamWon += OnVersusTeamWon;
+        Data.Instance.events.OnAvatarProgressBarEmpty += OnAvatarProgressBarEmpty;
+        Data.Instance.events.OncharacterCheer += OncharacterCheer;
+        Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
 
 
 		state = states.RUN;
@@ -123,10 +123,10 @@ public class CharacterBehavior : MonoBehaviour {
 	}
 	void OnDestroy ()
 	{
-		data.events.OnVersusTeamWon -= OnVersusTeamWon;
-		data.events.OnAvatarProgressBarEmpty -= OnAvatarProgressBarEmpty;
-		data.events.OncharacterCheer -= OncharacterCheer;
-		data.events.StartMultiplayerRace -= StartMultiplayerRace;
+        Data.Instance.events.OnVersusTeamWon -= OnVersusTeamWon;
+        Data.Instance.events.OnAvatarProgressBarEmpty -= OnAvatarProgressBarEmpty;
+        Data.Instance.events.OncharacterCheer -= OncharacterCheer;
+        Data.Instance.events.StartMultiplayerRace -= StartMultiplayerRace;
 	}
 	void OnVersusTeamWon(int _team_id)
 	{

@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.40000916, y: -0.20000076}
+  m_AnchoredPosition: {x: 0.3999939, y: -0.19999695}
   m_SizeDelta: {x: -50.8, y: -16.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45466372
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.67058825, g: 0.8431373, b: 0.9803922, a: 1}
+  m_Color: {r: 0, g: 0.44705886, b: 0.8000001, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -762,7 +762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &355107709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1506,16 +1506,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 111039201507087284, guid: 3ca93688cdb368840bab82fe798f430f,
-        type: 3}
-      propertyPath: m_Animations.Array.data[1]
-      value: 
-      objectReference: {fileID: 7400000, guid: 17464c10ac70cdb428512b8d46931494, type: 2}
     - target: {fileID: 3056032491864436429, guid: 3ca93688cdb368840bab82fe798f430f,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 111039201507087284, guid: 3ca93688cdb368840bab82fe798f430f,
+        type: 3}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 17464c10ac70cdb428512b8d46931494, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca93688cdb368840bab82fe798f430f, type: 3}
 --- !u!114 &1053283166 stripped
@@ -1847,6 +1847,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3056032491864436429, guid: 3ca93688cdb368840bab82fe798f430f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 111039201507087284, guid: 3ca93688cdb368840bab82fe798f430f,
         type: 3}
       propertyPath: m_Animations.Array.data[1]
@@ -1871,11 +1876,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3056032491864436429, guid: 3ca93688cdb368840bab82fe798f430f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6838856345296578124, guid: 3ca93688cdb368840bab82fe798f430f,
         type: 3}
@@ -3288,8 +3288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -532}
-  m_SizeDelta: {x: 321.3, y: 102.57}
+  m_AnchoredPosition: {x: 377.13, y: -543.8}
+  m_SizeDelta: {x: 754.25, y: 143.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2122486290
 MonoBehaviour:
@@ -3354,7 +3354,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122486288}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

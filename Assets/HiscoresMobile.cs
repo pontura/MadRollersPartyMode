@@ -27,6 +27,7 @@ public class HiscoresMobile : MonoBehaviour
             newLine.transform.localPosition = Vector3.zero;
             newLine.transform.localScale = Vector3.one;
             newLine.Init(id + 1, m.username, m.score);
+            newLine.SetImage(m.userID);
             id++;
         }
     }

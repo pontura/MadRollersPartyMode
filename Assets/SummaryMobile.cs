@@ -27,9 +27,9 @@ public class SummaryMobile : MonoBehaviour
     }
     public void Next()
     {
+        Game.Instance.gameCamera.ResetSnapping(0.1f);
+        Data.Instance.events.FreezeCharacters(false);
         panel.SetActive(false);
-        Data.Instance.events.ForceFrameRate(1);
-       // Data.Instance.events.RalentaTo(1, 0.05f);
     }
     public void Retry()
     {

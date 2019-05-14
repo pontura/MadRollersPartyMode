@@ -275,7 +275,11 @@ public class GameCamera : MonoBehaviour
         {
             
             Vector3 rot = transform.localEulerAngles;
-            rot.z = -(charactersManager.getMainCharacter().rotationY / 6);
+            CharacterBehavior cb = charactersManager.getMainCharacter();
+
+            if(cb)
+                rot.z = -(cb.rotationY / 6);
+
             transform.localEulerAngles = rot;
         }
 		//if (team_id == 0)
@@ -383,12 +387,16 @@ public class GameCamera : MonoBehaviour
 		
 		state = states.SNAPPING_TO;
 
-        if(!Data.Instance.isAndroid)
-		    StartCoroutine ( ResetSnapping() );
-	}
-	IEnumerator ResetSnapping()
+        if (!Data.Instance.isAndroid)
+            ResetSnapping(3);
+    }
+    public void ResetSnapping(float delay)
+    {
+        StartCoroutine(ResetSnappingCoroutine(delay));
+    }
+	IEnumerator ResetSnappingCoroutine(float delay)
 	{
-		yield return new WaitForSecondsRealtime(3f);
+		yield return new WaitForSecondsRealtime(delay);
 		if (state != states.SNAPPING_TO)
 			yield return null;
 		else {			

@@ -42,9 +42,12 @@ public class HiscoresByMissions : MonoBehaviour
     void OnMissionComplete(int missionID)
     {
         Save(missionID, Data.Instance.multiplayerData.score);
+        Invoke("Delayed", 1);
+    }
+    void Delayed()
+    {
         Data.Instance.multiplayerData.score = 0;
     }
-
     //retorna List<HiscoresByMissions.MissionHiscoreData>
     public void LoadHiscore(int videogame, int mission, System.Action<MissionHiscoreData> OnDone)
     {
@@ -74,6 +77,7 @@ public class HiscoresByMissions : MonoBehaviour
     }
     public void Save(int mission, int score)
     {
+        all.Clear();
         int videogame = Data.Instance.videogamesData.actualID;
         string hash = Utils.Md5Sum(UserData.Instance.userID + videogame + mission + score + secretKey);
         string post_url = saveNewHiscore + "?userID=" + WWW.EscapeURL(UserData.Instance.userID);
@@ -108,9 +112,7 @@ public class HiscoresByMissions : MonoBehaviour
             OnDone(null);
             return;
         }
-
-        missionHiscoreData.videogame = missionHiscoreData.all[0].videogame;
-        missionHiscoreData.mission = missionHiscoreData.all[0].mission;       
+     
 
         MissionHiscoreData md = IfAlreadyLoaded(missionHiscoreData.videogame, missionHiscoreData.mission);
 
@@ -130,6 +132,5 @@ public class HiscoresByMissions : MonoBehaviour
         }
         return null;
     }
-
 
 }

@@ -42,8 +42,16 @@ public class Gui : MonoBehaviour {
 		if (isOn) {
 			OnGenericUIText( "Kill 'em all");
 		} else {
-			levelComplete.gameObject.SetActive (true);
-			levelComplete.Init (Data.Instance.missions.MissionActiveID);
+            if (Data.Instance.isAndroid)
+            {
+                GetComponent<SummaryMobile>().Init();
+                return;
+            }
+            else
+            {
+                levelComplete.gameObject.SetActive(true);
+                levelComplete.Init(Data.Instance.missions.MissionActiveID);
+            }
 		}
 		Invoke ("Reset", 2);
 	}

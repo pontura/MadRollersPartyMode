@@ -382,7 +382,9 @@ public class GameCamera : MonoBehaviour
 			snapTargetPosition.y = 1;
 		
 		state = states.SNAPPING_TO;
-		StartCoroutine ( ResetSnapping() );
+
+        if(!Data.Instance.isAndroid)
+		    StartCoroutine ( ResetSnapping() );
 	}
 	IEnumerator ResetSnapping()
 	{

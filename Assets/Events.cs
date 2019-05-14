@@ -9,6 +9,7 @@ public class Events : MonoBehaviour {
     //public System.Action<string, string> OnFacebookUserLoaded = delegate { };
     //public System.Action<string, int, int, bool> OnSetUserData = delegate { };
     public System.Action<string> OnChangeScene = delegate { };
+    public System.Action<bool> SetHamburguerButton = delegate { };
     public System.Action RefreshHiscores = delegate { };
 
     public System.Action<Texture2D, int> OnHiscore = delegate { };   

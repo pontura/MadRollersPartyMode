@@ -59,7 +59,8 @@ public class MissionButton : MonoBehaviour {
     }
     void DelayedClick()
     {
-        Data.Instance.LoadLevel("Game");
+        levelSelectorMobile.missionSelectorMobile.Init();
+       // Data.Instance.LoadLevel("Game");
     }
     public void GetHiscore()
     {

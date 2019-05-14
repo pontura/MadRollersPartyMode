@@ -15,15 +15,15 @@ public class LevelSelectorMobile : MonoBehaviour
 
     VideogameData videogameData;
     public int videgameID;
-    //VideogamesUIManager videogameUI;
+
     bool canInteract;
     float timePassed;
-    MissionSelector missionSelector;
+
+    public MissionSelectorMobile missionSelectorMobile;
 
     void Start()
     {
-
-        missionSelector = GetComponent<MissionSelector>();
+        missionSelectorMobile = GetComponent<MissionSelectorMobile>();
         Data.Instance.multiplayerData.ResetAll();
         Data.Instance.events.OnResetScores();
 
@@ -50,8 +50,6 @@ public class LevelSelectorMobile : MonoBehaviour
                 Data.Instance.multiplayerData.player4 = true;
                 break;
         }
-       // Data.Instance.isReplay = true;
-
     }
     void InitButton(MissionButton diskette, int id)
     {
@@ -75,16 +73,9 @@ public class LevelSelectorMobile : MonoBehaviour
         Data.Instance.videogamesData.actualID = videgameID;
         Data.Instance.LoadLevel("MainMenu");
     }
-    void SetSelected()
-    {
-        List<VoicesManager.VoiceData> list = Data.Instance.voicesManager.videogames_names;
-        Data.Instance.voicesManager.PlaySpecificClipFromList(list, videgameID);
-        videogameData = Data.Instance.videogamesData.all[videgameID];
-        missionSelector.LoadVideoGameData(videgameID);
-    }
     public void Go()
     {
-        Data.Instance.LoadLevel("MainMenu");
+        Data.Instance.LoadLevel("Game");
     }
     public void ResetAll()
     {

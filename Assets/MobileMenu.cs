@@ -19,11 +19,17 @@ public class MobileMenu : MonoBehaviour
             mobileMenuScreen.gameObject.SetActive(false);
             panel.SetActive(false);
             Data.Instance.events.OnChangeScene += OnChangeScene;
+            Data.Instance.events.SetHamburguerButton += SetHamburguerButton;
         }
     }
     void OnDestroy()
     {
         Data.Instance.events.OnChangeScene -= OnChangeScene;
+        Data.Instance.events.SetHamburguerButton -= SetHamburguerButton;
+    }
+    void  SetHamburguerButton(bool isOn)
+    {
+        panel.SetActive(isOn);
     }
     void OnChangeScene(string sceneName)
     {

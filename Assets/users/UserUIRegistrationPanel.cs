@@ -72,7 +72,14 @@ public class UserUIRegistrationPanel : MonoBehaviour
     }
     public void ClickedNewPhoto()
     {
-        ShowNewPhoto();
+        if (!UnityEngine.Android.Permission.HasUserAuthorizedPermission(UnityEngine.Android.Permission.Camera))
+        {
+            UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.Camera);
+        }
+        else
+        {
+            ShowNewPhoto();
+        }
     }
     public void OnSubmit()
     {

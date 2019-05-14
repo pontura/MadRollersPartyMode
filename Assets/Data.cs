@@ -158,6 +158,7 @@ public class Data : MonoBehaviour {
 #endif
 		loadingAsset.SetOn (false);
 		GetComponent<PhotosManager>().LoadPhotos();
+        
 	}
     void SetVolume(float vol)
     {

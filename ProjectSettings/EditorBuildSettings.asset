@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PlayersSelector.unity
     guid: 881fee418f306424299820b26a59e582
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Hiscores.unity
     guid: 90a0f3337f3c2b44ebcccdf2bd6f1384
   - enabled: 1
@@ -35,7 +35,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PlayerSelector2.unity
     guid: 1ec5d930202b8f24b96111cd955179a4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenuArcadeVersus.unity
     guid: 7f9bf7e920a2e7d45a8ef53e46bca73d
   - enabled: 1

@@ -35,6 +35,10 @@ public class HiscoresByMissions : MonoBehaviour
     {
         Data.Instance.events.OnMissionComplete += OnMissionComplete;
     }
+    public void ResetAllHiscores()
+    {
+        all.Clear();
+    }
     private void OnDestroy()
     {
         Data.Instance.events.OnMissionComplete -= OnMissionComplete;
@@ -60,7 +64,7 @@ public class HiscoresByMissions : MonoBehaviour
         }
 
         string post_url = getHiscore;
-        post_url += "?videogame=" + (videogame-1);
+        post_url += "?videogame=" + (videogame);
         post_url += "&mission=" + mission;
         post_url += "&limit=10";
 
@@ -70,14 +74,13 @@ public class HiscoresByMissions : MonoBehaviour
     {
         foreach(MissionHiscoreData md in all)
         {
-            if (md.videogame+1 == videogame && md.mission == mission)
+            if (md.videogame == videogame && md.mission == mission)
                 return md;
         }
         return null;
     }
     public void Save(int mission, int score)
     {
-        all.Clear();
         int videogame = Data.Instance.videogamesData.actualID;
         string hash = Utils.Md5Sum(UserData.Instance.userID + videogame + mission + score + secretKey);
         string post_url = saveNewHiscore + "?userID=" + WWW.EscapeURL(UserData.Instance.userID);
@@ -125,7 +128,7 @@ public class HiscoresByMissions : MonoBehaviour
     {
         foreach (MissionHiscoreData md in all)
         {
-            if (md.videogame + 1 == videogame && md.mission == mission)
+            if (md.videogame == videogame && md.mission == mission)
             {
                 return md.all[0];
             }

@@ -276,16 +276,25 @@ public class CharactersManager : MonoBehaviour {
     {
 		if (gameOver)
 			return;
+        if(Data.Instance.isAndroid)
+        {
+            characters.Remove(characterBehavior);
+            deadCharacters.Add(characterBehavior);
+            StartCoroutine(restart(characterBehavior));
+            Data.Instance.events.OnAvatarDie(characterBehavior);
+            return;
+        }
         characters.ForEach((cb) =>
         {
             if (cb.player.id == characterBehavior.player.id)
             {
-                characters.Remove(cb);
+                characters.Remove(cb);                
                 deadCharacters.Add(cb);
                 if (characters.Count == 0)
                 {
                     StartCoroutine(restart(cb));
-                }
+                    return;
+                }                    
             }
         });
         Data.Instance.events.OnAvatarDie(characterBehavior);

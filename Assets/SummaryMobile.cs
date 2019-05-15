@@ -23,7 +23,11 @@ public class SummaryMobile : MonoBehaviour
         titleField.text = "Mission " + (missionID + 1) + " COMPLETE!";
         int score = Data.Instance.multiplayerData.GetTotalScore();
         scoreField.text = "Score: " + Utils.FormatNumbers(score);
-        hiscores.Init(Data.Instance.videogamesData.actualID, missionID);
+        hiscores.Init(Data.Instance.videogamesData.actualID, missionID, OnMyScoreLoaded);
+    }
+    void OnMyScoreLoaded(int myscore)
+    {
+        //
     }
     public void Next()
     {
@@ -34,6 +38,7 @@ public class SummaryMobile : MonoBehaviour
     public void Retry()
     {
         Data.Instance.events.ForceFrameRate(1);
+        Data.Instance.missions.MissionActiveID--;
         Game.Instance.Continue();
     }
     public void Exit()

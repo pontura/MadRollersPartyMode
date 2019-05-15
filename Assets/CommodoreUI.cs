@@ -12,7 +12,8 @@ public class CommodoreUI : MonoBehaviour {
 	public enum types
 	{
 		HISCORE,
-		GAME_COMPLETED
+		GAME_COMPLETED,
+        CREDITS
 	}
 
 	public Sprite[] spritesToBG;
@@ -37,7 +38,9 @@ public class CommodoreUI : MonoBehaviour {
 				StartCoroutine (LoadingRoutine ());
 			else if(type == types.GAME_COMPLETED)
 				StartCoroutine (LoadingRoutine_GAME_COMPLETED ());
-		}
+            else if (type == types.CREDITS)
+                StartCoroutine(LoadingRoutine_CREDITS());
+        }
 	}
 	IEnumerator LoadingRoutine()
 	{
@@ -66,7 +69,34 @@ public class CommodoreUI : MonoBehaviour {
 		AddText("DIE!");
 		yield return null;
 	}
-	void AddText(string text)
+    IEnumerator LoadingRoutine_CREDITS()
+    {
+        AddText("MAD ROLLERS");
+        yield return new WaitForSeconds(0.8f);
+        AddText("Es un juego independiente hecho en Argentina por 2 amigos");
+        yield return new WaitForSeconds(1f);
+        AddText("TUMBA-GAMES");
+        yield return new WaitForSeconds(1.3f);
+        AddText("PONTURA -> Idea, Programación y Desarrollo general");
+        yield return new WaitForSeconds(0.5f);
+        AddText("DARIO GEORGES -> Arte, músicas y magias");
+        yield return new WaitForSeconds(2);
+        AddText("-------");
+        yield return new WaitForSeconds(1.3f);
+        AddText("MATEO AMARAL -> Arte 3d de los MAD ROLLERS");
+        yield return new WaitForSeconds(1.3f);
+        AddText("NICO VIEGAS -> Arte de Meduzas y algunos assets de ese nivel");
+        yield return new WaitForSeconds(1.3f);
+        AddText("SEB LAB, JP AMATO -> sound FX");
+        yield return new WaitForSeconds(2);
+        AddText("-------");
+        yield return new WaitForSeconds(1.3f);
+        AddText("Agradecimientos especiales a:");
+        yield return new WaitForSeconds(1.3f);
+        AddText("HERNAN SAEZ, NICO COHEN, PALOMA, PELA, KIKO, TAM, LOS PATMORITAS, PEPSICO, BURRIS, MOCO, GAITA, TONI, SOFI, BER, MMM, TEJADA, YANI, GALLARDOS, POLO y todos los nocturnos que playtestearon y playtestean...");
+        yield return null;
+    }
+    void AddText(string text)
 	{
 		field.text += text +'\n';
 	}

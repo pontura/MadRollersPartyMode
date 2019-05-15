@@ -14,26 +14,26 @@ public class UserRegistrationForm : MonoBehaviour
     public void Init()
     {
         userData = UserData.Instance;
-        LoadUser();
+       // LoadUser();
     }
-    void LoadUser()
-    {
-        if (PlayerPrefs.GetString("userID") != "")
-        {
-            userData.userID = PlayerPrefs.GetString("userID");
-            userData.username = PlayerPrefs.GetString("username");
-        }
-        else
-        {
-#if UNITY_EDITOR
-            userData.userID = Random.Range(0, 10000).ToString();
-            userData.SetUserID(userData.userID);
-#elif UNITY_ANDROID
-				userData.userID = SystemInfo.deviceUniqueIdentifier;
-				userData.SetUserID(userData.userID);
-#endif
-        }
-    }
+//    void LoadUser()
+//    {
+//        if (PlayerPrefs.GetString("userID") != "")
+//        {
+//            userData.userID = PlayerPrefs.GetString("userID");
+//            userData.username = PlayerPrefs.GetString("username");
+//        }
+//        else
+//        {
+//#if UNITY_EDITOR
+//            userData.userID = Random.Range(0, 10000).ToString();
+//            userData.SetUserID(userData.userID);
+//#elif UNITY_ANDROID
+//				userData.userID = SystemInfo.deviceUniqueIdentifier;
+//				userData.SetUserID(userData.userID);
+//#endif
+//        }
+//    }
 
     void UserCreation()
     {

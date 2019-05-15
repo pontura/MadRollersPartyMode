@@ -19,6 +19,7 @@ public class UserData : MonoBehaviour
 	public string path;
     public HiscoresByMissions hiscoresByMissions;
     public AvatarImages avatarImages;
+    public ServerConnect serverConnect;
     public int playerID;
 
     public static UserData Instance
@@ -52,25 +53,48 @@ public class UserData : MonoBehaviour
         if (RESET_ALL_DATA)
             PlayerPrefs.DeleteAll();
 
-        playerID = PlayerPrefs.GetInt("playerID");
-
-        username = PlayerPrefs.GetString("username");
 #if UNITY_EDITOR
         path = Application.persistentDataPath + "/";
 #else
         path = Application.persistentDataPath + "/";
 #endif
-
+      
+        serverConnect = GetComponent<ServerConnect>();
         avatarImages = GetComponent<AvatarImages>();
         hiscoresByMissions = GetComponent<HiscoresByMissions>();
-        hiscoresByMissions.Init();    
+
+        LoadUser();
+
+        hiscoresByMissions.Init();
        
-        if (username != "")
+    }
+    void LoadUser()
+    {
+        playerID = PlayerPrefs.GetInt("playerID");
+        if (PlayerPrefs.GetString("userID") != "")
         {
             userID = PlayerPrefs.GetString("userID");
-            print("userID " + userID);
+            username = PlayerPrefs.GetString("username");
             avatarImages.GetImageFor(userID, null);
         }
+        else
+        {
+#if UNITY_EDITOR
+            userID = Random.Range(0, 10000).ToString();
+            SetUserID(userID);
+#elif UNITY_ANDROID
+			userID = SystemInfo.deviceUniqueIdentifier;
+			SetUserID(userID);
+            
+#endif
+        }
+        serverConnect.LoadUserData(userID, OnLoaded);
+    }
+    void OnLoaded(ServerConnect.UserDataInServer dataLoaded)
+    {
+        userID = dataLoaded.userID;
+        username = dataLoaded.username;
+        print("User data loaded: " + userID + "   username: " + username);
     }
     public bool IsLogged()
     {

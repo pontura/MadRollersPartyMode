@@ -17,10 +17,12 @@ public class ScoreBarMultiplayer : MonoBehaviour {
     float newVictoryAreaScore;
 
     bool hiscoreWinned;
-    
+    bool isAndroid;
 
     void Start () {
-		if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
+        if (Data.Instance.isAndroid)
+            isAndroid = true;
+        if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
 			Vector2 pos = panel.transform.localPosition;
 			pos.y += 20;
 			panel.transform.localPosition = pos;
@@ -53,6 +55,10 @@ public class ScoreBarMultiplayer : MonoBehaviour {
 	void OnDrawScore(int score, string desc)
 	{	
 		RefreshScore ();
+
+        if (isAndroid)
+            return;
+
 		ResetFieldsTimer = Time.time + delayToReset;
 		totalAdded += score;
 		scoreAdviseNum.text = "+" + totalAdded.ToString ();
@@ -63,7 +69,7 @@ public class ScoreBarMultiplayer : MonoBehaviour {
 	}
 	void Update()
 	{
-		if (totalAdded == 0)
+        if (isAndroid || totalAdded == 0)
 			return;
 		if (Time.time > ResetFieldsTimer) {
 			totalAdded = 0;

@@ -299,11 +299,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c216ad0f1eb2734080b1212d00fea6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 0.67058825, g: 0.8431373, b: 0.9803922, a: 1}
-  color2: {r: 0, g: 0.44705886, b: 0.8000001, a: 1}
+  color1: {r: 0, g: 0.38039216, b: 0.68235296, a: 1}
+  color2: {r: 0.33333334, g: 0.64705884, b: 1, a: 1}
   field: {fileID: 6576727608968664406}
   videoGameID: 0
   missionID: 0
   isBlocked: 0
   blockedImage: {fileID: 4132694933894487225}
   background: {fileID: 6576727609565090842}
+  missionSelectorMobile: {fileID: 0}

@@ -14,4 +14,8 @@ public class MobileMenuScreen : MonoBehaviour
         Data.Instance.LoadLevel("LevelSelectorMobile");
         PlayerPrefs.SetString("tutorial", "");
     }
+    public void Credits()
+    {
+        Data.Instance.LoadLevel("Credits");
+    }
 }

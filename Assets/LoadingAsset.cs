@@ -71,7 +71,7 @@ public class LoadingAsset : MonoBehaviour {
     IEnumerator LoadingRoutineAndroid()
     {
         VideogameData videogameData = Data.Instance.videogamesData.GetActualVideogameData();
-        HiscoresByMissions.MissionHiscoreUserData missionHiscoreUserData = UserData.Instance.hiscoresByMissions.GetHiscore(videogameData.id + 1, Data.Instance.missions.MissionActiveID);
+        HiscoresByMissions.MissionHiscoreUserData missionHiscoreUserData = UserData.Instance.hiscoresByMissions.GetHiscore(videogameData.id, Data.Instance.missions.MissionActiveID);
         string username = UserData.Instance.username;
 
         Data.Instance.voicesManager.PlaySpecificClipFromList(Data.Instance.voicesManager.UIItems, 1);

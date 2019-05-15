@@ -27,7 +27,7 @@ public class LevelSelectorMobile : MonoBehaviour
         Data.Instance.multiplayerData.ResetAll();
         Data.Instance.events.OnResetScores();
 
-        title.text = "SELECT A VIDEOGAME TO DESTROY";
+      //  title.text = "SELECT A VIDEOGAME TO DESTROY";
         videgameID = Data.Instance.videogamesData.actualID;
         Data.Instance.voicesManager.PlaySpecificClipFromList(Data.Instance.voicesManager.UIItems, 0);
 

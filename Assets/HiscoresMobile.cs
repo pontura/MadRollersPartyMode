@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class HiscoresMobile : MonoBehaviour
 {
-
     public Transform container;
     public ScoreLine scoreLine;
+    System.Action<int> MyScoreLoaded;
 
-    public void Init(int videoGameID, int missionID)
+    public void Init(int videoGameID, int missionID, System.Action<int> MyScoreLoaded)
     {
+        this.MyScoreLoaded = MyScoreLoaded;
         Utils.RemoveAllChildsIn(container);
         HiscoresByMissions hiscoresByMission = UserData.Instance.hiscoresByMissions;
-        hiscoresByMission.LoadHiscore(videoGameID+1, missionID, OnDone);       
+        hiscoresByMission.ResetAllHiscores();
+        hiscoresByMission.LoadHiscore(videoGameID, missionID, OnDone);       
     }
     public void OnDone(HiscoresByMissions.MissionHiscoreData data)
     {
@@ -28,6 +30,8 @@ public class HiscoresMobile : MonoBehaviour
             newLine.transform.localScale = Vector3.one;
             newLine.Init(id + 1, m.username, m.score);
             newLine.SetImage(m.userID);
+            if (m.userID == UserData.Instance.userID)
+                MyScoreLoaded(m.score);
             id++;
         }
     }

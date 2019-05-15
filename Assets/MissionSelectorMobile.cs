@@ -19,7 +19,7 @@ public class MissionSelectorMobile : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
-        title1.text = "Missions";
+       
         title2.text = "Hi-scores";
     }
 
@@ -29,7 +29,7 @@ public class MissionSelectorMobile : MonoBehaviour
         panel.SetActive(true);
         Utils.RemoveAllChildsIn(missionsContainer);
         videoGameID = Data.Instance.videogamesData.actualID;
-
+        title1.text = Data.Instance.videogamesData.GetActualVideogameData().name;
         int id = 0;
         List<Missions.MissionsData> missionData = Data.Instance.missions.videogames[videoGameID].missions;
 
@@ -53,19 +53,27 @@ public class MissionSelectorMobile : MonoBehaviour
 
             id++;
         }
-        hiscoresMobile.Init(videoGameID, missionUnblockedID);
+        hiscoresMobile.Init(videoGameID, missionUnblockedID, OnMyScoreLoaded);
     }
     public void Clicked(int id)
     {
         ResetAllMissions();
         allMissions[id].SetSelected(true);
-        if (id <= Data.Instance.missions.GetMissionsByVideoGame(Data.Instance.videogamesData.actualID).missionUnblockedID)
-            SetPlayButton(true);
-        else
-            SetPlayButton(false);
 
-        print("Clicked " + id);
-        hiscoresMobile.Init(videoGameID, id);
+        SetBlockedOrNot(id);
+
+        Data.Instance.missions.MissionActiveID = id;
+        hiscoresMobile.Init(videoGameID, id, OnMyScoreLoaded);
+    }
+
+    //esta para volver a darle por ganada una mission por si reseteo el score en el device:
+    void OnMyScoreLoaded(int myscore)
+    {
+        if (Data.Instance.missions.GetMissionsByVideoGame(videoGameID).missionUnblockedID < Data.Instance.missions.MissionActiveID)
+        {
+            Data.Instance.missions.GetMissionsByVideoGame(videoGameID).missionUnblockedID = Data.Instance.missions.MissionActiveID+1;
+        }
+        SetPlayButton(true);
     }
     void ResetAllMissions()
     {
@@ -74,11 +82,18 @@ public class MissionSelectorMobile : MonoBehaviour
     }
     public void SetPlayButton(bool isOn)
     {
-        playButton.interactable = isOn;
+        playButton.gameObject.SetActive(isOn);
     }
     public void Back()
     {
         Data.Instance.events.SetHamburguerButton(true);
         Data.Instance.LoadLevel("LevelSelectorMobile");
+    }
+    public void SetBlockedOrNot(int missionID)
+    {
+        if (missionID <= Data.Instance.missions.GetMissionsByVideoGame(Data.Instance.videogamesData.actualID).missionUnblockedID)
+            SetPlayButton(true);
+        else
+            SetPlayButton(false);
     }
 }

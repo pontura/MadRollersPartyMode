@@ -224,7 +224,7 @@ public class Missions : MonoBehaviour {
 	void SetNextArea()
 	{
         MissionData.AreaSetData data = MissionActive.areaSetData[areaSetId];
-        if ((Data.Instance.playOnlyBosses || hasReachedBoss) && !data.boss && areaSetId < MissionActive.areaSetData.Count - 2)
+        if (MissionActiveID != 0 && (Data.Instance.playOnlyBosses || hasReachedBoss) && !data.boss && areaSetId < MissionActive.areaSetData.Count - 2)
         {
             print("escquiva areaSet porque ya llegó al boss");
             areaSetId++;

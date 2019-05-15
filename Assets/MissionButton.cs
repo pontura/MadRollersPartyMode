@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class MissionButton : MonoBehaviour {
 
 	public Animation anim;
-	//public GameObject thumbPanel;
-
     public Image background;
     public int id;
 	public int videoGameID;
@@ -19,7 +17,11 @@ public class MissionButton : MonoBehaviour {
 	public VideogameData videogameData;
 
     public Text missionField;
+
+    public Image avatarImage;
     public Text usernameField;
+    public Text hiscoreField;
+
     public int missionActive;
     public LevelSelectorMobile levelSelectorMobile;
 
@@ -42,7 +44,10 @@ public class MissionButton : MonoBehaviour {
     // solo version Mobile Android!
     public void OnClick()
     {
-		anim.Play ("videoGameButtonMobile");
+        List<VoicesManager.VoiceData> list = Data.Instance.voicesManager.videogames_names;
+        Data.Instance.voicesManager.PlaySpecificClipFromList(list, videogameData.id);
+
+        anim.Play ("videoGameButtonMobile");
         Data.Instance.videogamesData.actualID = videogameData.id;
         Data.Instance.missions.MissionActiveID = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;
         Invoke("DelayedClick", 1);
@@ -65,16 +70,23 @@ public class MissionButton : MonoBehaviour {
     public void GetHiscore()
     {
         missionActive = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;
-        missionField.text = "HiSCORE MISSION " + (missionActive + 1);
+        missionField.text = "MISSION " + (missionActive + 1);
         usernameField.text = "<loading...>";
-        UserData.Instance.hiscoresByMissions.LoadHiscore(videogameData.id+1, missionActive, OnLoaded);
+        UserData.Instance.hiscoresByMissions.LoadHiscore(videogameData.id, missionActive, OnLoaded);
     }
     void OnLoaded(HiscoresByMissions.MissionHiscoreData data)
     {
         if (data == null || data.all.Count == 0 || !isActiveAndEnabled)
             return;
-       
-        usernameField.text = data.all[0].username + " - " + Utils.FormatNumbers(data.all[0].score);
+
+        usernameField.text = data.all[0].username;
+        hiscoreField.text = Utils.FormatNumbers(data.all[0].score);
+        UserData.Instance.avatarImages.GetImageFor(data.all[0].userID, OnAvatarImageLoaded);
+    }
+    void OnAvatarImageLoaded(Texture2D texture2d)
+    {
+        if (avatarImage != null)
+            avatarImage.sprite = Sprite.Create(texture2d, new Rect(0, 0, texture2d.width, texture2d.height), new Vector2(0.5f, 0.5f));
     }
 
 }

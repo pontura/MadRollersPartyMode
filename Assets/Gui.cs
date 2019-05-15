@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Gui : MonoBehaviour {
     
 	public LevelComplete levelComplete;
 
-    public GameObject[] hideOnCompetitions;
-	private Data data;   
+    private Data data;   
 
 	private int barWidth = 200;
     private bool MainMenuOpened = false;
@@ -15,12 +15,22 @@ public class Gui : MonoBehaviour {
 	public Text genericField;
 	public GameObject centerPanel;
 
+    public ScoreLine hiscorePanel;
+
 	void Start()
 	{
+        if (Data.Instance.isAndroid)
+        {
+            hiscorePanel.gameObject.SetActive(true);
+            Data.Instance.events.OnMissionStart += OnMissionStart;
+        }
+        else
+        {
+            hiscorePanel.gameObject.SetActive(false);
+        }
 		centerPanel.SetActive (false);
-//		missionIcon = Instantiate (missionIcon_to_instantiate);
-//		missionIcon.transform.localPosition = new Vector3 (1000, 0, 0);
-
+        //		missionIcon = Instantiate (missionIcon_to_instantiate);
+        //		missionIcon.transform.localPosition = new Vector3 (1000, 0, 0);
         Data.Instance.events.OnAvatarCrash += OnAvatarCrash;
         Data.Instance.events.OnAvatarFall += OnAvatarCrash;
 		Data.Instance.events.OnBossActive += OnBossActive;
@@ -28,6 +38,7 @@ public class Gui : MonoBehaviour {
     }
     void OnDestroy()
     {
+        Data.Instance.events.OnMissionStart -= OnMissionStart;
         Data.Instance.events.OnAvatarCrash -= OnAvatarCrash;
         Data.Instance.events.OnAvatarFall -= OnAvatarCrash;
 		Data.Instance.events.OnBossActive -= OnBossActive;
@@ -35,7 +46,8 @@ public class Gui : MonoBehaviour {
 
         levelComplete = null;
     }
-	void OnBossActive(bool isOn)
+
+    void OnBossActive(bool isOn)
 	{
 		CancelInvoke ();
 		Reset ();
@@ -74,5 +86,23 @@ public class Gui : MonoBehaviour {
     public void Settings()
     {
         //Data.Instance.GetComponent<GameMenu>().Init();
+    }
+    void OnMissionStart(int missionID)
+    {
+        if (Data.Instance.isAndroid)
+        {
+            int videoGameID = Data.Instance.videogamesData.actualID;
+            HiscoresByMissions.MissionHiscoreUserData hiscoreData = UserData.Instance.hiscoresByMissions.GetHiscore(videoGameID, missionID);
+            if (hiscoreData == null)
+            {
+                print("no hay hiscore de videoGameID: " + videoGameID + " mission " + missionID);
+                hiscorePanel.gameObject.SetActive(false);
+            }
+            else
+            {
+                hiscorePanel.Init(0, hiscoreData.username, hiscoreData.score);
+                hiscorePanel.SetImage(hiscoreData.userID);
+            }
+        }
     }
 }

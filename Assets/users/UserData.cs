@@ -71,34 +71,36 @@ public class UserData : MonoBehaviour
     void LoadUser()
     {
         playerID = PlayerPrefs.GetInt("playerID");
-        if (PlayerPrefs.GetString("userID") != "")
-        {
-            userID = PlayerPrefs.GetString("userID");
-            username = PlayerPrefs.GetString("username");
-            avatarImages.GetImageFor(userID, null);
-        }
-        else
+        userID = PlayerPrefs.GetString("userID");
+        if (userID.Length<2)
         {
 #if UNITY_EDITOR
             userID = Random.Range(0, 10000).ToString();
             SetUserID(userID);
 #elif UNITY_ANDROID
 			userID = SystemInfo.deviceUniqueIdentifier;
-			SetUserID(userID);
-            
+			SetUserID(userID);            
 #endif
+        } else
+        {
+            userID = PlayerPrefs.GetString("userID");
+            username = PlayerPrefs.GetString("username");
+            avatarImages.GetImageFor(userID, null);
         }
         serverConnect.LoadUserData(userID, OnLoaded);
     }
     void OnLoaded(ServerConnect.UserDataInServer dataLoaded)
     {
-        userID = dataLoaded.userID;
-        username = dataLoaded.username;
-        print("User data loaded: " + userID + "   username: " + username);
+        if (dataLoaded != null && dataLoaded.username != "")
+        {
+            userID = dataLoaded.userID;
+            username = dataLoaded.username;
+            print("User data loaded: " + userID + "   username: " + username);
+        }
     }
     public bool IsLogged()
     {
-        if (userID == "")
+        if (username == null || username.Length == 0)
             return false;
         return true;
     }

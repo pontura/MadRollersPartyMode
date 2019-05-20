@@ -284,19 +284,36 @@ public class CharactersManager : MonoBehaviour {
             Data.Instance.events.OnAvatarDie(characterBehavior);
             return;
         }
-        characters.ForEach((cb) =>
+        int i = characters.Count;
+        print("characters count: " + i);
+        while (i > 0)
         {
+            CharacterBehavior cb = characters[i-1];
             if (cb.player.id == characterBehavior.player.id)
             {
-                characters.Remove(cb);                
+                characters.Remove(cb);
                 deadCharacters.Add(cb);
                 if (characters.Count == 0)
                 {
                     StartCoroutine(restart(cb));
                     return;
-                }                    
+                }
             }
-        });
+            i--;
+        }
+        //characters.ForEach((cb) =>
+        //{
+        //    if (cb.player.id == characterBehavior.player.id)
+        //    {
+        //        characters.Remove(cb);                
+        //        deadCharacters.Add(cb);
+        //        if (characters.Count == 0)
+        //        {
+        //            StartCoroutine(restart(cb));
+        //            return;
+        //        }                    
+        //    }
+        //});
         Data.Instance.events.OnAvatarDie(characterBehavior);
     }
     IEnumerator restart(CharacterBehavior cb)

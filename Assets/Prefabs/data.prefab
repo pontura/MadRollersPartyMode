@@ -105,7 +105,7 @@ MonoBehaviour:
   versusManager: {fileID: 0}
   loadingAsset: {fileID: 114694153890948252}
   FORCE_LOCAL_SCORE: 0
-  isAndroid: 1
+  isAndroid: 0
   playMode: 0
   hasContinueOnce: 0
 --- !u!114 &11400002
@@ -120,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36c09387fd1372140a72bc39ea3b489e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area_to_instantiate: {fileID: 9008276455531896968, guid: 8c490f1a6cff03e4d8d7533bedef3b67,
+    type: 3}
   hasReachedBoss: 0
   _all: {fileID: 4900000, guid: 365998f28398e2045983c718d25476f5, type: 3}
   all:
@@ -146,6 +148,7 @@ MonoBehaviour:
     totalCoins: 0
     z_length: 0
     data: []
+  allAreas: []
 --- !u!114 &114892904904857298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4382,7 +4385,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3132798}
-        m_MethodName: ResetMissions
+        m_MethodName: Credits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

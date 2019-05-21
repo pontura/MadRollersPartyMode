@@ -22,8 +22,10 @@ public class HiscoresComparison : MonoBehaviour {
 	}
 
 	public void Init() {
-		
-		if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
+
+        Data.Instance.videogamesData.SetOtherGameActive();
+
+        if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
 			GetComponent<GameOverPartyMode> ().Init ();
 			return;
 		}

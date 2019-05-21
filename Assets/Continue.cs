@@ -8,7 +8,7 @@ public class Continue : MonoBehaviour {
 	private int num = 9;
 	public Text countdown_txt;
 	public Text credits_txt;
-	private float speed = 0.8f;
+	private float speed = 0.5f;
     private bool canClick;
 
 	void Start () {

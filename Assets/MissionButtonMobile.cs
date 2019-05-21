@@ -40,7 +40,7 @@ public class MissionButtonMobile : MonoBehaviour
         }
 
         int id = missionID + 1;
-        field.text = "MISSION " + id + " " + data.title;
+        field.text = "MISION " + id + " " + data.title;
 
         
     }

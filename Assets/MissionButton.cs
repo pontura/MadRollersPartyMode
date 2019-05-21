@@ -27,12 +27,15 @@ public class MissionButton : MonoBehaviour {
 
     // se usa tanto para mobile como para Standalone!
 
-    public void Init (VideogameData videogameData) {
+    public void Init (VideogameData videogameData, bool animate = true) {
 		this.videogameData = videogameData;
 		logo.sprite = videogameData.logo;
 		floppyCover.sprite = videogameData.floppyCover;
-		anim ["MissionButtonOn"].normalizedTime = 0;
-		anim.Play ("MissionButtonOn");
+        if (animate)
+        {
+            anim["MissionButtonOn"].normalizedTime = 0;
+            anim.Play("MissionButtonOn");
+        }
         missionField.text = videogameData.name;
         usernameField.text = "MISSION 0";
     }
@@ -70,7 +73,7 @@ public class MissionButton : MonoBehaviour {
     public void GetHiscore()
     {
         missionActive = Data.Instance.missions.GetMissionsByVideoGame(videogameData.id).missionUnblockedID;
-        missionField.text = "MISSION " + (missionActive + 1);
+        missionField.text = "MISION " + (missionActive + 1);
         usernameField.text = "<loading...>";
         UserData.Instance.hiscoresByMissions.LoadHiscore(videogameData.id, missionActive, OnLoaded);
     }

@@ -20,7 +20,7 @@ public class SummaryMobile : MonoBehaviour
         Data.Instance.events.RalentaTo(0, 0.025f);
         panel.SetActive(true);
         int missionID = Data.Instance.missions.GetActualMissionData().id;
-        titleField.text = "Mission " + (missionID + 1) + " COMPLETE!";
+        titleField.text = "Misión " + (missionID + 1) + " COMPLETA!";
         int score = Data.Instance.multiplayerData.GetTotalScore();
         scoreField.text = "Score: " + Utils.FormatNumbers(score);
         hiscores.Init(Data.Instance.videogamesData.actualID, missionID, OnMyScoreLoaded);

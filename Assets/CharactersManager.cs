@@ -296,6 +296,7 @@ public class CharactersManager : MonoBehaviour {
                 if (characters.Count == 0)
                 {
                     StartCoroutine(restart(cb));
+                    Data.Instance.events.OnAvatarDie(characterBehavior);
                     return;
                 }
             }
@@ -314,7 +315,7 @@ public class CharactersManager : MonoBehaviour {
         //        }                    
         //    }
         //});
-        Data.Instance.events.OnAvatarDie(characterBehavior);
+        
     }
     IEnumerator restart(CharacterBehavior cb)
     {

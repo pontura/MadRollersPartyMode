@@ -18,7 +18,8 @@ public class LevelSelector : MonoBehaviour {
 	public Text creditsParty;
 
 	public MissionButton diskette;
-	VideogameData videogameData;
+    public MissionButton diskette2;
+    VideogameData videogameData;
 	public int videgameID;
 	//VideogamesUIManager videogameUI;
 	bool canInteract;
@@ -49,7 +50,8 @@ public class LevelSelector : MonoBehaviour {
         Data.Instance.multiplayerData.ResetAll ();
 		Data.Instance.events.OnResetScores ();
 
-		title.text = "SELECT GAME";
+        title.text = "CAMBIAR JUEGO";
+       // title.text = "SELECT GAME";
 
 		videgameID = Data.Instance.videogamesData.actualID;
         missionSelector.LoadVideoGameData(videgameID);
@@ -153,8 +155,16 @@ public class LevelSelector : MonoBehaviour {
 		videogameData = Data.Instance.videogamesData.all [videgameID];
 		missionSelector.LoadVideoGameData (videgameID);
 		diskette.Init (videogameData);
-		//videogameUI.Change ();
-		if(Data.Instance.playMode == Data.PlayModes.STORYMODE)
+
+        int _videgameID = videgameID + 1;
+        if (_videgameID > 2)
+            _videgameID = 0;
+
+        VideogameData _videogameData = Data.Instance.videogamesData.all[_videgameID];
+        diskette2.Init(_videogameData, false);
+
+        //videogameUI.Change ();
+        if (Data.Instance.playMode == Data.PlayModes.STORYMODE)
 			Data.Instance.handWriting.WriteTo (credits, videogameData.credits, null);
 		else
 			Data.Instance.handWriting.WriteTo (creditsParty, videogameData.credits, null);

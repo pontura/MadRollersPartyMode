@@ -20,7 +20,8 @@ public class VideogameBossPanel : MonoBehaviour {
 
 	void Start()
 	{
-		panel.SetActive (false);
+      
+        panel.SetActive (false);
 
         Data.Instance.events.OnGameStart += OnGameStart;
 		Data.Instance.events.OnBossActive += OnBossActive;
@@ -35,6 +36,9 @@ public class VideogameBossPanel : MonoBehaviour {
 		Data.Instance.events.OnGameOver += OnGameOver;
         Data.Instance.events.OnBossSpecial += OnBossSpecial;
         Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
+
+        if (Data.Instance.playMode == Data.PlayModes.CONTINUEMODE && !Data.Instance.isReplay)
+            OnBossActive(true);
     }
     void StartMultiplayerRace()
     {

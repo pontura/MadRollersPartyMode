@@ -3212,7 +3212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.19080894
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3224,7 +3224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9816273
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_RootOrder
@@ -3232,7 +3232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4837109231976320, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 20793291910522168, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
@@ -3346,20 +3346,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4084269431122736, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.22495107
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4084269431122736, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9743701
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4084269431122736, guid: 296b79a2282efe74fb57344ce388069a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114811158327721886, guid: 296b79a2282efe74fb57344ce388069a,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 111644279116869078, guid: 296b79a2282efe74fb57344ce388069a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114437328844667136, guid: 296b79a2282efe74fb57344ce388069a, type: 3}

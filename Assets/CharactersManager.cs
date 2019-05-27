@@ -9,8 +9,6 @@ public class CharactersManager : MonoBehaviour {
     public List<CharacterBehavior> characters;
     public List<CharacterBehavior> deadCharacters;
 
-	public Vector3 characterPosition = new Vector3(0,0,0);
-
     private float separationX  = 4.5f;
 
     public float distance;
@@ -22,7 +20,7 @@ public class CharactersManager : MonoBehaviour {
 	public bool gameOver;
 	bool canStartPlayers;
     private IEnumerator RalentaCoroutine;
-	int totalCharacters;
+    public int totalCharacters;
 
     void Awake()
     {
@@ -190,7 +188,6 @@ public class CharactersManager : MonoBehaviour {
 		Data.Instance.multiplayerData.AddNewCharacter (id);
 		
         Data.Instance.events.OnSoundFX("coin", id);
-        
 
 		Vector3 pos = Vector3.zero;
 
@@ -209,7 +206,7 @@ public class CharactersManager : MonoBehaviour {
     }
 	public CharacterBehavior addCharacter(Vector3 pos, int id)
 	{
-		Data.Instance.events.OnAddNewPlayer(id);
+        Data.Instance.events.OnAddNewPlayer(id);
 		CharacterBehavior newCharacter = null;
 		foreach (CharacterBehavior cb in deadCharacters)
 		{
@@ -229,7 +226,9 @@ public class CharactersManager : MonoBehaviour {
 		player.id = id;
 		newCharacter.Revive();
 		characters.Add(newCharacter);
-		newCharacter.transform.position = pos;
+        totalCharacters = characters.Count;
+
+        newCharacter.transform.position = pos;
 		Data.Instance.events.OnCharacterInit (id);
 
 		return newCharacter;
@@ -274,48 +273,18 @@ public class CharactersManager : MonoBehaviour {
 	}
     public void killCharacter(CharacterBehavior characterBehavior)
     {
-		if (gameOver)
-			return;
-        if(Data.Instance.isAndroid)
-        {
-            characters.Remove(characterBehavior);
-            deadCharacters.Add(characterBehavior);
-            StartCoroutine(restart(characterBehavior));
-            Data.Instance.events.OnAvatarDie(characterBehavior);
+        if (gameOver)
             return;
-        }
-        int i = characters.Count;
-        print("characters count: " + i);
-        while (i > 0)
-        {
-            CharacterBehavior cb = characters[i-1];
-            if (cb.player.id == characterBehavior.player.id)
-            {
-                characters.Remove(cb);
-                deadCharacters.Add(cb);
-                if (characters.Count == 0)
-                {
-                    StartCoroutine(restart(cb));
-                    Data.Instance.events.OnAvatarDie(characterBehavior);
-                    return;
-                }
-            }
-            i--;
-        }
-        //characters.ForEach((cb) =>
-        //{
-        //    if (cb.player.id == characterBehavior.player.id)
-        //    {
-        //        characters.Remove(cb);                
-        //        deadCharacters.Add(cb);
-        //        if (characters.Count == 0)
-        //        {
-        //            StartCoroutine(restart(cb));
-        //            return;
-        //        }                    
-        //    }
-        //});
-        
+
+        print("killCharacter . characters count: " + characters.Count);
+        characters.Remove(characterBehavior);
+        totalCharacters = characters.Count;
+        deadCharacters.Add(characterBehavior);
+        Data.Instance.events.OnAvatarDie(characterBehavior);
+
+        if (characters.Count == 0)
+            StartCoroutine(restart(characterBehavior));        
+
     }
     IEnumerator restart(CharacterBehavior cb)
     {
@@ -329,7 +298,7 @@ public class CharactersManager : MonoBehaviour {
     }
     public CharacterBehavior getMainCharacter()
     {
-        if (characters.Count <= 0)
+        if (getTotalCharacters() <= 0)
         {
             print("[ERROR] No hay más characters y sigue pidiendo...");
             return null;
@@ -341,33 +310,37 @@ public class CharactersManager : MonoBehaviour {
         return getMainCharacter().transform.position;
     }
 	public virtual Vector3 getCameraPosition()
-    {		
-		///////retomar
-		if (characters.Count > 1) {
-			Vector3 normalPosition = Vector3.zero;
-			float MaxDistance = 0;
-			foreach (CharacterBehavior cb in characters) 
-				normalPosition += cb.transform.localPosition;
-			
+    {
+        ///////retomar
+        int totalCharacters = getTotalCharacters();
+        if (totalCharacters > 1)
+        {
+            Vector3 normalPosition = Vector3.zero;
+            float MaxDistance = 0;
+            foreach (CharacterBehavior cb in characters)
+                normalPosition += cb.transform.localPosition;
 
-			normalPosition /= characters.Count;
-		//	normalPosition.y += 0.15f + (MaxDistance / 4f);
-		//	normalPosition.z -= 0.3f + (MaxDistance/26);
-			normalPosition.z = distance-1.65f;
 
-			return normalPosition;
-		} else if (characters.Count == 0)
-			return characterPosition;
-		//else return characterPosition = characters[0].transform.position;
-		else {
-			Vector3 p = characters [0].transform.position;
-			p.z = distance-1.5f;
-			return p;
-		}
+            normalPosition /= totalCharacters;
+            //	normalPosition.y += 0.15f + (MaxDistance / 4f);
+            //	normalPosition.z -= 0.3f + (MaxDistance/26);
+            normalPosition.z = distance - 1.7f;
+
+            return normalPosition;
+        }
+        else if (totalCharacters == 0)
+            return Vector3.zero;
+        //else return characterPosition = characters[0].transform.position;
+        else
+        {
+            Vector3 p = characters[0].transform.position;
+            p.z = distance - 1.3f;
+            return p;
+        }
     }
     public int getTotalCharacters()
     {
-        return characters.Count;
+        return totalCharacters;
     }
     public float getDistance()
     {

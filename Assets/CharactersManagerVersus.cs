@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CharactersManagerVersus : CharactersManager {
 
-	public GameCamera camera_team_1;
+    Vector3 characterPosition;
+
+    public GameCamera camera_team_1;
 	public GameCamera camera_team_2;
 
 	public List<CharacterBehavior> charactersTeam1;

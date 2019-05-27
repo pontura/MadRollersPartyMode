@@ -32,10 +32,10 @@ public class GameCamera : MonoBehaviour
     public bool onExplotion;
 	float explotionForce = 0.25f;
 
-    public Animation anim;
+   // public Animation anim;
 
 	public float pixelSize;
-	float pixel_speed_recovery = 20;
+	float pixel_speed_recovery = 8;
 	private GameObject flow_target;
 	float _Y_correction;
 
@@ -73,8 +73,6 @@ public class GameCamera : MonoBehaviour
 
 		charactersManager = Game.Instance.GetComponent<CharactersManager>();  
 
-		
-
 		_Y_correction = 2;
 		if (!Data.Instance.isReplay) {
             Data.Instance.events.OnBossActive(true);
@@ -83,9 +81,9 @@ public class GameCamera : MonoBehaviour
             cam.sensorSize = new Vector2(6, cam.sensorSize.y);
 
             transform.localEulerAngles = new Vector3(3,0,0);
-            transform.localPosition = new Vector3(0, 11, -17);
-
-            cam.transform.localPosition = new Vector3(0,2,0);
+            transform.localPosition = new Vector3(0, 11, 0);
+            cam.transform.localEulerAngles = new Vector3(26, 0, 0);
+            cam.transform.localPosition = new Vector3(0,0,-15);
         } else {
             cam.sensorSize = new Vector2(18, cam.sensorSize.y);
             state = states.START;
@@ -114,7 +112,7 @@ public class GameCamera : MonoBehaviour
 	}
     void StartMultiplayerRace()
     {
-        anim.Stop();
+       // anim.Stop();
         Init();
         state = states.PLAYING;
 
@@ -123,8 +121,8 @@ public class GameCamera : MonoBehaviour
 		iTween.MoveTo(cam.gameObject, iTween.Hash(
 			"position", new Vector3 (0, 2, 0),
 			"islocal", true,
-			"time", 3f,
-			"easetype", iTween.EaseType.easeOutCubic
+			"time", 4f,
+			"easetype", iTween.EaseType.easeOutCirc
 			// "axis", "x"
 		));
 
@@ -157,7 +155,7 @@ public class GameCamera : MonoBehaviour
 			StopCoroutine (DoExploteCoroutine);
 		state = states.EXPLOTING;
 
-		SetPixels(8);
+		SetPixels(1);
 
 		DoExploteCoroutine = DoExplote ();
 		StartCoroutine (DoExploteCoroutine);
@@ -173,12 +171,12 @@ public class GameCamera : MonoBehaviour
 
 		SetPixels(4);
 
-		this.explotionForce = explotionForce*2f;
+		this.explotionForce = explotionForce*3f;
 		DoExploteCoroutine = DoExplote ();
 		StartCoroutine (DoExploteCoroutine);
 	}
 	public IEnumerator DoExplote () {
-		float delay = 0.03f;
+		float delay = 0.04f;
         for (int a = 0; a < 6; a++)
         {
 			rotateRandom( Random.Range(-explotionForce, explotionForce) );
@@ -212,7 +210,7 @@ public class GameCamera : MonoBehaviour
 		cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, newRot, Time.deltaTime*5);
 	}
 
-	void SetPixels(float _pixelSize)
+	public void SetPixels(float _pixelSize)
 	{
         if (Data.Instance.isAndroid)
             return;
@@ -232,7 +230,7 @@ public class GameCamera : MonoBehaviour
         retroPixelPro.pixelSize = (int)(pixelSize);
 
 	}
-    float camSensorSpeed = 10f;
+    float camSensorSpeed = 1.25f;
 	void LateUpdate () 
 	{
         if (state == states.START || state == states.WAITING_TO_TRAVEL)
@@ -255,13 +253,13 @@ public class GameCamera : MonoBehaviour
 			cam.transform.LookAt (snapTargetPosition);
 			return;	
 		}       
-		else if (state == states.END && Data.Instance.playMode == Data.PlayModes.VERSUS) {
-			if (flow_target != null) {
-				cam.transform.LookAt (flow_target.transform);
-				cam.transform.RotateAround (Vector3.zero, cam.transform.up, 50 * Time.deltaTime);
-			}
-			return;
-		}
+		//else if (state == states.END && Data.Instance.playMode == Data.PlayModes.VERSUS) {
+		//	if (flow_target != null) {
+		//		cam.transform.LookAt (flow_target.transform);
+		//		cam.transform.RotateAround (Vector3.zero, cam.transform.up, 50 * Time.deltaTime);
+		//	}
+		//	return;
+		//}
 		if (state == states.END || state == states.WAITING_TO_TRAVEL)
         {
             return;

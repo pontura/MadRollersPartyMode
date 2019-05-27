@@ -316,15 +316,14 @@ public class CharactersManager : MonoBehaviour {
         if (totalCharacters > 1)
         {
             Vector3 normalPosition = Vector3.zero;
-            float MaxDistance = 0;
             foreach (CharacterBehavior cb in characters)
                 normalPosition += cb.transform.localPosition;
 
 
             normalPosition /= totalCharacters;
-            //	normalPosition.y += 0.15f + (MaxDistance / 4f);
+            normalPosition.y += 0.15f + (totalCharacters / 3f);
             //	normalPosition.z -= 0.3f + (MaxDistance/26);
-            normalPosition.z = distance - 1.7f;
+            normalPosition.z = distance - 1.5f - (totalCharacters/2.5f);
 
             return normalPosition;
         }

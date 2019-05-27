@@ -198,16 +198,16 @@ public class GameCamera : MonoBehaviour
 	void LookAtFlow()
 	{
 		Vector3 newPosTarget = flow_target.transform.localPosition;
-		newPosTarget.x = Mathf.Lerp(newPosTarget.x, newPos.x, Time.deltaTime*4.5f);
-		newPosTarget.z = transform.localPosition.z+7;
-        newPosTarget.y= Mathf.Lerp(newPosTarget.y, newPos.y, Time.deltaTime * 2f);
+		newPosTarget.x = Mathf.Lerp(newPosTarget.x, newPos.x, Time.deltaTime*3f);
+		newPosTarget.z = transform.localPosition.z+6.5f;
+        newPosTarget.y= Mathf.Lerp(newPosTarget.y, newPos.y, Time.deltaTime * 4f);
         //newPosTarget.y = 2;
 		flow_target.transform.localPosition = newPosTarget;
 
 		Vector3 pos = flow_target.transform.localPosition - transform.localPosition;
 		var newRot = Quaternion.LookRotation(pos);
 
-		cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, newRot, Time.deltaTime*5);
+		cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation, newRot, Time.deltaTime*20);
 	}
 
 	public void SetPixels(float _pixelSize)

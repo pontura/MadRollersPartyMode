@@ -5751,7 +5751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1765170623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6709,7 +6709,7 @@ MonoBehaviour:
     data: []
   data:
   - name: extralargeBlock1
-    pos: {x: -6, y: -1.25, z: 23.75}
+    pos: {x: 5, y: -1.25, z: -12}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
@@ -6718,7 +6718,7 @@ MonoBehaviour:
     soData: []
     isChild: 0
   - name: extralargeBlock1
-    pos: {x: 6, y: -1.25, z: 23.75}
+    pos: {x: -5, y: -1.25, z: -12}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
@@ -6726,179 +6726,8 @@ MonoBehaviour:
     moveForward: []
     soData: []
     isChild: 0
-  - name: extralargeBlock1
-    pos: {x: 6, y: -1.25, z: 11.92}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: -6, y: -1.25, z: 11.92}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: 6, y: -1.25, z: -0.08}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: -6, y: -1.25, z: -0.08}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: mediumBlock1
-    pos: {x: -7.1, y: -1.25, z: -7.45}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: mediumBlock1
-    pos: {x: 6.8, y: -1.25, z: -7.45}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: -6, y: -1.25, z: -11.95}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: 6, y: -1.25, z: -11.95}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: 0, y: -1.25, z: -23.95}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: -12, y: -1.25, z: -23.95}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: extralargeBlock1
-    pos: {x: 12, y: -1.25, z: -23.95}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 10.61, y: -0.85, z: 24.76}
-    rot: {x: 0, y: 180, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: -10.14, y: -0.85, z: 23.6}
-    rot: {x: -0, y: 90, z: -0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: fences
-    pos: {x: -10.1, y: 0.15, z: 11.9}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: fences
-    pos: {x: -7.1, y: 0.15, z: 11.9}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: fences
-    pos: {x: 11.1, y: 0.15, z: 11.9}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: fences
-    pos: {x: 8.1, y: 0.15, z: 11.9}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: levelSignal
-    pos: {x: 0, y: -0.51, z: 13.8}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 8.29, y: -0.85, z: 20.48}
-    rot: {x: 0, y: 270, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: -8.02, y: -0.85, z: 19.99}
+  - name: palmTall
+    pos: {x: -10.08, y: -0.99, z: -17.39}
     rot: {x: -0, y: 90, z: -0}
     fullRotationData: []
     timelineAnimation: []
@@ -6907,7 +6736,7 @@ MonoBehaviour:
     soData: []
     isChild: 0
   - name: Coin
-    pos: {x: 0.13, y: 1.56, z: -0.6}
+    pos: {x: -7.31, y: 1.16, z: 7.5}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
@@ -6916,7 +6745,7 @@ MonoBehaviour:
     soData: []
     isChild: 0
   - name: Coin
-    pos: {x: 0.13, y: 1.56, z: 3.4}
+    pos: {x: -7.31, y: 1.16, z: 5.5}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
@@ -6925,7 +6754,115 @@ MonoBehaviour:
     soData: []
     isChild: 0
   - name: Coin
-    pos: {x: 0.13, y: 1.56, z: 7.4}
+    pos: {x: -6.91, y: 1.16, z: 3.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -7.31, y: 1.16, z: 9.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -6.91, y: 1.3, z: 11.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -6.11, y: 1.16, z: 7.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -6.11, y: 1.16, z: 5.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -5.71, y: 1.16, z: 3.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -6.11, y: 1.16, z: 9.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -5.7, y: 1.3, z: 11.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -8.51, y: 1.16, z: 7.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -8.51, y: 1.16, z: 5.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -4.91, y: 1.16, z: 1.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -8.51, y: 1.16, z: 9.5}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: Coin
+    pos: {x: -8.1, y: 1.16, z: 11.5}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
@@ -6934,7 +6871,7 @@ MonoBehaviour:
     soData: []
     isChild: 0
   - name: palm
-    pos: {x: -9.5, y: -0.85, z: -5.7}
+    pos: {x: -9.49, y: -0.99, z: -14.2}
     rot: {x: -0, y: 90, z: -0}
     fullRotationData: []
     timelineAnimation: []
@@ -6942,63 +6879,66 @@ MonoBehaviour:
     moveForward: []
     soData: []
     isChild: 0
-  - name: palm
-    pos: {x: 10.4, y: -0.85, z: -5.7}
-    rot: {x: 0, y: 180, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 16.87, y: -0.85, z: -19.94}
+  - name: enemyBack
+    pos: {x: -0.3, y: 0, z: -12.8}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
     bossSettings: []
-    moveForward: []
+    moveForward:
+    - speed: 6
+      randomSpeedDiff: 0
+      moveBackIn: 0
     soData: []
     isChild: 0
-  - name: palm
-    pos: {x: -16.95, y: -0.85, z: -19.76}
+  - name: enemyBack
+    pos: {x: 13.1, y: 0, z: -7.3}
     rot: {x: -0, y: 0, z: 0}
     fullRotationData: []
     timelineAnimation: []
     bossSettings: []
-    moveForward: []
+    moveForward:
+    - speed: 6
+      randomSpeedDiff: 0
+      moveBackIn: 0
     soData: []
     isChild: 0
-  - name: palm
-    pos: {x: -10.22, y: -0.85, z: 5.26}
-    rot: {x: 0, y: 180, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 10.53, y: -0.85, z: 4.6}
-    rot: {x: 0, y: 270, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: 10.3, y: -0.85, z: 0.8}
-    rot: {x: 0, y: 270, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward: []
-    soData: []
-    isChild: 0
-  - name: palm
-    pos: {x: -9.9, y: -0.85, z: 1.4}
+  - name: enemyBack
+    pos: {x: 4.3, y: 0, z: -7.3}
     rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward:
+    - speed: 6
+      randomSpeedDiff: 0
+      moveBackIn: 0
+    soData: []
+    isChild: 0
+  - name: enemyBack
+    pos: {x: 8.2, y: 0, z: -12.8}
+    rot: {x: -0, y: 0, z: 0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward:
+    - speed: 6
+      randomSpeedDiff: 0
+      moveBackIn: 0
+    soData: []
+    isChild: 0
+  - name: extralargeBlock1
+    pos: {x: -6.5, y: -1.25, z: 6.8}
+    rot: {x: -0, y: 44.999996, z: -0}
+    fullRotationData: []
+    timelineAnimation: []
+    bossSettings: []
+    moveForward: []
+    soData: []
+    isChild: 0
+  - name: palmTall
+    pos: {x: -12.5, y: -0.99, z: 5.6}
+    rot: {x: -0, y: 90, z: -0}
     fullRotationData: []
     timelineAnimation: []
     bossSettings: []
@@ -7043,6 +6983,7 @@ MonoBehaviour:
     - gallax_jumps
     - gallax_curvo
     - gallax_rays_yellow_army
+    - gallax_backPlatforms
     - gallax_blue_Army_fortress
     - gallax_curvo2
     - gallax_space_eyes_shooters
@@ -8550,6 +8491,38 @@ MonoBehaviour:
           cameraOrientation: {x: 0, y: -4, z: -2}
     - title: 
       data:
+      - jsonName: gallax_backPlatforms
+        title: BACK PLATFORMS
+        id: 0
+        maxScore: 3000
+        fondo: gallax
+        areaSetData:
+        - boss: 0
+          total_areas: 1
+          bending: -20
+          randomize: 0
+          areas:
+          - backPlatforms_init
+          cameraOrientation: {x: 0, y: 0, z: -40}
+        - boss: 0
+          total_areas: 2
+          bending: -5
+          randomize: 0
+          areas:
+          - backPlatforms_boss
+          - backPlatforms_init
+          cameraOrientation: {x: 0, y: -1, z: -40}
+        - boss: 0
+          total_areas: 1000
+          bending: -15
+          randomize: 1
+          areas:
+          - backPlatforms_init
+          - backPlatforms_init2
+          - backPlatforms_init3
+          cameraOrientation: {x: 0, y: 0, z: -40}
+    - title: 
+      data:
       - jsonName: gallax_blue_Army_fortress
         title: BLUE ARMY FORTRESS
         id: 0
@@ -9518,7 +9491,7 @@ MonoBehaviour:
           cameraOrientation: {x: 0, y: -2, z: -8}
         - boss: 0
           total_areas: 200
-          bending: -4
+          bending: -2
           randomize: 1
           areas:
           - pisoAlto1
@@ -9648,12 +9621,12 @@ MonoBehaviour:
   playOnlyBosses: 0
   isArcadeMultiplayer: 1
   Debbug: 1
-  videoGameID: 1
-  missionID: 8
+  videoGameID: 2
+  missionID: 3
   mission: {fileID: 0}
   missions: {fileID: 114588440116649342}
   areaCreator: {fileID: 114427155742550844}
-  area: {fileID: 4900000, guid: 2e12abff3ddee7543a24c2c42e390f7b, type: 3}
+  area: {fileID: 0}
 --- !u!114 &114914902966106284
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -167,6 +167,9 @@ public class CharactersManager : MonoBehaviour {
     }
     public void OnAvatarCrash(CharacterBehavior characterBehavior)
     {
+#if UNITY_ANDROID
+        Handheld.Vibrate();
+#endif
         killCharacter(characterBehavior);
     }
     public bool existsPlayer(int id)

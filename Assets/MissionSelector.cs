@@ -23,8 +23,8 @@ public class MissionSelector : MonoBehaviour {
 
 		if (Data.Instance.playMode == Data.PlayModes.STORYMODE)
 			titleField.text = Data.Instance.videogamesData.all [videogameID].name;
-		else {
-			titlePartyField.text = Data.Instance.videogamesData.all [videogameID].name;
+		else if(titlePartyField != null){
+			titlePartyField.text = Data.Instance.videogamesData.all [videogameID-1].name;
 			return;
 		}
 		

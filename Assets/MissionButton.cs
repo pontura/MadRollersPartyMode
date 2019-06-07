@@ -67,7 +67,10 @@ public class MissionButton : MonoBehaviour {
     }
     void DelayedClick()
     {
-        levelSelectorMobile.missionSelectorMobile.Init();
+        if(Data.Instance.playMode == Data.PlayModes.SURVIVAL)
+            Data.Instance.LoadLevel("Game");
+        else
+            levelSelectorMobile.missionSelectorMobile.Init();
        // Data.Instance.LoadLevel("Game");
     }
     public void GetHiscore()

@@ -21,7 +21,7 @@ public class MissionSelector : MonoBehaviour {
 	{
 		this.videogameID = _videogameID;
 
-		if (Data.Instance.playMode == Data.PlayModes.STORYMODE)
+		if (Data.Instance.playMode == Data.PlayModes.STORYMODE || Data.Instance.playMode == Data.PlayModes.SURVIVAL)
 			titleField.text = Data.Instance.videogamesData.all [videogameID].name;
 		else if(titlePartyField != null){
 			titlePartyField.text = Data.Instance.videogamesData.all [videogameID-1].name;

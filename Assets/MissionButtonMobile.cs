@@ -8,6 +8,7 @@ public class MissionButtonMobile : MonoBehaviour
     public Color color1;
     public Color color2;
     public Text field;
+    public Text desc;
     public int videoGameID;
     public int missionID;
     public bool isBlocked;
@@ -30,9 +31,6 @@ public class MissionButtonMobile : MonoBehaviour
         if (isBlocked)
         {
             blockedImage.enabled = true;
-            Vector2 pos = field.transform.localPosition;
-            pos.x = 31;
-            field.transform.localPosition = pos;
         }
         else
         {
@@ -40,9 +38,10 @@ public class MissionButtonMobile : MonoBehaviour
         }
 
         int id = missionID + 1;
-        field.text = "MISION " + id + " " + data.title;
+        field.text = "MISION " + id;
+        desc.text = data.data[0].title;
 
-        
+
     }
     public void SetSelected(bool isSelected)
     {

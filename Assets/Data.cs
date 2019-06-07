@@ -71,9 +71,10 @@ public class Data : MonoBehaviour {
     public enum PlayModes
     {
         STORYMODE,
-		PARTYMODE,
-		VERSUS,
-		CONTINUEMODE
+        PARTYMODE,
+        VERSUS,
+        CONTINUEMODE,
+        SURVIVAL
 	//	GHOSTMODE
     }
     public enum modes

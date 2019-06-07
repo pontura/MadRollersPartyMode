@@ -59,8 +59,13 @@ public class Missions : MonoBehaviour {
 		videogamesData = GetComponent<VideogamesData> ();
 		data = Data.Instance;
 
-		//if (Data.Instance.DEBUG)
-			LoadAll();
+        if (Data.Instance.playMode == Data.PlayModes.SURVIVAL)
+        {
+            MissionsData missionsData = LoadDataFromMission("survival", "boyland");
+            MissionActive = missionsData.data[0];
+        }
+        else
+            LoadAll();
 
         data.events.ResetMissionsBlocked += ResetMissionsBlocked;
         data.events.OnMissionComplete += OnMissionComplete;
@@ -89,25 +94,28 @@ public class Missions : MonoBehaviour {
 		LoadByVideogame (all.missionsVideoGame2, 1);
 		LoadByVideogame (all.missionsVideoGame3, 2);
 	}
-	public string LoadResourceTextfile(string path)
+	public string LoadResourceTextfile(string folder, string path)
 	{
-		string filePath = "missions/" + path.Replace(".json", "");
+		string filePath = folder + "/" + path.Replace(".json", "");
 		TextAsset targetFile = Resources.Load<TextAsset>(filePath);
 		return targetFile.text;
 	}
 	public void LoadByVideogame(string[] missionsInVideogame, int videogameID)
-	{
-		
+	{		
 		MissionsByVideoGame videogame = videogames [videogameID];
 		videogame.missions = new List<MissionsData> ();	
-		foreach (string missionName in missionsInVideogame) {	
-			string dataAsJson = LoadResourceTextfile (missionName);
-			MissionsData missionData = JsonUtility.FromJson<MissionsData> (dataAsJson);
-			missionData.data [0].jsonName = missionName;
-			videogame.missions.Add (missionData);
-			videogame.missionUnblockedID = PlayerPrefs.GetInt ("missionUnblockedID_" + (videogameID + 1), 0);
-		}
+		foreach (string missionName in missionsInVideogame) {
+            videogame.missions.Add( LoadDataFromMission("missions", missionName) );
+            videogame.missionUnblockedID = PlayerPrefs.GetInt("missionUnblockedID_" + (videogameID + 1), 0);
+        }
 	}
+    MissionsData LoadDataFromMission(string folder, string missionName)
+    {
+        string dataAsJson = LoadResourceTextfile(folder, missionName);
+        MissionsData missionData = JsonUtility.FromJson<MissionsData>(dataAsJson);
+        missionData.data[0].jsonName = missionName;
+        return missionData;
+    }
 	public MissionData GetMissionsDataByJsonName(string jsonName)
 	{
 		Debug.Log (jsonName);
@@ -189,13 +197,16 @@ public class Missions : MonoBehaviour {
 		//HACK
 		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE && MissionActiveID >= videogames[videogamesData.actualID].missions.Count)
 			MissionActiveID = 1;
-		else
+		else if (Data.Instance.playMode != Data.PlayModes.SURVIVAL)
 			MissionActive = videogames[videogamesData.actualID].missions[MissionActiveID].data[0];
 		this.missionCompletedPercent = 0;
 	}
 	public MissionData GetActualMissionData()
 	{
-		return videogames[videogamesData.actualID].missions[MissionActiveID].data[0];
+        if (Data.Instance.playMode == Data.PlayModes.SURVIVAL)
+            return MissionActive;
+        else
+            return videogames[videogamesData.actualID].missions[MissionActiveID].data[0];
 	}
 	public MissionData GetMission(int videoGameID, int missionID)
 	{

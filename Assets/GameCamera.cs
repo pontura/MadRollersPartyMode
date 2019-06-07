@@ -39,7 +39,10 @@ public class GameCamera : MonoBehaviour
 	private GameObject flow_target;
 	float _Y_correction;
 
-	Component CopyComponent(Component original, GameObject destination)
+    float camSensorSpeed = 1.25f;
+    float maxCamSensor = 18f;
+
+    Component CopyComponent(Component original, GameObject destination)
 	{
 		System.Type type = original.GetType();
 		Component copy = destination.AddComponent(type);
@@ -52,6 +55,7 @@ public class GameCamera : MonoBehaviour
 	}
     void Start()
 	{
+
         fieldOfView = cam.fieldOfView;
 
         Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
@@ -90,7 +94,11 @@ public class GameCamera : MonoBehaviour
             transform.localPosition = new Vector3(0, 2, -1.5f);
             newPos.y = 0;
         }
-		
+
+        #if UNITY_ANDROID
+            maxCamSensor = 8f;
+            transform.localPosition = new Vector3(0, 0, -1.5f);
+    #endif
 
     }
     void OnDestroy()
@@ -230,17 +238,21 @@ public class GameCamera : MonoBehaviour
         retroPixelPro.pixelSize = (int)(pixelSize);
 
 	}
-    float camSensorSpeed = 1.25f;
+   
 	void LateUpdate () 
 	{
         if (state == states.START || state == states.WAITING_TO_TRAVEL)
             return;
 
-        if(cam.sensorSize.x<18)
+        if (cam.sensorSize.x < maxCamSensor)
         {
             float cms = cam.sensorSize.x;
-            cms += camSensorSpeed*Time.deltaTime;
+            cms += camSensorSpeed * Time.deltaTime;
             cam.sensorSize = new Vector2(cms, cam.sensorSize.y);
+        }
+        else
+        {
+            cam.sensorSize = new Vector2(maxCamSensor, cam.sensorSize.y);
         }
 
         if (state == states.SNAPPING_TO) { 

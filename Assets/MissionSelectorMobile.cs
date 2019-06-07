@@ -9,6 +9,8 @@ public class MissionSelectorMobile : MonoBehaviour
     public Text title1;
     public Text title2;
 
+    public GameObject hiscores;
+
     public Transform missionsContainer;
     public MissionButtonMobile missionButton;
     public List<MissionButtonMobile> allMissions;
@@ -19,7 +21,7 @@ public class MissionSelectorMobile : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
-       
+        hiscores.SetActive(false);
         title2.text = "Hi-scores";
     }
 
@@ -58,6 +60,7 @@ public class MissionSelectorMobile : MonoBehaviour
     public void Clicked(int id)
     {
         ResetAllMissions();
+        hiscores.SetActive(true);
         allMissions[id].SetSelected(true);
 
         SetBlockedOrNot(id);
@@ -95,5 +98,9 @@ public class MissionSelectorMobile : MonoBehaviour
             SetPlayButton(true);
         else
             SetPlayButton(false);
+    }
+    public void CloseHiscorea()
+    {
+        hiscores.SetActive(false);
     }
 }

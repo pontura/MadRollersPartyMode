@@ -46,8 +46,13 @@ public class Continue : MonoBehaviour {
 		Invoke ("OnGameOverDelayed", 2);
 	}	
 	public void OnGameOverDelayed()
-	{						
-		if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
+	{
+        if (Data.Instance.playMode == Data.PlayModes.SURVIVAL)
+        {
+            Invoke("Done", 2);
+            return;
+        }
+        if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
 			if (!Data.Instance.canContinue || Data.Instance.credits == 0) {
 				//	if (Data.Instance.playMode == Data.PlayModes.PARTYMODE) {
 				Invoke ("Done", 2);

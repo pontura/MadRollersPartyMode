@@ -123,11 +123,7 @@ public class Data : MonoBehaviour {
 			playMode = PlayModes.STORYMODE;
 			DEBUG = LevelDataDebug.Instance.isDebbug;
 			this.isArcadeMultiplayer = LevelDataDebug.Instance.isArcadeMultiplayer;
-            this.playOnlyBosses = LevelDataDebug.Instance.playOnlyBosses;            
-
-            //if (isArcadeMultiplayer)
-				//playMode = PlayModes.PARTYMODE;
-
+            this.playOnlyBosses = LevelDataDebug.Instance.playOnlyBosses;   
             this.playMode = LevelDataDebug.Instance.playMode;
             this.forceVideogameID = LevelDataDebug.Instance.videogameID;
 			this.forceMissionID = LevelDataDebug.Instance.missionID;
@@ -136,7 +132,6 @@ public class Data : MonoBehaviour {
 
         events = GetComponent<Events>();
         missions = GetComponent<Missions>();
-		missions.Init ();
         multiplayerData = GetComponent<MultiplayerData>();
 		videogamesData = GetComponent<VideogamesData> ();
 		inputSaver = GetComponent<InputSaver> ();
@@ -145,7 +140,7 @@ public class Data : MonoBehaviour {
 		handWriting = GetComponent<HandWriting> ();
 		texts = GetComponent<Texts> ();
         		
-        GetComponent<Tracker>().Init();
+       // GetComponent<Tracker>().Init();
         GetComponent<CurvedWorldManager>().Init();
 
         voicesManager.Init();
@@ -159,7 +154,7 @@ public class Data : MonoBehaviour {
 		isEditor= true;
 #endif
 		loadingAsset.SetOn (false);
-		GetComponent<PhotosManager>().LoadPhotos();
+		//GetComponent<PhotosManager>().LoadPhotos();
         
 	}
     void SetVolume(float vol)

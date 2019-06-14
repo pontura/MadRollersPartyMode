@@ -303,7 +303,8 @@ public class CharactersManager : MonoBehaviour {
     {
         if (getTotalCharacters() <= 0)
         {
-            print("[ERROR] No hay más characters y sigue pidiendo...");
+          //  Debug.LogError("[ERROR] No hay más characters y sigue pidiendo...");
+          //  print("[ERROR] No hay más characters y sigue pidiendo...");
             return null;
         }
         return characters[0];

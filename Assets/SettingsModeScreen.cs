@@ -8,33 +8,39 @@ public class SettingsModeScreen : MonoBehaviour {
 	{
 		//InitStoryMode ();
 	}
-	public void InitStoryMode () {
-		Data.Instance.totalCredits = 10;
-		Data.Instance.playMode = Data.PlayModes.STORYMODE;
+	public void ContinueMode () {
+		Data.Instance.playMode = Data.PlayModes.CONTINUEMODE;
 		Go ();
 	}
 
-	public void InitPartyMode () {
+	public void CreditsMode() {
 		Data.Instance.totalCredits = 4;
 		Data.Instance.playMode = Data.PlayModes.PARTYMODE;
 		Go ();
 	}
-	void Go()
+
+    public void InsaneMode()
+    {
+        Data.Instance.playMode = Data.PlayModes.SURVIVAL;
+        Go();
+    }
+    void Go()
 	{
-		Data.Instance.events.OnMusicStatus (true);
-		Data.Instance.events.OnSFXStatus (true);
-		Data.Instance.events.OnMadRollersSFXStatus (true);
-		Data.Instance.events.OnVoicesStatus (true);
+        Data.Instance.missions.Init();
+        //Data.Instance.events.OnMusicStatus (true);
+        //Data.Instance.events.OnSFXStatus (true);
+        //Data.Instance.events.OnMadRollersSFXStatus (true);
+        //Data.Instance.events.OnVoicesStatus (true);
 
-		Data.Instance.canContinue = true;
-		Data.Instance.musicOn = true;
-		Data.Instance.soundsFXOn = true;
-		Data.Instance.madRollersSoundsOn = true;
-		Data.Instance.voicesOn = true;
+        //Data.Instance.canContinue = true;
+        //Data.Instance.musicOn = true;
+        //Data.Instance.soundsFXOn = true;
+        //Data.Instance.madRollersSoundsOn = true;
+        //Data.Instance.voicesOn = true;
 
-		Data.Instance.switchPlayerInputs = false;
-		
-		Cursor.visible = false;
+        //Data.Instance.switchPlayerInputs = false;
+
+        Cursor.visible = false;
 		Data.Instance.LoadLevel("MainMenu");
 	}
 }

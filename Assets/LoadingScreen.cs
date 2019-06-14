@@ -10,16 +10,10 @@ public class LoadingScreen : MonoBehaviour {
 	void Next () {
         if(Data.Instance.isAndroid)
         {
+            Data.Instance.missions.Init();
             Data.Instance.LoadLevel("MainMenuMobile");
             return;
         }
-		#if UNITY_EDITOR
-		Data.Instance.LoadLevel("MainMenu");
-		#else
-//		if(Data.Instance.isArcadeMultiplayer)
-//			Data.Instance.LoadLevel("Settings");
-//		else
-			Data.Instance.LoadLevel("MainMenu");
-		#endif
+		Data.Instance.LoadLevel("Settings");
 	}
 }

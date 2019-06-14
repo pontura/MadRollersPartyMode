@@ -483,85 +483,23 @@ MonoBehaviour:
     z_length: 0
     data: []
   data:
-  - name: enemyFrontal
-    pos: {x: 0, y: 1.3, z: 0}
-    rot: {x: -0, y: 0, z: 0}
+  - name: Cascade
+    pos: {x: 3, y: 6.2, z: 2.32}
+    rot: {x: 0, y: 270, z: 0}
     fullRotationData: []
     timelineAnimation: []
     bossSettings: []
-    moveForward:
-    - speed: 4
-      randomSpeedDiff: 0
-      moveBackIn: 0
-    soData:
-    - size: {x: 0, y: 0, z: 0}
-      bumperForce: 0
-      random_pos_x: 4
-      minPayers: 0
+    moveForward: []
+    soData: []
     isChild: 0
-  - name: enemyFrontal
-    pos: {x: 0, y: 1.3, z: -8}
-    rot: {x: -0, y: 0, z: 0}
+  - name: Cascade
+    pos: {x: -3, y: 6.2, z: -2.38}
+    rot: {x: -0, y: 90, z: -0}
     fullRotationData: []
     timelineAnimation: []
     bossSettings: []
-    moveForward:
-    - speed: 4
-      randomSpeedDiff: 0
-      moveBackIn: 0
-    soData:
-    - size: {x: 0, y: 0, z: 0}
-      bumperForce: 0
-      random_pos_x: 4
-      minPayers: 0
-    isChild: 0
-  - name: enemyFrontal
-    pos: {x: 0, y: 1.3, z: -16}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward:
-    - speed: 4
-      randomSpeedDiff: 0
-      moveBackIn: 0
-    soData:
-    - size: {x: 0, y: 0, z: 0}
-      bumperForce: 0
-      random_pos_x: 4
-      minPayers: 0
-    isChild: 0
-  - name: enemyFrontal
-    pos: {x: 0, y: 1.3, z: 8}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward:
-    - speed: 4
-      randomSpeedDiff: 0
-      moveBackIn: 0
-    soData:
-    - size: {x: 0, y: 0, z: 0}
-      bumperForce: 0
-      random_pos_x: 4
-      minPayers: 0
-    isChild: 0
-  - name: enemyFrontal
-    pos: {x: 0, y: 1.3, z: 16}
-    rot: {x: -0, y: 0, z: 0}
-    fullRotationData: []
-    timelineAnimation: []
-    bossSettings: []
-    moveForward:
-    - speed: 4
-      randomSpeedDiff: 0
-      moveBackIn: 0
-    soData:
-    - size: {x: 0, y: 0, z: 0}
-      bumperForce: 0
-      random_pos_x: 4
-      minPayers: 0
+    moveForward: []
+    soData: []
     isChild: 0
   areaCreatorSceneObject: {fileID: 114040369022825928}
 --- !u!114 &114588440116649342
@@ -622,6 +560,7 @@ MonoBehaviour:
     - per_pisoAlto
     - per_7
     - per_sliders
+  extraAreasManager: {fileID: 0}
   times_trying_same_mission: 0
   videogames:
   - missions:
@@ -3220,13 +3159,6 @@ MonoBehaviour:
     maxScore: 0
     fondo: 
     areaSetData: []
-  Mission_Xtras:
-    jsonName: 
-    title: 
-    id: 0
-    maxScore: 0
-    fondo: 
-    areaSetData: []
   areaDataActive:
     totalCoins: 0
     z_length: 0
@@ -3252,7 +3184,7 @@ MonoBehaviour:
   mission: {fileID: 0}
   missions: {fileID: 114588440116649342}
   areaCreator: {fileID: 114427155742550844}
-  area: {fileID: 4900000, guid: daad5a58637f3e843994fb6364cb750d, type: 3}
+  area: {fileID: 0}
 --- !u!114 &114914902966106284
 MonoBehaviour:
   m_ObjectHideFlags: 0

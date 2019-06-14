@@ -11,7 +11,7 @@ public class ExtraAreasManager : MonoBehaviour
     public bool isBossOn;
     float delayToExtraArea = 4;
     int startingDelay = 6;
-    int nextBossArea = 3;
+    int nextBossArea = 4;
     int id;
     
 
@@ -21,12 +21,23 @@ public class ExtraAreasManager : MonoBehaviour
         Data.Instance.events.OnGameOver += OnGameOver;
         Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
     }
+    void NotAvailable()
+    {
+        Data.Instance.events.OnBossActive -= OnBossActive;
+        Data.Instance.events.OnGameOver -= OnGameOver;
+        Data.Instance.events.StartMultiplayerRace -= StartMultiplayerRace;
+    }
     void StartMultiplayerRace()
-    {       
+    {
+        if (Data.Instance.playMode != Data.PlayModes.SURVIVAL)
+        {
+            NotAvailable();
+            return;
+        }  
         Reset();
         Invoke("Loop", 6);
         ShuffleMissions(missions.MissionActive.areaSetData);
-        ShuffleMissions(Mission_Xtras.areaSetData);
+       // ShuffleMissions(Mission_Xtras.areaSetData);
     }
     void OnGameOver(bool a)
     {
@@ -55,13 +66,13 @@ public class ExtraAreasManager : MonoBehaviour
     }    
     void SetExtraArea()
     {
-        print("SetExtraArea " + Time.time);
         MissionData.AreaSetData areaSetData;
         if (id % nextBossArea == 0 && !isBossOn)
             areaSetData = GetBossArea();
         else
             areaSetData = GetArea();
 
+        print("new XTRA: " + areaSetData.areas.Count);
         missions.CreateCurrentArea(areaSetData.areas[UnityEngine.Random.Range(0, areaSetData.areas.Count)], true);
         id++;
     }
@@ -72,7 +83,8 @@ public class ExtraAreasManager : MonoBehaviour
     }
     MissionData.AreaSetData GetArea()
     {
-        return Mission_Xtras.areaSetData[Random.Range(1, Mission_Xtras.areaSetData.Count) ];
+        return Mission_Xtras.areaSetData[1];
+        // return Mission_Xtras.areaSetData[Random.Range(1, Mission_Xtras.areaSetData.Count) ];
     }
     void ShuffleMissions(List<MissionData.AreaSetData> arr)
     {

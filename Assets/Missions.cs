@@ -57,7 +57,6 @@ public class Missions : MonoBehaviour {
 
     public void Init()
 	{
-        
         videogamesData = GetComponent<VideogamesData> ();
 		data = Data.Instance;
 
@@ -75,8 +74,11 @@ public class Missions : MonoBehaviour {
     }
     void OnDestroy()
     {
-        data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
-        data.events.OnMissionComplete -= OnMissionComplete;
+        if (data != null)
+        {
+            data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
+            data.events.OnMissionComplete -= OnMissionComplete;
+        }
     }
     void ResetMissionsBlocked()
     {
@@ -242,9 +244,8 @@ public class Missions : MonoBehaviour {
 	void SetNextArea()
 	{
         MissionData.AreaSetData data = MissionActive.areaSetData[areaSetId];
-        if (MissionActiveID != 0 && (Data.Instance.playOnlyBosses || hasReachedBoss) && !data.boss && areaSetId < MissionActive.areaSetData.Count - 2)
+        if (Data.Instance.playMode != Data.PlayModes.SURVIVAL && MissionActiveID != 0 && (Data.Instance.playOnlyBosses || hasReachedBoss) && !data.boss && areaSetId < MissionActive.areaSetData.Count - 2)
         {
-            print("escquiva areaSet porque ya llegó al boss");
             areaSetId++;
             ResetAreaSet();
             SetNextArea();
@@ -289,6 +290,7 @@ public class Missions : MonoBehaviour {
     }
     public void CreateCurrentArea(string areaName, bool isXtra = false)
     {
+        print(isXtra + "___SetExtraArea " + Time.time);
         //DEBUG:::::
         if (Data.Instance.testAreaName != "")
             AddAreaByName(Data.Instance.testAreaName);

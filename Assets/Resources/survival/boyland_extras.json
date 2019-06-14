@@ -35,15 +35,17 @@
 		{
 			"areas": 
 			[
-				"xtras_enemigos_front",
-				"xtra_Rueda_simple",
-				"xtras_enemy_DobleFila",
-				"xtra_rota_2_enemy"
+				"xtra_throwers1"
 			]
 		},
 		{
 			"areas": 
 			[
+				"xtras_enemies_back1",
+				"xtras_enemigos_front",
+				"xtra_Rueda_simple",
+				"xtras_enemy_DobleFila",
+				"xtra_rota_2_enemy",
 				"subibaja1",
 				"subibaja2"
 			]

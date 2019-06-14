@@ -40,13 +40,13 @@ public class Tutorial : MonoBehaviour
     }
     void Start()
     {
+        ResetSignals();
         if (Data.Instance.playMode != Data.PlayModes.SURVIVAL)
         {
             Destroy(this);
             return;
         }
-            ResetAnim();
-        ResetSignals();
+        ResetAnim();
         if (!Data.Instance.isAndroid || PlayerPrefs.GetString("tutorial") == "done")
             Destroy(this);
         else

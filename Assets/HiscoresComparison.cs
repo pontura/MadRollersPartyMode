@@ -25,7 +25,7 @@ public class HiscoresComparison : MonoBehaviour {
 
         Data.Instance.videogamesData.SetOtherGameActive();
 
-        if (Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
+        if (Data.Instance.playMode != Data.PlayModes.SURVIVAL && Data.Instance.playMode != Data.PlayModes.PARTYMODE) {
 			GetComponent<GameOverPartyMode> ().Init ();
 			return;
 		}
@@ -43,7 +43,11 @@ public class HiscoresComparison : MonoBehaviour {
 		myTempHiscore.username = "TU SCORE";
 		mySignal = AddSignal (myTempHiscore, 120);
 		float gotoX = mySignal.transform.localPosition.x;
-		Vector3 pos = mySignal.transform.localPosition;
+
+        if (gotoX > 100)
+            gotoX = 100;
+
+        Vector3 pos = mySignal.transform.localPosition;
 		pos.x = 0;
 		mySignal.transform.localPosition = pos;
 
@@ -52,7 +56,7 @@ public class HiscoresComparison : MonoBehaviour {
 			"islocal", true,
 			"time", 2
 		));
-
+        StartCoroutine(DrawHiscores());
 	}
 	IEnumerator DrawHiscores()
 	{

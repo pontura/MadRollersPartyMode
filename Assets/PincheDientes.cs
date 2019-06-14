@@ -34,6 +34,9 @@ public class PincheDientes : MonoBehaviour {
    {
        if (!isOn) return;
        isOn = false;
+
+        return;
+
        foreach (GameObject pinche in pinches)
        {
            if (!pinche) continue;

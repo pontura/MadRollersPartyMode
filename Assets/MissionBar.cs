@@ -22,11 +22,16 @@ public class MissionBar : MonoBehaviour {
 		bossTimer.SetActive (false);
 		panel.gameObject.SetActive (false);
 		Data.Instance.events.StartMultiplayerRace += StartMultiplayerRace;
-		Data.Instance.events.OnBossInit += OnBossInit;
-		Data.Instance.events.OnBossActive += OnBossActive;
-		Data.Instance.events.OnBossHitsUpdate += OnBossHitsUpdate;
-		Data.Instance.events.OnBossSetNewAsset += OnBossSetNewAsset;
-		Data.Instance.events.OnBossSetTimer += OnBossSetTimer;
+
+        if (Data.Instance.playMode != Data.PlayModes.SURVIVAL)
+        {
+            Data.Instance.events.OnBossInit += OnBossInit;        
+            Data.Instance.events.OnBossActive += OnBossActive;
+		    Data.Instance.events.OnBossHitsUpdate += OnBossHitsUpdate;
+		    Data.Instance.events.OnBossSetNewAsset += OnBossSetNewAsset;
+		    Data.Instance.events.OnBossSetTimer += OnBossSetTimer;
+        }
+
 		Data.Instance.events.OnGameOver += OnGameOver;
 	}
 	void OnDestroy () {

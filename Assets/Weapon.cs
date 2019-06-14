@@ -43,6 +43,7 @@ public class Weapon : MonoBehaviour {
         DestroyImmediate(GetComponent<iTween>());
         transform.localScale = Vector3.one*0.001f;
 
+        return;
         iTween.ScaleTo(gameObject,
             iTween.Hash(
             "scale", Vector3.one * 2,

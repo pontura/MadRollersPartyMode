@@ -56,20 +56,14 @@ public class Boss : SceneObject {
 	void Died()
 	{
 		Data.Instance.GetComponent<MusicManager> ().BossMusic (false);
-		Game.Instance.level.Complete ();
-		Pool ();
+
+        if(Data.Instance.playMode != Data.PlayModes.SURVIVAL)
+		    Game.Instance.level.Complete ();
+		
 		Data.Instance.events.OnBossActive (false);
-	}
-	public virtual void Hit()
-	{
-		//Invoke ("Continue", 1);
-	}
-	public virtual void Death()
-	{
-		//bossBar.enabled = false;
-	}
-	public virtual void OnPartBroken(BossPart part) 
-	{ 
-	
-	}
+        Pool();
+    }
+	public virtual void Hit(){}
+	public virtual void Death(){}
+	public virtual void OnPartBroken(BossPart part) { }
 }

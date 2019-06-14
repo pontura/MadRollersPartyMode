@@ -33,7 +33,10 @@ public class Gui : MonoBehaviour {
         //		missionIcon.transform.localPosition = new Vector3 (1000, 0, 0);
         Data.Instance.events.OnAvatarCrash += OnAvatarCrash;
         Data.Instance.events.OnAvatarFall += OnAvatarCrash;
-		Data.Instance.events.OnBossActive += OnBossActive;
+
+        if (Data.Instance.playMode != Data.PlayModes.SURVIVAL)
+            Data.Instance.events.OnBossActive += OnBossActive;
+
 		Data.Instance.events.OnGenericUIText += OnGenericUIText;
     }
     void OnDestroy()

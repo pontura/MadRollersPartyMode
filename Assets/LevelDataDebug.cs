@@ -15,8 +15,10 @@ public class LevelDataDebug : MonoBehaviour {
 	public int missionID;
 	[HideInInspector]
 	public string testArea;
+    [HideInInspector]
+    public Data.PlayModes playMode;
 
-	static LevelDataDebug mInstance = null;
+    static LevelDataDebug mInstance = null;
 
 	public static LevelDataDebug Instance
 	{

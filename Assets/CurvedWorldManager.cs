@@ -25,6 +25,7 @@ public class CurvedWorldManager : MonoBehaviour {
         if(curvedWorld_Controller==null)
             return;
 
+        return;
         Hashtable ht = new Hashtable();
         ht.Add("from",curvedWorld_Controller._V_CW_Bend_X);
         ht.Add("to",_x);

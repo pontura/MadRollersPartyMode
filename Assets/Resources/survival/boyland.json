@@ -17,8 +17,62 @@
 			}
 		},
 		{
+			"total_areas": 2,
+			"bending":-15,
+			
+			"areas": [
+			"backPlatforms_init",
+			"backPlatforms_init2",
+			"backPlatforms_init3"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0,
+				"z": -40
+			}
+		},
+		{
 			"total_areas": 1,
-			"randomize": true,
+			"areas": [
+			"cataputas_x2",
+			"laserHorizontal",
+			"laserMultiplesBigWalls1",
+			"lasersrWalls_x4",
+			"lasersrWalls_x4Hard",
+			"lasersrWalls_x4Hard1",
+			"lasersrx4"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"total_areas": 1,
+			"areas": [
+			"navesSimple3"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -1.0,
+				"z": -1.0
+			}
+		},
+		{
+			"total_areas": 1,
+			
+			"areas": [
+			"lasersr_container_gira"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -2.0,
+				"z": -1.0
+			}
+		},	
+		{
+			"total_areas": 2,			
 			"areas": [
 			"descanso1",
 			"descanso2",
@@ -28,6 +82,22 @@
 				"x": 0.0,
 				"y": -2.0,
 				"z": -0.5
+			}
+		},
+		{
+			"total_areas": 1,
+			"bending":-15,
+			"boss": true,
+			"areas": [
+			"descansoMuyAnchoEntrance",
+			"descansoMuyAncho",
+			"descansoMuyAncho",
+			"descansoMuyAncho"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -2.0,
+				"z": 0.0
 			}
 		},
 		{
@@ -53,7 +123,7 @@
 		{
 			"total_areas": 1,
 			"bending":-12,
-			"randomize": true,
+			
 			"areas": [
 			"CoinsHard1",
 			"coinsHard2",
@@ -92,7 +162,8 @@
 			"bending":-18,
 			"areas": [
 			"subibaja1",
-			"subibaja2"
+			"subibaja2",
+			"zigzag"
 			],
 			"cameraOrientation": {
 				"x": 0.0,
@@ -102,7 +173,7 @@
 		},
 		{
 			"total_areas": 2,
-			"randomize": true,
+			
 			"areas": [
 			"cepillo1",
 			"subibaja2Enemies",
@@ -116,7 +187,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"housesSmall1",
 			"housesSmall2",
@@ -131,7 +202,7 @@
 		{
 			"total_areas": 1,
 			"bending":-3,
-			"randomize": true,
+			
 			"areas": [
 			"ancho_agua_simple1",
 			"ancho_agua_simple2"
@@ -144,7 +215,7 @@
 		},
 		{
 			"total_areas": 2,
-			"randomize": true,
+			
 			"areas": [
 			"killRunner",
 			"killRunner2",
@@ -159,7 +230,7 @@
 		{
 			"total_areas": 2,
 			"bending":-15,
-			"randomize": true,
+			
 			"areas": [
 			"singleRunnerJump1",
 			"singleRunnerJump2",
@@ -179,7 +250,7 @@
 		},
 		{
 			"total_areas": 2,
-			"randomize": true,
+			
 			"areas": [
 			"estrellas simple",
 			"estrellas simple 1",
@@ -207,7 +278,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"houses1"
 			],
@@ -219,7 +290,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"container_cruz",
 			"container_cruz_2"
@@ -231,8 +302,8 @@
 			}
 		},
 		{
-			"total_areas": 8,
-			"randomize": true,
+			"total_areas": 3,
+			
 			"areas": [
 			"heliceSmall",
 			"heliceSmall2",
@@ -251,7 +322,7 @@
 		},	
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"heliceDoubleSmall",
 			"helicesx4",
@@ -268,14 +339,19 @@
 		},
 		{
 			"total_areas": 5,
-			"randomize": true,
+			
 			"areas": [
-			"pisoCurvo0",
 			"pisoCurvo0",
 			"pisoCurvo1",
 			"pisoCurvo2",
 			"pisoCurvo4",
-			"pisoCurvo5"],
+			"pisoCurvo5",
+			"pisoCurvo_helices",
+			"pisoCurvo_Rays2",
+			"pisoCurvo_Rays1",
+			"pisoCurvo1 1",
+			"pisoCurvo_boss_free"
+			],
 			"cameraOrientation": {
 				"x": 0.0,
 				"y": -1.6,
@@ -299,7 +375,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"rampaHuge"
 			],
@@ -311,7 +387,7 @@
 		},
 		{
 			"total_areas": 2,
-			"randomize": true,
+			
 			"areas": [
 			"saposLinea"
 			],
@@ -323,7 +399,7 @@
 		},
 		{
 			"total_areas": 2,
-			"randomize": true,
+			
 			"areas": [
 			"container_cruz_enemy2",
 			"container_cruz_enemy3"
@@ -336,7 +412,7 @@
 		},
 		{
 			"total_areas": 3,
-			"randomize": true,
+			
 			"areas": [
 			"agua_lados",
 			"ancho_agua_simple",
@@ -354,7 +430,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"container_lineaFlota"
 			],
@@ -366,7 +442,7 @@
 		},	
 		{
 			"total_areas": 3,
-			"randomize": true,
+			
 			"areas": [
 			"container_lineaLargaEnemy",
 			"container_lineaLargaEnemy2",
@@ -379,9 +455,9 @@
 			}
 		},
 		{
-			"total_areas": 6,
+			"total_areas": 3,
 			"bending":-17,
-			"randomize": true,
+			
 			"areas": [
 			"subibaja1Horizontal",
 			"subibaja2Horizontal"
@@ -395,7 +471,7 @@
 		{
 			"total_areas": 1,
 			"bending":-15,
-			"randomize": true,
+			
 			"areas": [
 			"pisoCurvo_helices"
 			],
@@ -407,7 +483,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"ruedasEnemigos",
 			"ruedaSimple"
@@ -420,7 +496,7 @@
 		},
 		{
 			"total_areas": 3,
-			"randomize": true,
+			
 			"areas": [
 			"ruedaDoble",
 			"ruedaDoble2",
@@ -434,7 +510,7 @@
 		},
 		{
 			"total_areas": 3,
-			"randomize": true,
+			
 			"areas": [
 			"saposLinea",
 			"ancho2Sapos"
@@ -447,7 +523,7 @@
 		},
 		{
 			"total_areas": 2,
-			"randomize": true,
+			
 			"areas": [
 			"enemiesLineaJumpYSapos"
 			],
@@ -459,7 +535,7 @@
 		},
 		{
 			"total_areas": 1,
-			"randomize": true,
+			
 			"areas": [
 			"container_lineaLargaSapos"
 			],
@@ -470,8 +546,7 @@
 			}
 		},
 		{
-			"total_areas": 3,
-			"randomize": true,
+			"total_areas": 3,			
 			"areas": [
 			"subibajaSapos1",
 			"subibajaSapos2",
@@ -501,8 +576,7 @@
 			}
 		},
 		{
-			"total_areas": 2,
-			"randomize": true,
+			"total_areas": 2,			
 			"areas": [
 			"slider1",
 			"sliderHard1",
@@ -516,8 +590,7 @@
 		},
 		{
 			"total_areas": 1,
-			"bending":-30,
-			"randomize": true,
+			"bending":-30,			
 			"areas": [
 			"sliderWalls_seguidas1",
 			"sliderWalls_seguidas2"
@@ -529,8 +602,7 @@
 			}
 		},
 		{
-			"total_areas": 2,
-			"randomize": true,
+			"total_areas": 2,			
 			"areas": [
 			"sombrillaIntro",
 			"sombrillaPozo",
@@ -547,8 +619,7 @@
 			}
 		},
 		{
-			"total_areas": 1,
-			"randomize": true,
+			"total_areas": 1,			
 			"areas": ["lava_1",
 			"lava_2"],
 			"cameraOrientation": {
@@ -558,8 +629,7 @@
 			}
 		},
 		{
-			"total_areas": 3,
-			"randomize": true,
+			"total_areas": 2,			
 			"areas": [
 			"throw_center",
 			"throw_left",
@@ -575,6 +645,218 @@
 				"x": 0.0,
 				"y": 1.2,
 				"z": -3.0
+			}
+		},
+		{
+			"total_areas": 1,			
+			"areas": [
+			"firewallsSimple",
+			"firewallsSimple2",
+			"firewalls_lasers"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -3.0,
+				"z": -2.0
+			}
+		},
+		{
+			"total_areas": 1,			
+			"areas": [
+			"container_firewalls"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},	
+		{
+			"total_areas": 1,
+			"randomize": false,
+			"areas": [
+			"firewallsSimple3",
+			"firewallsSimple3b",
+			"firewallsSimple3",
+			"firewallsSimple3b"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -5.0,
+				"z": -2.0
+			}
+		},	
+		{
+			"total_areas": 2,
+			"bending":-17,
+			"randomize": true,
+			"areas": [
+			"subibaja_escupe1",
+			"subibaja_escupe2"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -2.0,
+				"z": -1.0
+			}
+		},
+		{
+			"total_areas": 1,			
+			"areas": ["escupe_frontal1 (1)",
+			"escupe_frontal1 (1) 1",
+			"escupe_frontal1 (1) 2",
+			"escupe_frontal1 1",
+			"escupe_frontal1 (2)",
+			"escupe_frontal1",
+			"escupe_frontal_fila",
+			"escupe_frontal_fila 1"],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -2.0
+			}
+		},
+		{
+			"total_areas": 1,
+			"areas": [
+			"raysAncho",
+			"zigzag_Rays_1",
+			"zigzag_Rays_2"],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 2.0,
+				"z": -1.0
+			}
+		},
+		{
+			"total_areas": 2,
+			"areas": [
+			"cilindro1",
+			"cilindro2",
+			"cilindro1b",
+			"cilindro2b"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"total_areas": 2,
+			"areas": [
+			"cilindroDouble1",
+			"cilindroDouble2",
+			"cilindroDouble2b",
+			"cilindroDoubleBossFree"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"total_areas": 1,
+			"randomize": true,
+			"areas": [
+			"ruedaBifurca",
+			"enemigosDoble",
+			"enemigosDobleJump"			
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			}
+		},
+		{
+			"total_areas": 2,
+			"randomize": true,
+			"areas": [
+			"2lados_intro",
+			"2lados_intro 1",
+			"2lados_intro 1 1",
+			"2lados",
+			"2lados 1"],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": -2
+			}
+		},
+		{
+			"total_areas": 1,
+			"randomize": true,
+			"areas": [
+			"cilindro_simple",
+			"cilindro_simple 1"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 1,
+				"z": -4
+			}
+		},
+		{
+			"total_areas": 2,
+			"randomize": true,
+			"areas": [
+			"gargolaDeforme1", 
+			"gargolaDeforme2"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 5.0,
+				"z": 0.0
+			}
+		},
+		{
+			"total_areas": 1,
+			"randomize": true,
+			"areas": [
+			"gargola1",
+			"gargola2",
+			"gargola3"],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 1.0,
+				"z": -1.0
+			}
+		},
+		{
+			"total_areas": 1,
+			"randomize": true,
+			"areas": [
+			"snakes1",
+			"snakes2"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": -4.0,
+				"z": -2.0
+			}
+		},
+		{
+			"total_areas": 10,
+			"bending": -8,
+			"areas": [
+			"boss1Corre",
+			"boss1Corre2",
+			"boss1Corre3",
+			"boss1Corre2",
+			"boss1Corre2",
+			"boss1Corre3",
+			"boss1Corre2",
+			"boss1Corre2_fences",
+			"boss1Corre",
+			"boss1Corre2",
+			"boss1Corre3"
+			],
+			"cameraOrientation": {
+				"x": 0.0,
+				"y": 6.0,
+				"z": -18.0
 			}
 		}
 		]

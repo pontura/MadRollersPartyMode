@@ -62,8 +62,11 @@ public class GameCamera : MonoBehaviour
 		Data.Instance.events.OnChangeMood += OnChangeMood;
 		Data.Instance.events.OnVersusTeamWon += OnVersusTeamWon;
 		Data.Instance.events.OncharacterCheer += OncharacterCheer;
-		Data.Instance.events.OnProjectilStartSnappingTarget += OnProjectilStartSnappingTarget;
-		Data.Instance.events.OnCameraZoomTo += OnCameraZoomTo;
+        if (Data.Instance.playMode != Data.PlayModes.SURVIVAL)
+        {
+            Data.Instance.events.OnProjectilStartSnappingTarget += OnProjectilStartSnappingTarget;
+            Data.Instance.events.OnCameraZoomTo += OnCameraZoomTo;
+        }
 		Data.Instance.events.OnGameOver += OnGameOver;
 
         //Data.Instance.events.OnGameStart += OnGameStart;
@@ -79,7 +82,7 @@ public class GameCamera : MonoBehaviour
 
 		_Y_correction = 2;
 		if (!Data.Instance.isReplay) {
-            Data.Instance.events.OnBossActive(true);
+           // Data.Instance.events.OnBossActive(true);
             //anim.Play ("cameraIntro");
             newPos.y = 4.5f;
             cam.sensorSize = new Vector2(6, cam.sensorSize.y);
@@ -95,10 +98,11 @@ public class GameCamera : MonoBehaviour
             newPos.y = 0;
         }
 
-        #if UNITY_ANDROID
+        if (Data.Instance.isAndroid)
+        {
             maxCamSensor = 8f;
             transform.localPosition = new Vector3(0, 0, -1.5f);
-    #endif
+        }
 
     }
     void OnDestroy()

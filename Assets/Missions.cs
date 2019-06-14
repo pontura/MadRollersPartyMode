@@ -9,8 +9,9 @@ public class Missions : MonoBehaviour {
     public bool hasReachedBoss;
 	public TextAsset _all;
 	public MissionsListInVideoGame all;
+    public ExtraAreasManager extraAreasManager;
 
-	public int times_trying_same_mission;
+    public int times_trying_same_mission;
 
 	public List<MissionsByVideoGame> videogames;
 	[Serializable]
@@ -36,7 +37,9 @@ public class Missions : MonoBehaviour {
 	public int MissionActiveID = 0;
 
 	public MissionData MissionActive;
-	private float missionCompletedPercent = 0;
+    
+
+    private float missionCompletedPercent = 0;
 
 	private Level level;
 	private bool showStartArea;
@@ -51,30 +54,30 @@ public class Missions : MonoBehaviour {
 	int areaID = 0;
 
 	VideogamesData videogamesData;
-    void Start()
-    {
-    }
+
     public void Init()
-	{	
-		videogamesData = GetComponent<VideogamesData> ();
+	{
+        
+        videogamesData = GetComponent<VideogamesData> ();
 		data = Data.Instance;
 
         if (Data.Instance.playMode == Data.PlayModes.SURVIVAL)
         {
-            MissionsData missionsData = LoadDataFromMission("survival", "boyland");
-            MissionActive = missionsData.data[0];
+            MissionActive = LoadDataFromMission("survival", "boyland").data[0];
+            extraAreasManager.Init();              
         }
         else
+        {
             LoadAll();
-
-        data.events.ResetMissionsBlocked += ResetMissionsBlocked;
-        data.events.OnMissionComplete += OnMissionComplete;
-	}
-    //void OnDestroy()
-    //{
-    //    data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
-    //    data.events.OnMissionComplete -= OnMissionComplete;
-    //}
+            data.events.ResetMissionsBlocked += ResetMissionsBlocked;
+            data.events.OnMissionComplete += OnMissionComplete;
+        }
+    }
+    void OnDestroy()
+    {
+        data.events.ResetMissionsBlocked -= ResetMissionsBlocked;
+        data.events.OnMissionComplete -= OnMissionComplete;
+    }
     void ResetMissionsBlocked()
     {
         foreach (VideogameData vData in Data.Instance.videogamesData.all)
@@ -109,7 +112,7 @@ public class Missions : MonoBehaviour {
             videogame.missionUnblockedID = PlayerPrefs.GetInt("missionUnblockedID_" + (videogameID + 1), 0);
         }
 	}
-    MissionsData LoadDataFromMission(string folder, string missionName)
+    public MissionsData LoadDataFromMission(string folder, string missionName)
     {
         string dataAsJson = LoadResourceTextfile(folder, missionName);
         MissionsData missionData = JsonUtility.FromJson<MissionsData>(dataAsJson);
@@ -145,7 +148,6 @@ public class Missions : MonoBehaviour {
 	}
 	void ShuffleMissions()
 	{		
-	//	Debug.Log ("______ShuffleMissions");
 		foreach (MissionsByVideoGame mbv in videogames) {		
 			for (int a = 0; a < 50; a++) {	
 				int rand = UnityEngine.Random.Range (3, mbv.missions.Count);
@@ -227,11 +229,16 @@ public class Missions : MonoBehaviour {
 	{
 		if (distance > areasLength-offset) {
 			SetNextArea ();
+           // if(Data.Instance.playMode == Data.PlayModes.SURVIVAL && areaSetId>2)
+            //  extraAreasManager.SetExtraArea();
 		}
+        if (Data.Instance.playMode == Data.PlayModes.SURVIVAL)
+            return;
 		if (MissionActiveID == 0)
 			CheckTutorial (distance);
 	}
-	int total_areas = 1;
+    
+    int total_areas = 1;
 	void SetNextArea()
 	{
         MissionData.AreaSetData data = MissionActive.areaSetData[areaSetId];
@@ -274,20 +281,23 @@ public class Missions : MonoBehaviour {
 		areaNum = 0;
 		areaID = 0;
 	}
-	private void  CreateCurrentArea()
+	private void CreateCurrentArea()
 	{
 		MissionData.AreaSetData areaSetData = MissionActive.areaSetData[areaSetId];
-		string areaName = GetArea(areaSetData);
+        string areaName = GetArea(areaSetData);
+        CreateCurrentArea(areaName);
+    }
+    public void CreateCurrentArea(string areaName, bool isXtra = false)
+    {
+        //DEBUG:::::
+        if (Data.Instance.testAreaName != "")
+            AddAreaByName(Data.Instance.testAreaName);
+        else
+            AddAreaByName(areaName, isXtra);
 
-		//DEBUG:::::
-		if(Data.Instance.testAreaName != "")
-			AddAreaByName (Data.Instance.testAreaName);
-		else
-			AddAreaByName (areaName);
-		
-	}
-	void AddAreaByName(string areaName)
-	{
+    }
+    void AddAreaByName(string areaName, bool isXtra = false)
+    {
 		TextAsset asset = Resources.Load ("areas/" + areaName ) as TextAsset;
 		if (asset != null) {					
 			areaDataActive = JsonUtility.FromJson<AreaData> (asset.text);
@@ -295,7 +305,12 @@ public class Missions : MonoBehaviour {
 			level.sceneObjects.AddSceneObjects (areaDataActive, areasLength);
 			//print ("km: " + areasLength + " mission: " + MissionActiveID +  " areaSetId: " + areaSetId + " areaID: " + areaID + " z_length: " + areaDataActive.z_length + " en: areas/" + areaName +  " totalAreas" + total_areas );
 			areasLength += areaDataActive.z_length/2;
-		} else {
+
+            //HACK : no ocupe lugar el area extra:
+            if (isXtra)
+                areasLength -= areaDataActive.z_length;
+
+        } else {
 			Debug.LogError ("Loco, no existe esta area: " + areaName + " en Respurces/areas/");
 		}
 

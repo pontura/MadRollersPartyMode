@@ -123,12 +123,13 @@ public class Data : MonoBehaviour {
 			playMode = PlayModes.STORYMODE;
 			DEBUG = LevelDataDebug.Instance.isDebbug;
 			this.isArcadeMultiplayer = LevelDataDebug.Instance.isArcadeMultiplayer;
-            this.playOnlyBosses = LevelDataDebug.Instance.playOnlyBosses;
+            this.playOnlyBosses = LevelDataDebug.Instance.playOnlyBosses;            
 
-            if (isArcadeMultiplayer)
-				playMode = PlayModes.PARTYMODE;
-			
-			this.forceVideogameID = LevelDataDebug.Instance.videogameID;
+            //if (isArcadeMultiplayer)
+				//playMode = PlayModes.PARTYMODE;
+
+            this.playMode = LevelDataDebug.Instance.playMode;
+            this.forceVideogameID = LevelDataDebug.Instance.videogameID;
 			this.forceMissionID = LevelDataDebug.Instance.missionID;
 			this.testAreaName =  LevelDataDebug.Instance.testArea;
 		}

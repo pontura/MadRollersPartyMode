@@ -10,7 +10,7 @@ public class ScoreSignal : SceneObject
     public override void OnRestart(Vector3 pos)
     {
         base.OnRestart(pos);
-
+        
         Hashtable tweenData = new Hashtable();
         tweenData.Add("y", pos.y+2);
         tweenData.Add("time", 0.5f);

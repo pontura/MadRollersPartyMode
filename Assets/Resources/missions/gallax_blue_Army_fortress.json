@@ -36,8 +36,10 @@
 			"lasersrWalls_x4",
 			"lasersrWalls_x4Hard",
 			"lasersrWalls_x4Hard1",
-			"lasersrx4"],
-			"lasersrx4 1": {
+			"lasersrx4",
+			"lasersrx4 1"
+			],
+			"cameraOrientation": {
 				"x": 0.0,
 				"y": 0.0,
 				"z": 0.0

@@ -5,6 +5,7 @@ using System;
 using UnityEditor;
 public class LevelCreator : MonoBehaviour {
 
+    public Data.PlayModes playMode;
     public bool playOnlyBosses;
     public bool isArcadeMultiplayer;
 	public bool Debbug;
@@ -24,13 +25,14 @@ public class LevelCreator : MonoBehaviour {
 
 	void Start () {
 		if (Debbug) {
+
             LevelDataDebug.Instance.playOnlyBosses = playOnlyBosses;
             LevelDataDebug.Instance.isArcadeMultiplayer = isArcadeMultiplayer;
 			LevelDataDebug.Instance.isDebbug = true;
 			LevelDataDebug.Instance.videogameID = videoGameID-1;
 			LevelDataDebug.Instance.missionID = missionID;
-
-			if (area != null)
+            LevelDataDebug.Instance.playMode = playMode;
+            if (area != null && LevelDataDebug.Instance.playMode != Data.PlayModes.SURVIVAL)
 				LevelDataDebug.Instance.testArea = area.name;
 		}
 		Application.LoadLevel("00_Loading");

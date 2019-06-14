@@ -29,7 +29,7 @@ public class LevelSelector : MonoBehaviour {
 	void Start()
 	{
         Data.Instance.missions.hasReachedBoss = false;
-        if (Data.Instance.playMode == Data.PlayModes.PARTYMODE || Data.Instance.playMode == Data.PlayModes.CONTINUEMODE) {
+        if (Data.Instance.playMode == Data.PlayModes.SURVIVAL || Data.Instance.playMode == Data.PlayModes.PARTYMODE || Data.Instance.playMode == Data.PlayModes.CONTINUEMODE) {
 			Data.Instance.missions.MissionActiveID = 0;
 			storyMode.SetActive (false);
 			partyMode.SetActive (true);
